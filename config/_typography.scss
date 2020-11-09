@@ -1,0 +1,42 @@
+// Typographic definitions
+
+// Default font-family
+// Used in ../base/normalize
+$ph-font-family--default: sans-serif !default;
+
+// Font sizes
+// e.g. $ph-font-sizes: (
+//   's': 16px,
+//   'm': 24px,
+//   'l': 36px,
+// );
+$ph-font-sizes: () !default;
+
+// Line heights
+// e.g. $ph-line-heights: (
+//   's': 20px,
+//   'm': 30px,
+//   'l': 45px,
+// );
+$ph-line-heights: () !default;
+
+// Letter spacing
+// NOTE: If letter-spacing for a given key is `0` you can safely omit the key.
+// e.g. $ph-letter-spacing: (
+//   's': 0.01em,
+//   'm': 0.005em,
+// );
+$ph-letter-spacing: () !default;
+
+// 'Fluid' font sizes are scaled down for the given responsive breakpoints
+// e.g. $ph-fluid-type: (
+//   'l': (
+//     'default': 'm',
+//     'rat': 'l',
+//   ),
+//   'm': (
+//     'default': 's',
+//     'rat': 'm',
+//   ),
+// );
+$ph-fluid-type: () !default;

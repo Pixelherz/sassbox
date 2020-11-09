@@ -1,0 +1,37 @@
+@import '~sass-mq';
+@import '../config/typography';
+
+/// Mixin to ensure font sizes and line heights are used consistently.
+/// @param {enum} $size ['m'] - The key for the requested font size
+/// @param {bool} $set-line-height [true] - Set false to exclude 'line-height'
+@mixin font-size($size: 'm', $set-line-height: true, $set-responsive: true) {
+  @if ($set-responsive != true) {
+    @include _set-font-size($size, $set-line-height);
+  } @else if map-has-key($ph-fluid-type, $size) {
+    $bps: map-get($ph-fluid-type, $size);
+    @each $bp in $bps {
+      $bp-name: nth($bp, 1);
+      $bp-size: nth($bp, 2);
+      @if ($bp-name == 'default') {
+        @include _set-font-size($bp-size, $set-line-height);
+      } @else if map-has-key($mq-breakpoints, $bp-name) {
+        @include mq($from: $bp-name) {
+          @include _set-font-size($bp-size, $set-line-height);
+        }
+      }
+    }
+  } @else {
+    @include _set-font-size($size, $set-line-height);
+  }
+}
+
+// Helper for mixin font-size
+@mixin _set-font-size($size: 'm', $set-line-height: true) {
+  font-size: map-get($ph-font-sizes, $size);
+  @if (map-has-key($ph-letter-spacing, $size)) {
+    letter-spacing: map-get($ph-letter-spacing, $size);
+  }
+  @if ($set-line-height) {
+    line-height: map-get($ph-line-heights, $size);
+  }
+}

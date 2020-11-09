@@ -1,0 +1,49 @@
+@import '../config/layout';
+
+/// Calculates grid widths based on the given params and returns the width
+/// as absolute (px) or relative (%) value.
+///
+/// NOTE: The gutters enclosed by columns must not be declared in the $gutters
+/// parameter (ie. param $cols: 3 returns the width of 3 cols and 2 gutters).
+/// The $gutters param is used only for extra-gutter (left/right of the cols).
+///
+/// @param {int} $cols [0] - The number of columns the width should span
+/// @param {int} $gutters [0] - The number of extra gutters the width should span
+/// @param {enum | int} $base-cols ['all'] - The number of columns used as base for relative values. Use this param if the parent element is not using the grid's full layout width.
+/// @param {int} $base-gutters [0] – The number of extra gutters to be included in the base calculation. NOTE: Gutters enclosed by colums ($base-cols) must not be declared. This param is used only for extra gutters *outside* the $base-cols.
+/// @param {int} $base-extra [0] - Accepts a px value to adjust base width (ie. if the base does not align with the globa grid).
+/// @param {enum} $scale ['rel'] - Use 'rel' to return a relative value (%) or 'abs' to return an absolute value (px).
+@function grid-width(
+  $cols: 0,
+  $gutters: 0,
+  $base-cols: 'all',
+  $base-gutters: 0,
+  $base-extra: 0,
+  $scale: 'rel'
+) {
+  $gutters: max(0, $cols - 1) + $gutters;
+  $width: ($cols * $ph-col-width) + ($gutters * $ph-gutter-width);
+  @if ($scale == 'abs') {
+    @return $width;
+  }
+  $base: base-width(
+      $cols: $base-cols,
+      $gutters: $base-gutters,
+    ) + $base-extra;
+  @return $width / $base * 100%;
+}
+
+// Helper function to calculate the absolute width of a given number of
+// columns and gutters.
+@function base-width($cols: 'all', $gutters: 0) {
+  $width: 0;
+  @if ($cols == 'all') {
+    $width: $ph-layout-width;
+  } @else {
+    $width: grid-width(
+      $cols: $cols,
+      $scale: 'abs',
+    );
+  }
+  @return $width + (grid-width($gutters: $gutters, $scale: 'abs'));
+}

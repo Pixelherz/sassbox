@@ -1,0 +1,48 @@
+{
+  "name": "@pixelherz/sassbox",
+  "version": "0.1.0",
+  "description": "Sass utils we frequently use in our projects.",
+  "files": [
+    "_sassbox.scss",
+    "base/_all.scss",
+    "base/_normalize.scss",
+    "config/_all.scss",
+    "config/_layout.scss",
+    "config/_typography.scss",
+    "utils/_all.scss",
+    "utils/_font-size.scss",
+    "utils/_grid.scss",
+    "utils/_offset-text.scss",
+    "utils/_show-grid.scss",
+    "utils/_un-button.scss"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pixelherz/sassbox.git"
+  },
+  "keywords": [
+    "Sass",
+    "utils"
+  ],
+  "author": {
+    "name": "René Keller",
+    "email": "rek@pixelherz.com",
+    "url": "https://pixelherz.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pixelherz/sassbox/issues"
+  },
+  "homepage": "https://github.com/Pixelherz/sassbox#readme",
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "semi": false
+  },
+  "dependencies": {
+    "sass-mq": "^5.0.1"
+  }
+}

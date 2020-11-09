@@ -1,0 +1,7 @@
+/// Removes the browser-default button styles from button elements
+@mixin un-button() {
+  border: 0;
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+}

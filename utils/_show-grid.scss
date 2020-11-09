@@ -1,0 +1,60 @@
+@use 'sass:math';
+@import '~sass-mq/mq';
+@import '../config/layout';
+
+// Collect all offsets (outer gutter) in a list.
+// We'll use this later to get the max offset.
+$ph-grid-offsets: ();
+@each $bp in $ph-grid-offset {
+  $ph-grid-offsets: append($ph-grid-offsets, nth($bp, 2));
+}
+
+// Show grid (overlay)
+html.show-grid {
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    z-index: 9999;
+    pointer-events: none;
+  }
+  &::before {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    right: 0;
+    height: 100%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: #{$ph-layout-width + math.max(0, $ph-grid-offsets...) * 2};
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-image: repeating-linear-gradient(
+      to right,
+      rgba(cyan, 0.3) 0,
+      rgba(cyan, 0.3) grid-width($cols: 1),
+      transparent grid-width($cols: 1),
+      transparent grid-width($cols: 1, $gutters: 1)
+    );
+    border: none;
+
+    @each $offset in $ph-grid-offset {
+      $bp-name: nth($offset, 1);
+      @if map-has-key($mq-breakpoints, $bp-name) != true {
+        background-position: map-get($ph-grid-offset, $bp-name) 0;
+        background-size: calc(100% - #{map-get($ph-grid-offset, $bp-name) * 2});
+      }
+      @else {
+        @include mq($from: $bp-name) {
+          background-position: map-get($ph-grid-offset, $bp-name) 0;
+          background-size: calc(100% - #{map-get($ph-grid-offset, $bp-name) * 2});
+        }
+      }
+    }
+
+    @media (min-width: #{$ph-layout-width + math.max(0, $ph-grid-offsets...) * 2}) {
+      outline: 1px solid deepskyblue;
+    }
+  }
+
+}

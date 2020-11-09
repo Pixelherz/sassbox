@@ -1,0 +1,14 @@
+// Layout definitions
+
+// Grid configuration
+/// Layout width in `px` without outer gutter/offset
+/// (col-width * 12) + (gutter-width * 11)
+$ph-layout-width: 1360px !default;
+/// Gutter width in `px`
+$ph-gutter-width: 32px !default;
+/// Column width in `px`
+$ph-col-width: 84px !default;
+/// Grid offset / outer gutter / horizontal margin
+$ph-grid-offset: (
+  'default': 15px,
+) !default;
