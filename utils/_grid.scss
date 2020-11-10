@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import '../config/layout';
 
 /// Calculates grid widths based on the given params and returns the width
@@ -46,4 +47,16 @@
     );
   }
   @return $width + (grid-width($gutters: $gutters, $scale: 'abs'));
+}
+
+/// Get the max grid offset / outer gutter / horizontal margin.
+/// Returns the highest value from $ph-grid-offset.
+@function grid-max-offset() {
+  // Collect all offsets (outer gutter) in a list.
+  // We'll use this later to get the max offset.
+  $ph-grid-offsets: ();
+  @each $bp in $ph-grid-offset {
+    $ph-grid-offsets: append($ph-grid-offsets, nth($bp, 2));
+  }
+  @return math.max(0, $ph-grid-offsets...);
 }

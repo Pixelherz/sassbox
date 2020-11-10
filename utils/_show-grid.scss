@@ -1,13 +1,6 @@
-@use 'sass:math';
 @import '~sass-mq/mq';
 @import '../config/layout';
-
-// Collect all offsets (outer gutter) in a list.
-// We'll use this later to get the max offset.
-$ph-grid-offsets: ();
-@each $bp in $ph-grid-offset {
-  $ph-grid-offsets: append($ph-grid-offsets, nth($bp, 2));
-}
+@import './grid';
 
 // Show grid (overlay)
 html.show-grid {
@@ -26,7 +19,7 @@ html.show-grid {
     height: 100%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: #{$ph-layout-width + math.max(0, $ph-grid-offsets...) * 2};
+    max-width: #{$ph-layout-width + (grid-max-offset() * 2)};
     background-color: transparent;
     background-repeat: no-repeat;
     background-image: repeating-linear-gradient(
@@ -52,7 +45,7 @@ html.show-grid {
       }
     }
 
-    @media (min-width: #{$ph-layout-width + math.max(0, $ph-grid-offsets...) * 2}) {
+    @media (min-width: #{$ph-layout-width + (grid-max-offset() * 2)}) {
       outline: 1px solid deepskyblue;
     }
   }

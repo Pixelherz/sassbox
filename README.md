@@ -150,6 +150,26 @@ $ph-grid-offset: (
 }
 ```
 
+Function `grid-max-offset()` returns the max value from map `$ph-grid-offset`. 
+
+```scss
+// Import sub-module sassbox/utils/grid
+@import '~@pixelherz/sassbox/utils/grid';
+
+// Config
+$ph-grid-offset: (
+  'default': 20px,
+  'mouse': 40px,
+  'rabbit': 80px,
+);
+
+// Usage
+.layout {
+  // grid-max-offset() will return `80px`
+  max-width: #{$ph-layout-width + (grid-max-offset() * 2)};
+}
+``` 
+
 #### Offset Text
 
 Hide text of an element.
