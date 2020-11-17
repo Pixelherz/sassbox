@@ -12,12 +12,19 @@
     @each $bp in $bps {
       $bp-name: nth($bp, 1);
       $bp-size: nth($bp, 2);
+      // Default (no breakpoint)
       @if ($bp-name == 'default') {
         @include _set-font-size($bp-size, $set-line-height);
-      } @else if map-has-key($mq-breakpoints, $bp-name) {
+      }
+      // Breakpoint
+      @else if map-has-key($mq-breakpoints, $bp-name) {
         @include mq($from: $bp-name) {
           @include _set-font-size($bp-size, $set-line-height);
         }
+      }
+      // Breakpoint invalid
+      @else {
+        @warn "Breakpoint '#{$bp-name}' is not defined in $mq-breakpoints. Check your configuration in $ph-fluid-type, make sure $mq-breakpoints is available or add the breakpoint to $mq-breakpoints.";
       }
     }
   } @else {

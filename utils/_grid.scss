@@ -20,16 +20,20 @@
     $bp-name: nth($offset, 1);
     $offset-val: nth($offset, 2);
     // Default (no breakpoint)
-    @if map-has-key($mq-breakpoints, $bp-name) != true {
+    @if $bp-name == 'default' {
       margin-right: $offset-val;
       margin-left: $offset-val;
     }
     // Breakpoint
-    @else {
+    @else if map-has-key($mq-breakpoints, $bp-name) {
       @include mq($from: $bp-name) {
         margin-right: $offset-val;
         margin-left: $offset-val;
       }
+    }
+    // Breakpoint invalid
+    @else {
+      @warn "Breakpoint '#{$bp-name}' is not defined in $mq-breakpoints. Check your configuration in $ph-grid-offset, make sure $mq-breakpoints is available or add the breakpoint to $mq-breakpoints.";
     }
   }
 }

@@ -30,14 +30,18 @@
     $bp-name: nth($bp-cfg, 1);
     $grid-cfg: nth($bp-cfg, 2);
     // Default (no breakpoint)
-    @if map-has-key($mq-breakpoints, $bp-name) == false {
+    @if $bp-name == 'default' {
       grid-template-columns: grid-tmpl-cols($grid-cfg);
     }
     // Breakpoint
-    @else {
+    @else if map-has-key($mq-breakpoints, $bp-name) {
       @include mq($from: $bp-name) {
         grid-template-columns: grid-tmpl-cols($grid-cfg);
       }
+    }
+    // Breakpoint invalid
+    @else {
+      @warn "Breakpoint '#{$bp-name}' is not defined in $mq-breakpoints. Check your configuration in $ph-css-grid, make sure $mq-breakpoints is available or add the breakpoint to $mq-breakpoints.";
     }
   }
 }

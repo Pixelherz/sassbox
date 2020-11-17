@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Utils: Do not allow implicit defaults. Defaults must be defined using key 'default'.
+
 ## [v0.4.0] - 2020-11-17
 
 ### Added
