@@ -1,6 +1,6 @@
 @import '~sass-mq/mq';
 @import '../config/layout';
-@import './grid';
+@import './rel-grid';
 
 // Show grid (overlay)
 html.show-grid {
@@ -19,7 +19,7 @@ html.show-grid {
     height: 100%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: #{$ph-layout-width + (grid-max-offset() * 2)};
+    max-width: #{$ph-layout-max-width + (grid-max-offset() * 2)};
     background-color: transparent;
     background-repeat: no-repeat;
     background-image: repeating-linear-gradient(
@@ -36,18 +36,18 @@ html.show-grid {
       @if map-has-key($mq-breakpoints, $bp-name) != true {
         background-position: map-get($ph-grid-offset, $bp-name) 0;
         background-size: calc(100% - #{map-get($ph-grid-offset, $bp-name) * 2});
-      }
-      @else {
+      } @else {
         @include mq($from: $bp-name) {
           background-position: map-get($ph-grid-offset, $bp-name) 0;
-          background-size: calc(100% - #{map-get($ph-grid-offset, $bp-name) * 2});
+          background-size: calc(
+            100% - #{map-get($ph-grid-offset, $bp-name) * 2}
+          );
         }
       }
     }
 
-    @media (min-width: #{$ph-layout-width + (grid-max-offset() * 2)}) {
+    @media (min-width: #{$ph-layout-max-width + (grid-max-offset() * 2)}) {
       outline: 1px solid deepskyblue;
     }
   }
-
 }

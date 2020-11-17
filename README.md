@@ -102,6 +102,26 @@ $ph-fluid-type: (
 
 #### Grid
 
+Function `grid-max-offset()` returns the max value from map `$ph-grid-offset`. 
+
+```scss
+// Import sub-module sassbox/utils/grid
+@import '~@pixelherz/sassbox/utils/grid';
+
+// Config
+$ph-grid-offset: (
+  'default': 20px,
+  'mouse': 40px,
+  'rabbit': 80px,
+);
+
+// Usage
+.layout {
+  // grid-max-offset() will return `80px`
+  max-width: #{$ph-layout-max-width + (grid-max-offset() * 2)};
+}
+``` 
+
 Function `grid-width()` calculates grid widths based on the given params and returns the width as absolute (`px`) or relative (`%`) value.
 
 NOTE: The gutters enclosed by columns must not be declared in the gutters
@@ -122,12 +142,11 @@ Name | Type | Default | Description
 // Config
 
 // Layout width in `px` without outer gutter/offset
-// (col-width * 12) + (gutter-width * 11)
-$ph-layout-width: 1360px;
+$ph-layout-max-width: 1360px;
 // Gutter width in `px`
-$ph-gutter-width: 32px;
+$ph-rel-grid-gutter-width: 32px;
 // Column width in `px`
-$ph-col-width: 84px;
+$ph-rel-grid-col-width: 84px;
 // Grid offset / outer gutter / horizontal margin
 $ph-grid-offset: (
   'default': 15px,
@@ -137,8 +156,8 @@ $ph-grid-offset: (
 
 // Usage
 
-// Import sub-module sassbox/utils/grid
-@import '~@pixelherz/sassbox/utils/grid';
+// Import sub-module sassbox/utils/rel-grid
+@import '~@pixelherz/sassbox/utils/rel-grid';
 
 // 3 column layout
 .col {
@@ -149,26 +168,6 @@ $ph-grid-offset: (
   }
 }
 ```
-
-Function `grid-max-offset()` returns the max value from map `$ph-grid-offset`. 
-
-```scss
-// Import sub-module sassbox/utils/grid
-@import '~@pixelherz/sassbox/utils/grid';
-
-// Config
-$ph-grid-offset: (
-  'default': 20px,
-  'mouse': 40px,
-  'rabbit': 80px,
-);
-
-// Usage
-.layout {
-  // grid-max-offset() will return `80px`
-  max-width: #{$ph-layout-width + (grid-max-offset() * 2)};
-}
-``` 
 
 #### Offset Text
 
@@ -198,8 +197,8 @@ Add class `show-grid` to element `html` to show layout grid.
 ```
 
 ```scss
-// Import sub-module sassbox/utils/show-grid
-@import '~@pixelherz/sassbox/utils/show-grid';
+// Import sub-module sassbox/utils/show-rel-grid
+@import '~@pixelherz/sassbox/utils/show-rel-grid';
 ```
 
 #### Un-Button

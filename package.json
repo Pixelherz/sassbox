@@ -1,6 +1,6 @@
 {
   "name": "@pixelherz/sassbox",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Sass utils we frequently use in our projects.",
   "files": [
     "_sassbox.scss",
@@ -12,8 +12,9 @@
     "utils/_all.scss",
     "utils/_font-size.scss",
     "utils/_grid.scss",
+    "utils/_rel-grid.scss",
     "utils/_offset-text.scss",
-    "utils/_show-grid.scss",
+    "utils/_show-rel-grid.scss",
     "utils/_un-button.scss"
   ],
   "scripts": {
