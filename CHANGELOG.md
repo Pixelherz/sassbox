@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.5.0] - 2020-11-17
+
+### Added
+
+- Utils/Grid: `apply-grid-offset()` takes argument `$prop`. Defaults to 'margin', might be used with props like 'padding'.
+
 ### Changed
 
 - Utils: Do not allow implicit defaults. Defaults must be defined using key 'default'.
@@ -53,7 +59,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Show-Grid
   - Un-Button
 
-[Unreleased]: https://github.com/Pixelherz/sassbox/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/Pixelherz/sassbox/compare/v0.5.0...HEAD
+[v0.5.0]: https://github.com/Pixelherz/sassbox/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/Pixelherz/sassbox/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/Pixelherz/sassbox/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/Pixelherz/sassbox/compare/v0.1.0...v0.2.0

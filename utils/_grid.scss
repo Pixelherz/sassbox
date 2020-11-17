@@ -15,20 +15,20 @@
 }
 
 /// Inject grid offset for configuration in `$ph-grid-offset`
-@mixin apply-grid-offset() {
+@mixin apply-grid-offset($prop: 'margin') {
   @each $offset in $ph-grid-offset {
     $bp-name: nth($offset, 1);
     $offset-val: nth($offset, 2);
     // Default (no breakpoint)
     @if $bp-name == 'default' {
-      margin-right: $offset-val;
-      margin-left: $offset-val;
+      #{$prop}-right: $offset-val;
+      #{$prop}-left: $offset-val;
     }
     // Breakpoint
     @else if map-has-key($mq-breakpoints, $bp-name) {
       @include mq($from: $bp-name) {
-        margin-right: $offset-val;
-        margin-left: $offset-val;
+        #{$prop}-right: $offset-val;
+        #{$prop}-left: $offset-val;
       }
     }
     // Breakpoint invalid

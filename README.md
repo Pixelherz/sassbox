@@ -164,7 +164,7 @@ $ph-grid-offset: (
 }
 
 .layout {
-  @include apply-grid-offset();
+  @include apply-grid-offset($prop: 'padding'); // $prop defaults to 'margin'
 }
 ``` 
 
