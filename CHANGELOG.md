@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.3.0] - 2020-11-17
+
 ### Added
 
 - Utils/Grid: Add CSS grid utils
@@ -16,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Utils/Grid: **Breaking:** Rename `grid` → `rel-grid`
+- Utils/Grid: **Breaking:** Rename `show-grid` → `show-rel-grid`
 
 ### Fixed
 
@@ -40,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Show-Grid
   - Un-Button
 
-[Unreleased]: https://github.com/Pixelherz/sassbox/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/Pixelherz/sassbox/compare/v0.3.0...HEAD
+[v0.3.0]: https://github.com/Pixelherz/sassbox/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/Pixelherz/sassbox/compare/v0.1.0...v0.2.0
 [v0.1.0]: https://github.com/Pixelherz/sassbox/releases/tag/v0.1.0

@@ -232,12 +232,12 @@ Hide text of an element.
 }
 ```
 
-#### Show Grid
+#### Show relative grid
 
-Add class `show-grid` to element `html` to show layout grid. 
+Add class `show-rel-grid` to element `html` to show layout grid. 
 
 ```html
-<html class="show-grid">
+<html class="show-rel-grid">
 ```
 
 ```scss

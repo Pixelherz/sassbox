@@ -3,7 +3,7 @@
 @import './rel-grid';
 
 // Show grid (overlay)
-html.show-grid {
+html.show-rel-grid {
   &::before,
   &::after {
     content: '';
