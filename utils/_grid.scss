@@ -1,5 +1,6 @@
 @use 'sass:math';
 @import '../config/layout';
+@import '~sass-mq/mq';
 
 /// Get the max grid offset / outer gutter / horizontal margin.
 /// Returns the highest value from $ph-grid-offset.
@@ -11,4 +12,24 @@
     $ph-grid-offsets: append($ph-grid-offsets, nth($bp, 2));
   }
   @return math.max(0, $ph-grid-offsets...);
+}
+
+/// Inject grid offset for configuration in `$ph-grid-offset`
+@mixin apply-grid-offset() {
+  @each $offset in $ph-grid-offset {
+    $bp-name: nth($offset, 1);
+    $offset-val: nth($offset, 2);
+    // Default (no breakpoint)
+    @if map-has-key($mq-breakpoints, $bp-name) != true {
+      margin-right: $offset-val;
+      margin-left: $offset-val;
+    }
+    // Breakpoint
+    @else {
+      @include mq($from: $bp-name) {
+        margin-right: $offset-val;
+        margin-left: $offset-val;
+      }
+    }
+  }
 }

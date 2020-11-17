@@ -144,6 +144,8 @@ $ph-fluid-type: (
 
 Function `grid-max-offset()` returns the max value from map `$ph-grid-offset`. 
 
+Mixin `apply-grid-offset()` applies the offset defined in `$ph-grid-offset`.
+
 ```scss
 // Import sub-module sassbox/utils/grid
 @import '~@pixelherz/sassbox/utils/grid';
@@ -156,11 +158,21 @@ $ph-grid-offset: (
 );
 
 // Usage
-.layout {
+.page {
   // grid-max-offset() will return `80px`
   max-width: #{$ph-layout-max-width + (grid-max-offset() * 2)};
 }
+
+.layout {
+  @include apply-grid-offset();
+}
 ``` 
+
+```html
+<div class="page">
+  <div class="layout"></div>
+</div>
+```
 
 #### Relative Grid (legacy)
 
