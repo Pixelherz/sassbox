@@ -10,6 +10,7 @@
     "config/_layout.scss",
     "config/_typography.scss",
     "utils/_all.scss",
+    "utils/_css-grid.scss",
     "utils/_font-size.scss",
     "utils/_grid.scss",
     "utils/_rel-grid.scss",

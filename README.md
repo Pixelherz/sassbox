@@ -50,6 +50,46 @@ $ph-font-family--default: 'Fancy Font', 'Helvetica', 'Arial', sans-serif;
 @import '~@pixelherz/sassbox/utils/all';
 ```
 
+#### CSS Grid
+
+```scss
+// Config
+
+// `gutter-type`: Use `static` for fixed-width gutters (px) `fluid` for 
+// relative sized gutters (%)
+
+$ph-css-grid: (
+    "default": (
+        "cols-num": 6,
+        "col-width": 40px,
+        "gutter-width": 12px,
+        "gutter-type": "static",
+    ),
+    "rabbit": (
+        "cols-num": 12,
+        "col-width": 62px,
+        "gutter-width": 20px,
+        "gutter-type": "static",
+    ),
+    "cat": (
+        "cols-num": 12,
+        "col-width": 84px,
+        "gutter-width": 32px,
+        "gutter-type": "static",
+    ),
+);
+
+// Usage
+
+// Import sub-module sassbox/utils/css-grid
+@import '~@pixelherz/sassbox/utils/css-grid';
+
+.layout {
+  display: grid;
+  @include inject-css-grid();
+}
+```
+
 #### Font-Size
 
 Helper for responsive font-sizes. 
@@ -121,6 +161,10 @@ $ph-grid-offset: (
   max-width: #{$ph-layout-max-width + (grid-max-offset() * 2)};
 }
 ``` 
+
+#### Relative Grid (legacy)
+
+> Relative grid (rel-grid) refers to a legacy-style fluid grid (no CSS grid involved). Same grid is used for *all* breakpoints.
 
 Function `grid-width()` calculates grid widths based on the given params and returns the width as absolute (`px`) or relative (`%`) value.
 

@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Utils/Grid: Add CSS grid utils
+
 ### Changed
 
 - Utils/Grid: **Breaking:** Rename `grid` → `rel-grid`
