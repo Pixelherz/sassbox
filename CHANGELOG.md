@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.6.1] - 2020-11-25
+
+### Fixed
+
+- Base/Normalize: Reset `fieldset`'s `margin`
+
 ## [v0.6.0] - 2020-11-25
 
 ### Added 
@@ -65,7 +71,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Show-Grid
   - Un-Button
 
-[Unreleased]: https://github.com/Pixelherz/sassbox/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/Pixelherz/sassbox/compare/v0.6.1...HEAD
+[v0.6.1]: https://github.com/Pixelherz/sassbox/compare/v0.6.0...v0.6.1
 [v0.6.0]: https://github.com/Pixelherz/sassbox/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/Pixelherz/sassbox/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/Pixelherz/sassbox/compare/v0.3.0...v0.4.0
