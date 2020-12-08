@@ -82,7 +82,9 @@ address {
   font-style: normal;
 }
 
-button {
+button,
+input,
+textarea {
   font-family: $ph-font-family--default;
 }
 
