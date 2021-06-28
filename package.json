@@ -1,6 +1,6 @@
 {
   "name": "@pixelherz/sassbox",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Sass utils we frequently use in our projects.",
   "files": [
     "_sassbox.scss",
