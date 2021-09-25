@@ -50,6 +50,17 @@ $ph-font-family--default: 'Fancy Font', 'Helvetica', 'Arial', sans-serif;
 @import '~@pixelherz/sassbox/utils/all';
 ```
 
+#### Conversion
+
+```scss
+// Usage
+@import '~@pixelherz/sassbox/utils/conversion';
+
+.foo {
+  font-size: pxToRem(24px); // 1.5rem
+}
+```
+
 #### CSS Grid
 
 ```scss
