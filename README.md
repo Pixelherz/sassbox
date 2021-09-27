@@ -54,11 +54,19 @@ $ph-font-family--default: 'Fancy Font', 'Helvetica', 'Arial', sans-serif;
 
 ```scss
 // Usage
+
+//  Import sub-module sassbox/utils/conversions
 @import '~@pixelherz/sassbox/utils/conversion';
 
 .foo {
   font-size: pxToRem(24px); // 1.5rem
 }
+
+.bar {
+  font-size: remToPx(1.5rem); // 24px
+}
+
+
 ```
 
 #### CSS Grid

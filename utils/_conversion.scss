@@ -3,3 +3,13 @@
 @function pxToRem($value) {
   @return math.div($value, 16px) * 1rem;
 }
+
+@function remToPx($value) {
+  @return _strip-unit($value) * 16px;
+}
+
+// --- Private helpers ---
+
+@function _strip-unit($value) {
+  @return math.div($value, $value * 0 + 1);
+}
