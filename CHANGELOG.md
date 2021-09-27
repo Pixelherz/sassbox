@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.10.0] - 2021-09-27
+
 ### Added 
 
 - Utils/Conversion: Add function `remToPx`
@@ -93,7 +95,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Show-Grid
   - Un-Button
 
-[Unreleased]: https://github.com/Pixelherz/sassbox/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/Pixelherz/sassbox/compare/v0.10.0...HEAD
+[v0.10.0]: https://github.com/Pixelherz/sassbox/compare/v0.9.0...v0.10.0
 [v0.9.0]: https://github.com/Pixelherz/sassbox/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/Pixelherz/sassbox/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/Pixelherz/sassbox/compare/v0.6.1...v0.7.0

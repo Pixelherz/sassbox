@@ -1,7 +1,8 @@
 @use 'sass:math';
 
 @function pxToRem($value) {
-  @return math.div($value, 16px) * 1rem;
+  $unitless: _strip-unit($value);
+  @return math.div($unitless, 16) * 1rem;
 }
 
 @function remToPx($value) {
