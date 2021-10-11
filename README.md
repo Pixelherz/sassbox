@@ -137,6 +137,15 @@ $ph-letter-spacing: (
   'm': 0.005em,
 );
 
+// Vertical spacing (margin-top, margin-bottom)
+// Browser default is `1em` (based on `font-size`)
+// Example: Set equal to line-height for vertical space of a blank line
+$ph-vertical-spacing: (
+  's': 20px,
+  'm': 30px,
+  'l': 45px,
+); // Same as `$ph-vertical-spacing: $ph-line-heights;`
+
 // 'Fluid' font sizes are scaled down for the given responsive breakpoints
 $ph-fluid-type: (
   'l': (
@@ -155,7 +164,11 @@ $ph-fluid-type: (
 @import '~@pixelherz/sassbox/utils/font-size';
 
 .title {
-  @include font-size('m');
+  @include font-size('l');
+}
+
+.paragraph {
+  @include font-size('m', $set-vertical-offset: true);
 }
 ```
 

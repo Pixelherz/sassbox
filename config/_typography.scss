@@ -28,6 +28,16 @@ $ph-line-heights: () !default;
 // );
 $ph-letter-spacing: () !default;
 
+// Vertical spacing (margin-top, margin-bottom)
+// Browser default is `1em`
+// Example: Set equal to line-height for vertical space of a blank line
+// Example: Set half of line-height for vertical space of half a blank line
+// $ph-vertical-spacing: (
+//   's': 20px,
+//   'm': 30px,
+// );
+$ph-vertical-spacing: () !default;
+
 // 'Fluid' font sizes are scaled down for the given responsive breakpoints
 // e.g. $ph-fluid-type: (
 //   'l': (
