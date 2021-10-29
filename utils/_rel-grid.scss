@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import '../config/layout';
 
 /// Calculates grid widths based on the given params and returns the width
@@ -31,7 +32,7 @@
       $cols: $base-cols,
       $gutters: $base-gutters,
     ) + $base-extra;
-  @return $width / $base * 100%;
+  @return math.div($width, $base) * 100%;
 }
 
 // Helper function to calculate the absolute width of a given number of
