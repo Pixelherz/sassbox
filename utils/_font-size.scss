@@ -1,5 +1,7 @@
+$mq-breakpoints: () !default;
+
 @use 'sass:math';
-@import '~sass-mq';
+@use '~sass-mq/mq' with ($breakpoints: $mq-breakpoints);
 @import '../config/typography';
 
 /// Mixin to ensure font sizes and line heights are used consistently.
@@ -29,7 +31,7 @@
       }
       // Breakpoint
       @else if map-has-key($mq-breakpoints, $bp-name) {
-        @include mq($from: $bp-name) {
+        @include mq.mq($from: $bp-name) {
           @include _set-font-size(
             $bp-size,
             $set-line-height,

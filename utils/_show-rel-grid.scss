@@ -1,4 +1,6 @@
-@import '~sass-mq/mq';
+$mq-breakpoints: () !default;
+
+@use '~sass-mq/mq' with ($breakpoints: $mq-breakpoints);
 @import '../config/layout';
 @import './rel-grid';
 
@@ -40,7 +42,7 @@ html.show-rel-grid {
       }
       // Breakpoint
       @else if map-has-key($mq-breakpoints, $bp-name) {
-        @include mq($from: $bp-name) {
+        @include mq.mq($from: $bp-name) {
           background-position: map-get($ph-grid-offset, $bp-name) 0;
           background-size: calc(
             100% - #{map-get($ph-grid-offset, $bp-name) * 2}

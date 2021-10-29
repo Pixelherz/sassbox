@@ -46,6 +46,6 @@
     "semi": false
   },
   "dependencies": {
-    "sass-mq": "^5.0.1"
+    "sass-mq": "^6.0.0-beta.1"
   }
 }
