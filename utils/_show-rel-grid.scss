@@ -2,6 +2,7 @@ $mq-breakpoints: () !default;
 
 @use '~sass-mq/mq' with ($breakpoints: $mq-breakpoints);
 @import '../config/layout';
+@import './grid';
 @import './rel-grid';
 
 // Show grid (overlay)
