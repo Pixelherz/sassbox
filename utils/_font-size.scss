@@ -1,5 +1,5 @@
 @use 'sass:math';
-@import '~sass-mq';
+@import '~sass-mq/mq';
 @import '../config/typography';
 
 /// Mixin to ensure font sizes and line heights are used consistently.
