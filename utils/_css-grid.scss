@@ -1,9 +1,9 @@
-@use "sass:math";
-@import '../config/layout';
-@import '~sass-mq/mq';
+@use '../config';
+@use 'sass:math';
+@use '~sass-mq/mq';
 
 /// Returns value for `grid-template-colums` for a given grid-configuration
-@function grid-tmpl-cols($grid-cfg) {
+@function -grid-tmpl-cols($grid-cfg) {
   $cols-num: map-get($grid-cfg, 'cols-num');
   $gutter-width: map-get($grid-cfg, 'gutter-width');
   $col-val: 1fr; // will be updated for fluid gutters
@@ -24,24 +24,24 @@
     [col-start] $col-val [col-end grid-end];
 }
 
-/// Inject CSS grid columns for configuration in `$ph-css-grid`.
+/// Inject CSS grid columns for configuration in `$css-grid`.
 @mixin inject-css-grid() {
-  @each $bp-cfg in $ph-css-grid {
+  @each $bp-cfg in config.$css-grid {
     $bp-name: nth($bp-cfg, 1);
     $grid-cfg: nth($bp-cfg, 2);
     // Default (no breakpoint)
     @if $bp-name == 'default' {
-      grid-template-columns: grid-tmpl-cols($grid-cfg);
+      grid-template-columns: -grid-tmpl-cols($grid-cfg);
     }
     // Breakpoint
-    @else if map-has-key($mq-breakpoints, $bp-name) {
-      @include mq($from: $bp-name) {
-        grid-template-columns: grid-tmpl-cols($grid-cfg);
+    @else if map-has-key(mq.$breakpoints, $bp-name) {
+      @include mq.mq($from: $bp-name) {
+        grid-template-columns: -grid-tmpl-cols($grid-cfg);
       }
     }
     // Breakpoint invalid
     @else {
-      @warn "Breakpoint '#{$bp-name}' is not defined in $mq-breakpoints. Check your configuration in $ph-css-grid, make sure $mq-breakpoints is available or add the breakpoint to $mq-breakpoints.";
+      @warn "Breakpoint '#{$bp-name}' is not defined in $breakpoints. Check your configuration in $css-grid, make sure $breakpoints is available or add the breakpoint to $breakpoints.";
     }
   }
 }

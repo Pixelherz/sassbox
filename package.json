@@ -2,23 +2,6 @@
   "name": "@pixelherz/sassbox",
   "version": "1.0.0-rc.0",
   "description": "Sass utils we frequently use in our projects.",
-  "files": [
-    "_sassbox.scss",
-    "base/_all.scss",
-    "base/_normalize.scss",
-    "config/_all.scss",
-    "config/_layout.scss",
-    "config/_typography.scss",
-    "utils/_all.scss",
-    "utils/_conversion.scss",
-    "utils/_css-grid.scss",
-    "utils/_font-size.scss",
-    "utils/_grid.scss",
-    "utils/_rel-grid.scss",
-    "utils/_offset-text.scss",
-    "utils/_show-rel-grid.scss",
-    "utils/_un-button.scss"
-  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

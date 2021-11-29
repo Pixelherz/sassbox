@@ -1,5 +1,5 @@
+@use '../config';
 @use 'sass:math';
-@import '../config/layout';
 
 /// Calculates grid widths based on the given params and returns the width
 /// as absolute (px) or relative (%) value.
@@ -23,8 +23,8 @@
   $scale: 'rel'
 ) {
   $gutters: max(0, $cols - 1) + $gutters;
-  $width: ($cols * $ph-rel-grid-col-width) +
-    ($gutters * $ph-rel-grid-gutter-width);
+  $width: ($cols * config.$rel-grid-col-width) +
+    ($gutters * config.$rel-grid-gutter-width);
   @if ($scale == 'abs') {
     @return $width;
   }
@@ -40,7 +40,7 @@
 @function base-width($cols: 'all', $gutters: 0) {
   $width: 0;
   @if ($cols == 'all') {
-    $width: $ph-layout-max-width;
+    $width: config.$layout-max-width;
   } @else {
     $width: grid-width(
       $cols: $cols,

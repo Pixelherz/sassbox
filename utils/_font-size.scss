@@ -1,8 +1,6 @@
-$mq-breakpoints: () !default;
-
+@use '../config';
 @use 'sass:math';
-@use '~sass-mq/mq' with ($breakpoints: $mq-breakpoints);
-@import '../config/typography';
+@use '~sass-mq/mq';
 
 /// Mixin to ensure font sizes and line heights are used consistently.
 /// @param {enum} $size ['m'] - The key for the requested font size
@@ -15,24 +13,24 @@ $mq-breakpoints: () !default;
   $set-responsive: true
 ) {
   @if ($set-responsive != true) {
-    @include _set-font-size($size, $set-line-height, $set-vertical-offset);
-  } @else if map-has-key($ph-fluid-type, $size) {
-    $bps: map-get($ph-fluid-type, $size);
+    @include -set-font-size($size, $set-line-height, $set-vertical-offset);
+  } @else if map-has-key(config.$fluid-type, $size) {
+    $bps: map-get(config.$fluid-type, $size);
     @each $bp in $bps {
       $bp-name: nth($bp, 1);
       $bp-size: nth($bp, 2);
       // Default (no breakpoint)
       @if ($bp-name == 'default') {
-        @include _set-font-size(
+        @include -set-font-size(
           $bp-size,
           $set-line-height,
           $set-vertical-offset
         );
       }
       // Breakpoint
-      @else if map-has-key($mq-breakpoints, $bp-name) {
+      @else if map-has-key(mq.$breakpoints, $bp-name) {
         @include mq.mq($from: $bp-name) {
-          @include _set-font-size(
+          @include -set-font-size(
             $bp-size,
             $set-line-height,
             $set-vertical-offset
@@ -41,28 +39,28 @@ $mq-breakpoints: () !default;
       }
       // Breakpoint invalid
       @else {
-        @warn "Breakpoint '#{$bp-name}' is not defined in $mq-breakpoints. Check your configuration in $ph-fluid-type, make sure $mq-breakpoints is available or add the breakpoint to $mq-breakpoints.";
+        @warn "Breakpoint '#{$bp-name}' is not defined in $breakpoints. Check your configuration in $fluid-type, make sure $breakpoints is available or add the breakpoint to $breakpoints.";
       }
     }
   } @else {
-    @include _set-font-size($size, $set-line-height, $set-vertical-offset);
+    @include -set-font-size($size, $set-line-height, $set-vertical-offset);
   }
 }
 
 // Helper for mixin font-size
-@mixin _set-font-size(
+@mixin -set-font-size(
   $size: 'm',
   $set-line-height: true,
   $set-vertical-offset: false
 ) {
   // Collect values
-  $font-size: map-get($ph-font-sizes, $size);
-  $line-height: map-get($ph-line-heights, $size);
+  $font-size: map-get(config.$font-sizes, $size);
+  $line-height: map-get(config.$line-heights, $size);
 
   // Output
   font-size: $font-size;
-  @if (map-has-key($ph-letter-spacing, $size)) {
-    letter-spacing: map-get($ph-letter-spacing, $size);
+  @if (map-has-key(config.$letter-spacing, $size)) {
+    letter-spacing: map-get(config.$letter-spacing, $size);
   }
   @if ($set-line-height) {
     line-height: $line-height;

@@ -1,16 +1,26 @@
 @use 'sass:math';
 
-@function pxToRem($value) {
-  $unitless: _strip-unit($value);
+@function px-to-rem($value) {
+  $unitless: strip-unit($value);
   @return math.div($unitless, 16) * 1rem;
 }
 
-@function remToPx($value) {
-  @return _strip-unit($value) * 16px;
+@function rem-to-px($value) {
+  @return strip-unit($value) * 16px;
 }
 
-// --- Private helpers ---
-
-@function _strip-unit($value) {
+@function strip-unit($value) {
   @return math.div($value, $value * 0 + 1);
+}
+
+// Legacy support for <1.0.0, can be dropped with >=2.0.0
+
+@function pxToRem($value) {
+  @warn "Function pxToRem() is deprecated and will be removed. Use px-to-rem() instead.";
+  @return px-to-rem($value);
+}
+
+@function remToPx($value) {
+  @warn "Function remToPx() is deprecated and will be removed. Use rem-to-px() instead.";
+  @return rem-to-px($value);
 }

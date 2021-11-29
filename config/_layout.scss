@@ -1,20 +1,20 @@
-// Layout definitions
+// Layout configuration
 
 /// Layout max-width in `px` without outer gutter/offset
-$ph-layout-max-width: 1360px !default;
+$layout-max-width: 1360px !default;
 
 /// Grid offset / outer gutter / horizontal margin
-$ph-grid-offset: (
-  'default': 15px,
+$grid-offset: (
+  default: 15px,
 ) !default;
 
 // CSS grid configuration
-$ph-css-grid: (
-  'default': (
-    'cols-num': 6,
-    'col-width': 40px,
-    'gutter-width': 12px,
-    'gutter-type': 'static',
+$css-grid: (
+  default: (
+    cols-num: 6,
+    col-width: 40px,
+    gutter-width: 12px,
+    gutter-type: 'static',
   ),
 ) !default;
 
@@ -23,6 +23,6 @@ $ph-css-grid: (
 // involved). Same grid is used for *all* breakpoints.
 
 /// Gutter width in `px`
-$ph-rel-grid-gutter-width: 32px !default;
+$rel-grid-gutter-width: 32px !default;
 /// Column width in `px`
-$ph-rel-grid-col-width: 84px !default;
+$rel-grid-col-width: 84px !default;

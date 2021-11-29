@@ -1,5 +1,3 @@
-@import '../config/typography';
-
 // Reset, normalize or unify browser rendering
 
 // Use `border-box` box-sizing globally. For older or 3rd party components you can still
@@ -14,93 +12,95 @@
 // http://www.paulirish.com/2012/box-sizing-border-box-ftw/
 // https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 
-html {
-  box-sizing: border-box;
-}
+@mixin normalize() {
+  html {
+    box-sizing: border-box;
+  }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
 
-// No focus border
-*:focus {
-  outline: none;
-}
+  // No focus border
+  *:focus {
+    outline: none;
+  }
 
-// No spacing for html and body
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
+  // No spacing for html and body
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
 
-body {
-  -webkit-text-size-adjust: none;
-}
+  body {
+    -webkit-text-size-adjust: none;
+  }
 
-// Use display:block for images
-img {
-  display: block;
-}
+  // Use display:block for images
+  img {
+    display: block;
+  }
 
-// Override default list style
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+  // Override default list style
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-// Remove margins from blockquote
-blockquote {
-  margin: 0;
-}
+  // Remove margins from blockquote
+  blockquote {
+    margin: 0;
+  }
 
-// Table reset
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-th {
-  text-align: left;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+  // Table reset
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  th {
+    text-align: left;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
 
-address {
-  font-style: normal;
-}
+  address {
+    font-style: normal;
+  }
 
-button,
-input,
-textarea {
-  font-family: $ph-font-family--default;
-}
+  button,
+  input,
+  textarea {
+    font-family: inherit;
+  }
 
-svg {
-  display: block;
-}
+  svg {
+    display: block;
+  }
 
-fieldset {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
 
-legend {
-  padding: 0;
+  legend {
+    padding: 0;
+  }
 }
