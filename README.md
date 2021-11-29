@@ -182,7 +182,6 @@ Mixin `apply-grid-offset()` applies the offset defined in `$grid-offset`.
 ```scss
 // Configuration
 
-$layout-max-width: 1360px;
 @use '~@pixelherz/sassbox' with (
   $grid-offset: (
     'default': 20px,
@@ -196,7 +195,7 @@ $layout-max-width: 1360px;
 
 .page {
   // grid-max-offset() will return `80px`
-  max-width: #{$layout-max-width + (sassbox.grid-max-offset() * 2)};
+  max-width: #{sassbox.$layout-max-width + (sassbox.grid-max-offset() * 2)};
 }
 
 .layout {
