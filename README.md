@@ -62,6 +62,31 @@ Normalize (reset, unify) browser rendering. Includes global usage of `box-sizing
 
 ### Utils
 
+#### Breakpoints
+
+sassbox includes the superpowers of the faboulos [sass-mq](https://github.com/sass-mq/sass-mq) breakpoint manager. 
+
+```scss
+@use '~@pixelherz/sassbox' with (
+  $breakpoints: (
+    rabbit: 992px,
+    cat: 1200px,
+  ),
+);
+
+body {
+  background-color: orange;
+  transition: background-color 0.6s;
+  @include sassbox.mq($from: 'rabbit') {
+    background-color: olivedrab;
+  }
+  @include sassbox.mq($from: 'cat') {
+    background-color: orchid;
+  }
+}
+```
+
+
 #### Conversion
 
 ```scss
