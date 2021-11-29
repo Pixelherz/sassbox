@@ -1,0 +1,6 @@
+src: ./
+dest: docs/
+exclude:
+  - node_modules/**/*.scss
+groups:
+  conversion: Conversion
