@@ -27,7 +27,7 @@ Typically you'll want to `@use` a configured `@forward` of the library. Here's a
 
 ```scss
 // e.g. /styles/_sassbox.scss – configured @forward of the library
-@forward "@pixelherz/sassbox" with (
+@forward '@pixelherz/sassbox' with (
   $font-sizes: (
     's': 16px,
     'm': 24px,
@@ -44,7 +44,7 @@ Typically you'll want to `@use` a configured `@forward` of the library. Here's a
 
 ```scss
 // e.g. /component/component.styles.scss
-@use "../styles/sassbox";
+@use '../styles/sassbox';
 @include sassbox.normalize();
 ```
 
@@ -89,24 +89,24 @@ Normalize (reset, unify) browser rendering. Includes global usage of `box-sizing
   // `gutter-type`: Use `static` for fixed-width gutters (px) `fluid` for 
   // relative sized gutters (%)
   $css-grid: (
-    "default": (
-        "cols-num": 6,
-        "col-width": 40px,
-        "gutter-width": 12px,
-        "gutter-type": "static",
-    ),
-    "rabbit": (
-        "cols-num": 12,
-        "col-width": 62px,
-        "gutter-width": 20px,
-        "gutter-type": "static",
-    ),
-    "cat": (
-        "cols-num": 12,
-        "col-width": 84px,
-        "gutter-width": 32px,
-        "gutter-type": "static",
-    ),
+      default: (
+        cols-num: 6,
+        col-width: 40px,
+        gutter-width: 12px,
+        gutter-type: 'static',
+      ),
+      rabbit: (
+        cols-num: 9,
+        col-width: 62px,
+        gutter-width: 20px,
+        gutter-type: 'static',
+      ),
+      cat: (
+        cols-num: 12,
+        col-width: 84px,
+        gutter-width: 32px,
+        gutter-type: 'static',
+      ),
   ),
 );
 
@@ -127,37 +127,37 @@ Helper for responsive font-sizes.
 
 @use '~@pixelherz/sassbox' with (
   $font-sizes: (
-    's': 16px,
-    'm': 24px,
-    'l': 36px,
+    s: 16px,
+    m: 24px,
+    l: 36px,
   ),
   $line-heights: (
-    's': 20px,
-    'm': 30px,
-    'l': 45px,
+    s: 20px,
+    m: 30px,
+    l: 45px,
   ),
   $letter-spacing: (
-    's': 0.01em,
-    'm': 0.005em,
-    'l': 0,
+    s: 0.01em,
+    m: 0.005em,
+    l: 0,
   ),
   // Vertical spacing (margin-top, margin-bottom), browser default is `1em`
   // The example configuration below sets equal to line-height for vertical space of a blank line
   // Same as `$ph-vertical-spacing: $ph-line-heights;`
   $vertical-spacing: (
-    's': 20px,
-    'm': 30px,
-    'l': 45px,
+    s: 20px,
+    m: 30px,
+    l: 45px,
   ),
   // 'Fluid' font sizes are scaled down for the given responsive breakpoints
   $fluid-type: (
-    'l': (
-      'default': 'm',
-      'rat': 'l',
+    l: (
+      default: 'm',
+      rat: 'l',
     ),
-    'm': (
-      'default': 's',
-      'rat': 'm',
+    m: (
+      default: 's',
+      rat: 'm',
     ),
   ),
 );
@@ -184,9 +184,9 @@ Mixin `apply-grid-offset()` applies the offset defined in `$grid-offset`.
 
 @use '~@pixelherz/sassbox' with (
   $grid-offset: (
-    'default': 20px,
-    'mouse': 40px,
-    'rabbit': 80px,
+    default: 20px,
+    mouse: 40px,
+    rabbit: 80px,
   ),
   $layout-max-width: 1360px,
 );
@@ -243,9 +243,9 @@ Name | Type | Default | Description
   $rel-grid-col-width: 84px,
   // Grid offset / outer gutter / horizontal margin
   $grid-offset: (
-    'default': 15px,
-    'mouse': 30px,
-    'rabbit': 60px,
+    default: 15px,
+    mouse: 30px,
+    rabbit: 60px,
   ),
 );
 
@@ -284,8 +284,8 @@ Hide text of an element.
 Display the relative grid by adding a class-name to the `html` element. The class-name defaults to `show-rel-grid`. You can optionally pass a custom class-name. 
 
 ```scss
-@use "~@pixelherz/sassbox";
-@include sassbox.show-rel-grid($class-name: "show-grid");
+@use '~@pixelherz/sassbox';
+@include sassbox.show-rel-grid($class-name: 'show-grid');
 ```
 
 ```html
