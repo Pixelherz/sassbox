@@ -66,8 +66,12 @@
   @if $set-line-height {
     line-height: convert.px-to-rem($line-height);
   }
-  @if ($set-vertical-offset) {
-    $offset-v: math.div($line-height, $font-size) * 1em;
+  @if $set-vertical-offset {
+    $offset-v-abs: $line-height;
+    @if map-has-key(config.$vertical-spacing, $size) {
+      $offset-v-abs: map-get(config.$vertical-spacing, $size);
+    }
+    $offset-v: math.div($offset-v-abs, $font-size) * 1em;
     margin-top: $offset-v;
     margin-bottom: $offset-v;
   }
