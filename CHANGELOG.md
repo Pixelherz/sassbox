@@ -23,6 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Show relative grid: The CSS used to render the grid is now injected via mixin `show-rel-grid`. 
 
+- Typography: `font-size` and `line-height` are set in `rem` (was `px` before).
+
 - Update `sass-mq@latest` (beta): The latest stable release (v5.x) uses division, which is deprecated. The beta (v6) uses `math.div` instead.
 
 ## [v0.11.1] - 2021-11-02

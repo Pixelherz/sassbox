@@ -1,4 +1,5 @@
 @use '../config';
+@use './conversion' as convert;
 @use 'sass:math';
 @use '~sass-mq/mq';
 
@@ -58,12 +59,12 @@
   $line-height: map-get(config.$line-heights, $size);
 
   // Output
-  font-size: $font-size;
-  @if (map-has-key(config.$letter-spacing, $size)) {
+  font-size: convert.px-to-rem($font-size);
+  @if map-has-key(config.$letter-spacing, $size) {
     letter-spacing: map-get(config.$letter-spacing, $size);
   }
-  @if ($set-line-height) {
-    line-height: $line-height;
+  @if $set-line-height {
+    line-height: convert.px-to-rem($line-height);
   }
   @if ($set-vertical-offset) {
     $offset-v: math.div($line-height, $font-size) * 1em;
