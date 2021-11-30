@@ -55,7 +55,6 @@ Typically you'll want to `@use` a configured `@forward` of the library. Here's a
 Normalize (reset, unify) browser rendering. Includes global usage of `box-sizing: border-box`. 
 
 ```scss
-// Import sub-module sassbox/base/normalize
 @use '~@pixelherz/sassbox';
 @include sassbox.normalize();
 ```
