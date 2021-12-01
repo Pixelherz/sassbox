@@ -4,8 +4,9 @@
 
 @forward './conversion';
 @forward './misc';
+@forward './type/';
+
 @forward './utils/css-grid';
-@forward './utils/font-size';
 @forward './utils/grid';
 @forward './utils/rel-grid';
 @forward './utils/show-rel-grid';
