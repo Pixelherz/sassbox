@@ -2,29 +2,46 @@
 @use 'sass:math';
 @use '~sass-mq/mq';
 
-/// Returns value for `grid-template-colums` for a given grid-configuration
-@function -grid-tmpl-cols($grid-cfg) {
-  $cols-num: map-get($grid-cfg, 'cols-num');
-  $gutter-width: map-get($grid-cfg, 'gutter-width');
-  $col-val: 1fr; // will be updated for fluid gutters
-  $gutter-val: $gutter-width; // will be updated for fluid gutters
-  // CSS grid not required as we have only a single column
-  @if ($cols-num == 1) {
-    @return [grid-start col-start] $col-val [col-end grid-end];
-  }
-  // Fluid gutters
-  @if map-get($grid-cfg, 'gutter-type') == 'fluid' {
-    $col-width: map-get($grid-cfg, 'col-width');
-    $layout-width: $cols-num * $col-width + ($cols-num - 1) * $gutter-width;
-    $col-val: math.percentage($col-width / $layout-width);
-    $gutter-val: math.percentage($gutter-width / $layout-width);
-  }
-  @return [grid-start]
-    repeat($cols-num - 1, [col-start] $col-val [col-end] $gutter-val)
-    [col-start] $col-val [col-end grid-end];
-}
+/// # Inject CSS grid columns
+/// @output
+///   The declarations for `grid-template-columns` including the media-queries
+///   according to your configuration (cmp. configuration properties
+///   `$breakpoints` and `$css-grid`). The mixin won't set `display: grid`
+///   which is required for a working CSS grid layout (cmp. example).
+/// @example scss
+///   // Configuration
+///   @use '~@pixelherz/sassbox' with (
+///     $css-grid: (
+///       default: (
+///         cols-num: 6,
+///         col-width: 40px,
+///         gutter-width: 12px,
+///         gutter-type: 'static',
+///       ),
+///       rabbit: (
+///         cols-num: 9,
+///         col-width: 62px,
+///         gutter-width: 20px,
+///         gutter-type: 'static',
+///       ),
+///       cat: (
+///         cols-num: 12,
+///         col-width: 84px,
+///         gutter-width: 32px,
+///         gutter-type: 'fluid',
+///       ),
+///     ),
+///   );
+///
+///   // Usage
+///   .layout {
+///     display: grid;
+///     @include sassbox.inject-css-grid();
+///   }
+/// @since 1.0.0
+/// @group layout
+/// @see $css-grid
 
-/// Inject CSS grid columns for configuration in `$css-grid`.
 @mixin inject-css-grid() {
   @each $bp-cfg in config.$css-grid {
     $bp-name: nth($bp-cfg, 1);
@@ -44,4 +61,27 @@
       @warn "Breakpoint '#{$bp-name}' is not defined in $breakpoints. Check your configuration in $css-grid, make sure $breakpoints is available or add the breakpoint to $breakpoints.";
     }
   }
+}
+
+// Helper: Returns `grid-template-colums`-value for a given grid-configuration
+
+@function -grid-tmpl-cols($grid-cfg) {
+  $cols-num: map-get($grid-cfg, 'cols-num');
+  $gutter-width: map-get($grid-cfg, 'gutter-width');
+  $col-val: 1fr; // will be updated for fluid gutters
+  $gutter-val: $gutter-width; // will be updated for fluid gutters
+  // CSS grid not required as we have only a single column
+  @if ($cols-num == 1) {
+    @return [grid-start col-start] $col-val [col-end grid-end];
+  }
+  // Fluid gutters
+  @if map-get($grid-cfg, 'gutter-type') == 'fluid' {
+    $col-width: map-get($grid-cfg, 'col-width');
+    $layout-width: $cols-num * $col-width + ($cols-num - 1) * $gutter-width;
+    $col-val: math.percentage($col-width / $layout-width);
+    $gutter-val: math.percentage($gutter-width / $layout-width);
+  }
+  @return [grid-start]
+    repeat($cols-num - 1, [col-start] $col-val [col-end] $gutter-val)
+    [col-start] $col-val [col-end grid-end];
 }

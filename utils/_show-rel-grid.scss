@@ -3,7 +3,22 @@
 @use './rel-grid';
 @use '~sass-mq/mq';
 
-// Show grid (overlay)
+/// # Show relative grid
+/// Display the relative grid by adding a class-name to the html element. The
+/// class-name defaults to "show-rel-grid" but can be customized.
+/// @output
+///   A CSS rule to display the relative grid according to your configuration.
+/// @param {string} $class-name [show-rel-grid] -
+///   A custom class-name
+/// @example scss - Usually included once in your root stylesheet
+///   @use '~@pixelherz/sassbox';
+///
+///   @include sassbox.show-rel-grid($class-name: 'show-grid');
+/// @example html - Add the class to your `html` element to make the grid visible
+///   <html class="show-grid">
+/// @since 1.0.0
+/// @group layout
+
 @mixin show-rel-grid($class-name: 'show-rel-grid') {
   html.#{$class-name} {
     &::before,

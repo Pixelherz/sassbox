@@ -1,13 +1,45 @@
 @use 'sass:math';
 
+/// Convert `px` to `rem`.
+/// @param {number} $value -
+///   The value in pixels to be converted to `rem`
+/// @return {number} -
+///   Converted value in `rem`
+/// @example scss - Input value is interpreted as `px`, unit is ignored
+///   font-size: sassbox.pxToRem(24px); // 1.5rem
+///   font-size: sassbox.pxToRem(24); // 1.5rem
+/// @since 1.0.0
+/// @group conversion
+
 @function px-to-rem($value) {
   $unitless: strip-unit($value);
   @return math.div($unitless, 16) * 1rem;
 }
 
+/// Convert `rem` to `px`
+/// @param {number} $value -
+///   The value in `rem` to be converted to `px`
+/// @return {number} -
+///   Converted value in `px`
+/// @example scss - Input value is interpreted as `rem`, unit is ignored
+///   font-size: sassbox.remToPx(1.5rem); // 24px
+///   font-size: sassbox.remToPx(1.5); // 24px
+/// @since 1.0.0
+/// @group conversion
+
 @function rem-to-px($value) {
   @return strip-unit($value) * 16px;
 }
+
+/// Strip unit
+/// @param {number} $value -
+///   Any numeric value
+/// @return {number} -
+///   Unitless value
+/// @example scss
+///   sassbox.strip-unit(16cm); // 16
+/// @since 1.0.0
+/// @group conversion
 
 @function strip-unit($value) {
   @return math.div($value, $value * 0 + 1);

@@ -2,18 +2,54 @@
 @use 'sass:math';
 
 /// Calculates grid widths based on the given params and returns the width
-/// as absolute (px) or relative (%) value.
+/// as absolute (`px`) or relative (`%`) value.
 ///
-/// NOTE: The gutters enclosed by columns must not be declared in the $gutters
-/// parameter (ie. param $cols: 3 returns the width of 3 cols and 2 gutters).
-/// The $gutters param is used only for extra-gutter (left/right of the cols).
+/// *Note:* The gutters enclosed by columns must not be declared in the
+/// `$gutters` parameter (e.g. param `$cols: 3` returns the width of 3 cols and
+///  2 gutters). The `$gutters` param is used for extra-gutter only (left/right
+///  of the cols).
 ///
-/// @param {int} $cols [0] - The number of columns the width should span
-/// @param {int} $gutters [0] - The number of extra gutters the width should span
-/// @param {enum | int} $base-cols ['all'] - The number of columns used as base for relative values. Use this param if the parent element is not using the grid's full layout width.
-/// @param {int} $base-gutters [0] – The number of extra gutters to be included in the base calculation. NOTE: Gutters enclosed by colums ($base-cols) must not be declared. This param is used only for extra gutters *outside* the $base-cols.
-/// @param {int} $base-extra [0] - Accepts a px value to adjust base width (ie. if the base does not align with the global grid).
-/// @param {enum} $scale ['rel'] - Use 'rel' to return a relative value (%) or 'abs' to return an absolute value (px).
+/// @param {int} $cols [0] -
+///   The number of columns the width should span
+/// @param {int} $gutters [0] -
+///   The number of extra gutters the width should span
+/// @param {enum | int} $base-cols ['all'] -
+///   The number of columns used as base for relative values. Use this param if
+///   the parent element is not using the grid's full layout width.
+/// @param {int} $base-gutters [0] –
+///   The number of extra gutters to be included in the base calculation.
+///   *Note:* Gutters enclosed by colums (`$base-cols`) must not be declared.
+///   This param is used only for extra gutters *outside* the `$base-cols`.
+/// @param {int} $base-extra [0] -
+///   Accepts a px value to adjust base width (e.g. if the base does not align
+///   with the global grid).
+/// @param {enum} $scale ['rel'] -
+///   Use 'rel' to return a relative value (%) or 'abs' to return an absolute
+///   value (px).
+/// @return {number} - relative width in `%`
+/// @example scss
+///   // Configuration
+///   @use '~@pixelherz/sassbox' with (
+///     $layout-max-width: 1360px,
+///     $rel-grid-gutter-width: 32px,
+///     $rel-grid-col-width: 84px,
+///     $grid-offset: (
+///       default: 15px,
+///       mouse: 30px,
+///       rabbit: 60px,
+///     ),
+///   );
+///
+///   // Usage: 3 column layout
+///   .col {
+///     width: sassbox.grid-width($cols: 4);
+///     margin-right: sassbox.grid-width($gutters: 1);
+///     &:nth-of-type(3n + 0) {
+///       margin-right: 0;
+///     }
+///   }
+/// @since 1.0.0
+/// @group layout
 @function grid-width(
   $cols: 0,
   $gutters: 0,

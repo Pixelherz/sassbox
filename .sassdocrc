@@ -3,4 +3,9 @@ dest: docs/
 exclude:
   - node_modules/**/*.scss
 groups:
-  conversion: Conversion
+  config: "Configuration"
+  conversion: "Conversion"
+  layout: "Layout"
+  misc: "Miscellaneous"
+  normalize: "Normalize"
+  typography: "Typography"

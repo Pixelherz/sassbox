@@ -1,16 +1,16 @@
-// Reset, normalize or unify browser rendering
-
-// Use `border-box` box-sizing globally. For older or 3rd party components you can still
-// reset box-sizing to `content-box`:
-//
-// .some-module {
-//   box-sizing: content-box;
-// }
-//
-// The inheriting snippent below will make sure the box-sizing property will be inherited.
-//
-// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
-// https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+/// # Normalize
+/// Reset, normalize or unify browser rendering. Use `box-sizing: border-box`
+/// globally.
+/// @output
+///   A bunch of CSS rules to unify browser rendering.
+/// @example scss - Usually included once in your root stylesheet
+///   @include sassbox.normalize();
+/// @example scss - For older or 3rd party components you can still reset box-sizing to `content-box`
+///   .some-module { box-sizing: content-box; }
+/// @link http://www.paulirish.com/2012/box-sizing-border-box-ftw/ * { Box-sizing: Border-box } FTW
+/// @link https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ Inheriting box-sizing Probably Slightly Better Best-Practice
+/// @since 1.0.0
+/// @group misc
 
 @mixin normalize() {
   html {
