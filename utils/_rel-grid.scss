@@ -28,7 +28,7 @@
   @if ($scale == 'abs') {
     @return $width;
   }
-  $base: base-width(
+  $base: -base-width(
       $cols: $base-cols,
       $gutters: $base-gutters,
     ) + $base-extra;
@@ -37,7 +37,7 @@
 
 // Helper function to calculate the absolute width of a given number of
 // columns and gutters.
-@function base-width($cols: 'all', $gutters: 0) {
+@function -base-width($cols: 'all', $gutters: 0) {
   $width: 0;
   @if ($cols == 'all') {
     $width: config.$layout-max-width;
