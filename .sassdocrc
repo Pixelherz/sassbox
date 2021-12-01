@@ -8,4 +8,4 @@ groups:
   layout: "Layout"
   misc: "Miscellaneous"
   normalize: "Normalize"
-  typography: "Typography"
+  type: "Typography"
