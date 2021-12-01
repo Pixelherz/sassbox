@@ -2,13 +2,13 @@
 @use 'sass:math';
 @use '~sass-mq/mq';
 
-/// Get the max grid offset (outer gutter, horizontal margin).
+/// Get the maximum layout offset (outer gutter, horizontal margin).
 /// @return {number} -
-///   maximum value from `$grid-offset`
+///   maximum value from `$layout-offset`
 /// @example scss
 ///   // Configuration
 ///   @use '~@pixelherz/sassbox' with (
-///     $grid-offset: (
+///     $layout-offset: (
 ///       default: 20px,
 ///       mouse: 40px,
 ///       rabbit: 80px,
@@ -18,27 +18,27 @@
 ///
 ///   // Usage
 ///   .page {
-///     // grid-max-offset() will return `80px`
-///     max-width: #{sassbox.$layout-max-width + (sassbox.grid-max-offset() * 2)}; // 1520px
+///     // layout-max-offset() will return `80px`
+///     max-width: #{sassbox.$layout-max-width + (sassbox.layout-max-offset() * 2)}; // 1520px
 ///   }
 /// @since 1.0.0
 /// @group layout
 /// @see layout-max-width
 
-@function grid-max-offset() {
+@function layout-max-offset() {
   // Collect all offsets (outer gutter) in a list.
   // We'll use this later to get the max offset.
-  $grid-offsets: ();
-  @each $bp in config.$grid-offset {
-    $grid-offsets: append($grid-offsets, nth($bp, 2));
+  $layout-offsets: ();
+  @each $bp in config.$layout-offset {
+    $layout-offsets: append($layout-offsets, nth($bp, 2));
   }
-  @return math.max(0, $grid-offsets...);
+  @return math.max(0, $layout-offsets...);
 }
 
-/// Apply vertical offset
+/// Apply horizontal offset
 /// @output
 ///   Applies the left/right offset for all breakpoints defined in your
-///   configuration (`$grid-offset`).
+///   configuration (`$layout-offset`).
 /// @param {string} $prop ['margin'] -
 ///   By default the properties `margin-left` and `margin-right` are used. Use
 ///   this parameter if you prefer another property (`padding` makes sense in
@@ -46,7 +46,7 @@
 /// @example scss
 ///   // Configuration
 ///   @use '~@pixelherz/sassbox' with (
-///     $grid-offset: (
+///     $layout-offset: (
 ///       default: 20px,
 ///       mouse: 40px,
 ///       rabbit: 80px,
@@ -55,13 +55,13 @@
 ///
 ///   // Usage
 ///   .layout {
-///     @include sassbox.apply-grid-offset($prop: 'padding');
+///     @include sassbox.apply-layout-offset($prop: 'padding');
 ///   }
 /// @since 1.0.0
 /// @group layout
 
-@mixin apply-grid-offset($prop: 'margin') {
-  @each $offset in config.$grid-offset {
+@mixin apply-layout-offset($prop: 'margin') {
+  @each $offset in config.$layout-offset {
     $bp-name: nth($offset, 1);
     $offset-val: nth($offset, 2);
     // Default (no breakpoint)
@@ -78,7 +78,19 @@
     }
     // Breakpoint invalid
     @else {
-      @warn "Breakpoint '#{$bp-name}' is not defined in $breakpoints. Check your configuration in $grid-offset, make sure $breakpoints is available or add the breakpoint to $breakpoints.";
+      @warn "Breakpoint '#{$bp-name}' is not defined in $breakpoints. Check your configuration in $layout-offset, make sure $breakpoints is available or add the breakpoint to $breakpoints.";
     }
   }
+}
+
+// Legacy support for <1.0.0, can be dropped with >=2.0.0
+
+@function grid-max-offset() {
+  @warn "Function grid-max-offset() is deprecated and will be removed. Use layout-max-offset() instead.";
+  @return layout-max-offset();
+}
+
+@mixin apply-grid-offset($prop: 'margin') {
+  @warn "Mixin apply-grid-offset() is deprecated and will be removed. Use apply-layout-offset() instead.";
+  @include apply-layout-offset($prop);
 }

@@ -29,7 +29,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Typography: `font-size` and `line-height` are set in `rem` (was `px` before).
 
-- Grid: Rename `grid-width` to `rel-grid-width`
+- Grid: 
+  - Rename `grid-width` → `rel-grid-width`
+  - Rename `grid-offset` → `layout-offset`
+  - Rename `apply-grid-offset` → `apply-layout-offset`
 
 - Update `sass-mq@latest` (beta): The latest stable release (v5.x) uses division, which is deprecated. The beta (v6) uses `math.div` instead.
 

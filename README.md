@@ -54,6 +54,15 @@ Have a look at the [Docs](#documentation) for a complete list of configuration o
 
 Documentation is included in the npm packages (`./docs`). 
 
+### CSS grid vs. relative grid
+
+Sassbox includes a bunch of mixins and functions that help you build grid layouts. Be aware that the library supports two flavours of layout grids:
+
+- Relative grid (`rel-grid`)
+- CSS grid (`css-grid`)
+
+Variable, function and mixin names indicate their purpose (`rel-grid` for relative grids, `css-grid` for CSS grid).
+
 ### Write docs
 
 We use [SassDoc](http://sassdoc.com) for documentation. 

@@ -8,14 +8,14 @@
 
 $layout-max-width: 1360px !default;
 
-/// # Grid offset in pixels
+/// # Layout offset in pixels
 /// This value defines the outer gutter, the horizontal margin or the
 /// horizontal space between the content/grid and the "page" edge.
 /// @type map
 /// @since 1.0.0
 /// @group config
 
-$grid-offset: (
+$layout-offset: (
   default: 15px,
 ) !default;
 

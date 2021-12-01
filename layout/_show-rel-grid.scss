@@ -1,5 +1,5 @@
 @use '../config';
-@use './grid';
+@use './offset';
 @use './rel-grid';
 @use '~sass-mq/mq';
 
@@ -36,7 +36,7 @@
       height: 100%;
       transform: translateX(-50%);
       width: 100%;
-      max-width: #{config.$layout-max-width + (grid.grid-max-offset() * 2)};
+      max-width: #{config.$layout-max-width + (offset.layout-max-offset() * 2)};
       background-color: transparent;
       background-repeat: no-repeat;
       background-image: repeating-linear-gradient(
@@ -48,31 +48,31 @@
       );
       border: none;
 
-      @each $offset in config.$grid-offset {
+      @each $offset in config.$layout-offset {
         $bp-name: nth($offset, 1);
         // Default (no breakpoint)
         @if $bp-name == 'default' {
-          background-position: map-get(config.$grid-offset, $bp-name) 0;
+          background-position: map-get(config.$layout-offset, $bp-name) 0;
           background-size: calc(
-            100% - #{map-get(config.$grid-offset, $bp-name) * 2}
+            100% - #{map-get(config.$layout-offset, $bp-name) * 2}
           );
         }
         // Breakpoint
         @else if map-has-key(mq.$breakpoints, $bp-name) {
           @include mq.mq($from: $bp-name) {
-            background-position: map-get(config.$grid-offset, $bp-name) 0;
+            background-position: map-get(config.$layout-offset, $bp-name) 0;
             background-size: calc(
-              100% - #{map-get(config.$grid-offset, $bp-name) * 2}
+              100% - #{map-get(config.$layout-offset, $bp-name) * 2}
             );
           }
         }
         // Breakpoint invalid
         @else {
-          @warn "Breakpoint '#{$bp-name}' is not defined in $breakpoints. Check your configuration in $grid-offset, make sure $breakpoints is available or add the breakpoint to $breakpoints.";
+          @warn "Breakpoint '#{$bp-name}' is not defined in $breakpoints. Check your configuration in $layout-offset, make sure $breakpoints is available or add the breakpoint to $breakpoints.";
         }
       }
 
-      @media (min-width: #{config.$layout-max-width + (grid.grid-max-offset() * 2)}) {
+      @media (min-width: #{config.$layout-max-width + (offset.layout-max-offset() * 2)}) {
         outline: 1px solid deepskyblue;
       }
     }
