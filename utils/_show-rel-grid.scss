@@ -42,9 +42,9 @@
       background-image: repeating-linear-gradient(
         to right,
         rgba(cyan, 0.3) 0,
-        rgba(cyan, 0.3) rel-grid.grid-width($cols: 1),
-        transparent rel-grid.grid-width($cols: 1),
-        transparent rel-grid.grid-width($cols: 1, $gutters: 1)
+        rgba(cyan, 0.3) rel-grid.rel-grid-width($cols: 1),
+        transparent rel-grid.rel-grid-width($cols: 1),
+        transparent rel-grid.rel-grid-width($cols: 1, $gutters: 1)
       );
       border: none;
 

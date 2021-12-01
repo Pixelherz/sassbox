@@ -42,15 +42,16 @@
 ///
 ///   // Usage: 3 column layout
 ///   .col {
-///     width: sassbox.grid-width($cols: 4);
-///     margin-right: sassbox.grid-width($gutters: 1);
+///     width: sassbox.rel-grid-width($cols: 4);
+///     margin-right: sassbox.rel-grid-width($gutters: 1);
 ///     &:nth-of-type(3n + 0) {
 ///       margin-right: 0;
 ///     }
 ///   }
 /// @since 1.0.0
 /// @group layout
-@function grid-width(
+
+@function rel-grid-width(
   $cols: 0,
   $gutters: 0,
   $base-cols: 'all',
@@ -78,10 +79,31 @@
   @if ($cols == 'all') {
     $width: config.$layout-max-width;
   } @else {
-    $width: grid-width(
+    $width: rel-grid-width(
       $cols: $cols,
       $scale: 'abs',
     );
   }
-  @return $width + (grid-width($gutters: $gutters, $scale: 'abs'));
+  @return $width + (rel-grid-width($gutters: $gutters, $scale: 'abs'));
+}
+
+// Legacy support for <1.0.0, can be dropped with >=2.0.0
+
+@function grid-width(
+  $cols: 0,
+  $gutters: 0,
+  $base-cols: 'all',
+  $base-gutters: 0,
+  $base-extra: 0,
+  $scale: 'rel'
+) {
+  @warn "Function grid-width() is deprecated and will be removed. Use rel-grid-width() instead.";
+  @return rel-grid-width(
+    $cols,
+    $gutters,
+    $base-cols,
+    $base-gutters,
+    $base-extra,
+    $scale
+  );
 }
