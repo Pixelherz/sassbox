@@ -3,7 +3,9 @@
 @use 'sass:math';
 @use '~sass-mq/mq';
 
-/// Mixin to ensure font sizes and line heights are used consistently.
+/// Allows usage of global typographic presets instead of definitions spread
+/// accross your project. Supports responsive presets (checkout configuration
+/// property `$fluid-type` in the example below).
 /// @param {enum} $size ['m'] -
 ///   The key for the requested font size
 /// @param {bool} $set-line-height [true] -
@@ -51,22 +53,22 @@
 ///
 ///   // Usage
 ///   .title {
-///     @include sassbox.font-size('l');
+///     @include sassbox.use-type('l');
 ///   }
 ///   .paragraph {
-///     @include sassbox.font-size('m', $set-vertical-offset: true);
+///     @include sassbox.use-type('m', $set-vertical-offset: true);
 ///   }
 /// @since 1.0.0
 /// @group type
 
-@mixin font-size(
+@mixin use-type(
   $size: 'm',
   $set-line-height: true,
   $set-vertical-offset: false,
   $set-responsive: true
 ) {
   @if ($set-responsive != true) {
-    @include -set-font-size($size, $set-line-height, $set-vertical-offset);
+    @include -apply-styles($size, $set-line-height, $set-vertical-offset);
   } @else if map-has-key(config.$fluid-type, $size) {
     $bps: map-get(config.$fluid-type, $size);
     @each $bp in $bps {
@@ -74,7 +76,7 @@
       $bp-size: nth($bp, 2);
       // Default (no breakpoint)
       @if ($bp-name == 'default') {
-        @include -set-font-size(
+        @include -apply-styles(
           $bp-size,
           $set-line-height,
           $set-vertical-offset
@@ -83,7 +85,7 @@
       // Breakpoint
       @else if map-has-key(mq.$breakpoints, $bp-name) {
         @include mq.mq($from: $bp-name) {
-          @include -set-font-size(
+          @include -apply-styles(
             $bp-size,
             $set-line-height,
             $set-vertical-offset
@@ -96,12 +98,12 @@
       }
     }
   } @else {
-    @include -set-font-size($size, $set-line-height, $set-vertical-offset);
+    @include -apply-styles($size, $set-line-height, $set-vertical-offset);
   }
 }
 
-// Helper for mixin font-size
-@mixin -set-font-size(
+// Helper for mixin use-preset
+@mixin -apply-styles(
   $size: 'm',
   $set-line-height: true,
   $set-vertical-offset: false
@@ -127,4 +129,21 @@
     margin-top: $offset-v;
     margin-bottom: $offset-v;
   }
+}
+
+// Legacy support for <1.0.0, can be dropped with >=2.0.0
+
+@mixin font-size(
+  $size: 'm',
+  $set-line-height: true,
+  $set-vertical-offset: false,
+  $set-responsive: true
+) {
+  @warn "Mixin font-size() is deprecated and will be removed. Use use-type() instead.";
+  @include use-type(
+    $size,
+    $set-line-height,
+    $set-vertical-offset,
+    $set-responsive
+  );
 }

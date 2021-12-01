@@ -7,14 +7,21 @@
 ///   @use '~@pixelherz/sassbox';
 ///
 ///   .action-button {
-///     @include sassbox.un-button();
+///     @include sassbox.reset-button();
 ///   }
 /// @since 1.0.0
 /// @group misc
 
-@mixin un-button() {
+@mixin reset-button() {
   border: 0;
   outline: none;
   appearance: none;
   background-color: transparent;
+}
+
+// Legacy support for <1.0.0, can be dropped with >=2.0.0
+
+@mixin un-button() {
+  @warn "Mixin un-button() is deprecated and will be removed. Use reset-button() instead.";
+  @include reset-button();
 }

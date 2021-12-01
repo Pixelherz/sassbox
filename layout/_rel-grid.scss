@@ -42,8 +42,8 @@
 ///
 ///   // Usage: 3 column layout
 ///   .col {
-///     width: sassbox.rel-grid-width($cols: 4);
-///     margin-right: sassbox.rel-grid-width($gutters: 1);
+///     width: sassbox.get-rel-grid-width($cols: 4);
+///     margin-right: sassbox.get-rel-grid-width($gutters: 1);
 ///     &:nth-of-type(3n + 0) {
 ///       margin-right: 0;
 ///     }
@@ -51,7 +51,7 @@
 /// @since 1.0.0
 /// @group layout
 
-@function rel-grid-width(
+@function get-rel-grid-width(
   $cols: 0,
   $gutters: 0,
   $base-cols: 'all',
@@ -79,12 +79,12 @@
   @if ($cols == 'all') {
     $width: config.$layout-max-width;
   } @else {
-    $width: rel-grid-width(
+    $width: get-rel-grid-width(
       $cols: $cols,
       $scale: 'abs',
     );
   }
-  @return $width + (rel-grid-width($gutters: $gutters, $scale: 'abs'));
+  @return $width + (get-rel-grid-width($gutters: $gutters, $scale: 'abs'));
 }
 
 // Legacy support for <1.0.0, can be dropped with >=2.0.0
@@ -97,8 +97,8 @@
   $base-extra: 0,
   $scale: 'rel'
 ) {
-  @warn "Function grid-width() is deprecated and will be removed. Use rel-grid-width() instead.";
-  @return rel-grid-width(
+  @warn "Function grid-width() is deprecated and will be removed. Use get-rel-grid-width() instead.";
+  @return get-rel-grid-width(
     $cols,
     $gutters,
     $base-cols,

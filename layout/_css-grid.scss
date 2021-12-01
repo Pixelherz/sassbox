@@ -36,13 +36,13 @@
 ///   // Usage
 ///   .layout {
 ///     display: grid;
-///     @include sassbox.inject-css-grid();
+///     @include sassbox.use-css-grid();
 ///   }
 /// @since 1.0.0
 /// @group layout
 /// @see $css-grid
 
-@mixin inject-css-grid() {
+@mixin use-css-grid() {
   @each $bp-cfg in config.$css-grid {
     $bp-name: nth($bp-cfg, 1);
     $grid-cfg: nth($bp-cfg, 2);
@@ -84,4 +84,11 @@
   @return [grid-start]
     repeat($cols-num - 1, [col-start] $col-val [col-end] $gutter-val)
     [col-start] $col-val [col-end grid-end];
+}
+
+// Legacy support for <1.0.0, can be dropped with >=2.0.0
+
+@mixin inject-css-grid() {
+  @warn "Mixin inject-css-grid() is deprecated and will be removed. Use use-css-grid() instead.";
+  @include use-css-grid();
 }

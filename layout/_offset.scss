@@ -18,14 +18,14 @@
 ///
 ///   // Usage
 ///   .page {
-///     // layout-max-offset() will return `80px`
-///     max-width: #{sassbox.$layout-max-width + (sassbox.layout-max-offset() * 2)}; // 1520px
+///     // get-layout-max-offset() will return `80px`
+///     max-width: #{sassbox.$layout-max-width + (sassbox.get-layout-max-offset() * 2)}; // 1520px
 ///   }
 /// @since 1.0.0
 /// @group layout
 /// @see layout-max-width
 
-@function layout-max-offset() {
+@function get-layout-max-offset() {
   // Collect all offsets (outer gutter) in a list.
   // We'll use this later to get the max offset.
   $layout-offsets: ();
@@ -55,12 +55,12 @@
 ///
 ///   // Usage
 ///   .layout {
-///     @include sassbox.apply-layout-offset($prop: 'padding');
+///     @include sassbox.use-layout-offset($prop: 'padding');
 ///   }
 /// @since 1.0.0
 /// @group layout
 
-@mixin apply-layout-offset($prop: 'margin') {
+@mixin use-layout-offset($prop: 'margin') {
   @each $offset in config.$layout-offset {
     $bp-name: nth($offset, 1);
     $offset-val: nth($offset, 2);
@@ -86,11 +86,11 @@
 // Legacy support for <1.0.0, can be dropped with >=2.0.0
 
 @function grid-max-offset() {
-  @warn "Function grid-max-offset() is deprecated and will be removed. Use layout-max-offset() instead.";
-  @return layout-max-offset();
+  @warn "Function grid-max-offset() is deprecated and will be removed. Use get-layout-max-offset() instead.";
+  @return get-layout-max-offset();
 }
 
 @mixin apply-grid-offset($prop: 'margin') {
-  @warn "Mixin apply-grid-offset() is deprecated and will be removed. Use apply-layout-offset() instead.";
-  @include apply-layout-offset($prop);
+  @warn "Mixin apply-grid-offset() is deprecated and will be removed. Use use-layout-offset() instead.";
+  @include use-layout-offset($prop);
 }

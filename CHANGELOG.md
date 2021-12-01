@@ -30,9 +30,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Typography: `font-size` and `line-height` are set in `rem` (was `px` before).
 
 - Grid: 
-  - Rename `grid-width` → `rel-grid-width`
+  - Rename `grid-width` → `get-rel-grid-width`
   - Rename `grid-offset` → `layout-offset`
-  - Rename `apply-grid-offset` → `apply-layout-offset`
+  - Rename `apply-grid-offset` → `use-layout-offset`
+  - Rename `grid-max-offset` → `get-layout-max-offset`
+
+- Miscellaneous: Rename `un-button` → `reset-button`
+
+- Type: Rename `font-size` → `use-type`
 
 - Update `sass-mq@latest` (beta): The latest stable release (v5.x) uses division, which is deprecated. The beta (v6) uses `math.div` instead.
 
