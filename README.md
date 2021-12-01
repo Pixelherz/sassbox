@@ -52,7 +52,7 @@ Have a look at the [Docs](#documentation) for a complete list of configuration o
 
 ## Documentation
 
-Documentation is included in the npm packages (`./docs`). 
+Documentation is included in the npm packages (`./docs`) or can be [built from source code](#build-docs).
 
 ### CSS grid vs. relative grid
 
