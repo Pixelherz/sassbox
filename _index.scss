@@ -3,10 +3,5 @@
 @forward '~sass-mq/mq';
 
 @forward './conversion';
+@forward './type';
 @forward './misc';
-@forward './type/';
-
-@forward './utils/css-grid';
-@forward './utils/grid';
-@forward './utils/rel-grid';
-@forward './utils/show-rel-grid';
