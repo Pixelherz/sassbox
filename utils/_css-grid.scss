@@ -78,8 +78,8 @@
   @if map-get($grid-cfg, 'gutter-type') == 'fluid' {
     $col-width: map-get($grid-cfg, 'col-width');
     $layout-width: $cols-num * $col-width + ($cols-num - 1) * $gutter-width;
-    $col-val: math.percentage($col-width / $layout-width);
-    $gutter-val: math.percentage($gutter-width / $layout-width);
+    $col-val: math.percentage(math.div($col-width, $layout-width));
+    $gutter-val: math.percentage(math.div($gutter-width, $layout-width));
   }
   @return [grid-start]
     repeat($cols-num - 1, [col-start] $col-val [col-end] $gutter-val)
