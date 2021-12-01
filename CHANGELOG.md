@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Deprecate `grid-width` in favour of `get-rel-grid-width`
   - Deprecate `grid-offset` in favour of `layout-offset`
   - Deprecate `apply-grid-offset` in favour of `use-layout-offset`
+  - Deprecate `inject-css-grid` in favour of `use-css-grid`
   - Deprecate `grid-max-offset` in favour of `get-layout-max-offset`
 - Miscellaneous: Deprecate `un-button` in favour of `reset-button`
 - Type: Deprecate `font-size` in favour of `use-type`
