@@ -113,6 +113,7 @@ Use a single configured `@forward` to import the library. Then `@use` this forwa
 
 - Move configuration to the `with()` statement in your configured forward (s. [section import](#import)).
 - Remove all prefixes from configuration variables (`ph-` and `mq-`).
+- Remove `$ph-font-family--default` as it's no longer required.
 - Rename the following configuration property
 
 | v0.x                  | v1.x                    |
@@ -154,7 +155,21 @@ In 0.x versions, normalize was applied by default. With 1.x, normalize has moved
 @include sassbox.normalize();
 ```
 
-#### 6. Test your app
+#### 6. Replace `sass-mq` with `sassbox.mq`
+
+Remove `sass-mq` as it's now part of this library. 
+
+```scss
+// Remove imports
+@import '~sass-mq/mq'; // <-- delete 
+
+// prior v1.x
+@include mq($from: "my-breakpoint") {}
+// v1.x
+@include sassbox.mq($from: "my-breakpoint") {}
+```
+
+#### 7. Test your app
 
 That's it. Time to run and check your app!
 
