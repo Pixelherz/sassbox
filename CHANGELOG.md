@@ -22,14 +22,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Update `sass-mq@latest` (beta): The latest stable release (v5.x) uses division, which is deprecated. The beta (v6) uses `math.div` instead.
 ### Deprecated
-- Grid: 
+- Grid 
   - Deprecate `grid-width` in favour of `get-rel-grid-width`
   - Deprecate `grid-offset` in favour of `layout-offset`
   - Deprecate `apply-grid-offset` in favour of `use-layout-offset`
   - Deprecate `inject-css-grid` in favour of `use-css-grid`
   - Deprecate `grid-max-offset` in favour of `get-layout-max-offset`
-- Miscellaneous: Deprecate `un-button` in favour of `reset-button`
-- Type: Deprecate `font-size` in favour of `use-type`
+- Miscellaneous 
+  - Deprecate `un-button` in favour of `reset-button`
+- Type
+  - Deprecate `font-size` in favour of `use-type`
+- Conversion
+  - Deprecate `pxToRem` in favour of `px-to-rem`
+  - Deprecate `remToPx` in favour of `rem-to-px`
 ### Removed
 - Feature picking (e.g. `@import "~@pixelherz/sassbox/utils/grid"`) is no longer supported. Import the complete library instead. 
 
