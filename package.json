@@ -31,5 +31,9 @@
   },
   "dependencies": {
     "sass-mq": "^6.0.0-beta.1"
+  },
+  "devDependencies": {
+    "sass": "^1.44.0",
+    "sassdoc": "^2.7.3"
   }
 }
