@@ -1,7 +1,5 @@
 src: ./
 dest: docs/
-exclude:
-  - node_modules/**/*.scss
 groups:
   config: "Configuration"
   conversion: "Conversion"
@@ -9,3 +7,4 @@ groups:
   misc: "Miscellaneous"
   normalize: "Normalize"
   type: "Typography"
+  undefined: "Media Queries (sass-mq)"
