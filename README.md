@@ -2,6 +2,16 @@
 
 Sass utils we frequently use in our projects.
 
+## Contents
+
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Documentation](#documentation)
+- [Upgrade Guide](#upgrade-guide)
+- [Versioning](#versioning)
+- [Licence](#license)
+- [Contact](#contact)
 
 ## Getting Started
 
@@ -73,7 +83,7 @@ We use [SassDoc](http://sassdoc.com) for documentation.
 npm run build-docs
 ```
 
-## Upgrade
+## Upgrade Guide
 
 ### Upgrade from v0.11.1 to v1.x
 
