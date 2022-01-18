@@ -1,28 +1,96 @@
-// Layout definitions
+// Layout configuration
 
-/// Layout max-width in `px` without outer gutter/offset
-$ph-layout-max-width: 1360px !default;
+/// # Layout max-width in pixels
+/// This value defines the layout- or content width without outer gutter/offset.
+/// @type number
+/// @since 1.0.0
+/// @group config
 
-/// Grid offset / outer gutter / horizontal margin
-$ph-grid-offset: (
-  'default': 15px,
+$layout-max-width: 1360px !default;
+
+/// # Layout offset in pixels
+/// This value defines the outer gutter, the horizontal margin or the
+/// horizontal space between the content/grid and the "page" edge.
+/// @type map
+/// @since 1.0.0
+/// @group config
+
+$layout-offset: (
+  default: 15px,
 ) !default;
 
-// CSS grid configuration
-$ph-css-grid: (
-  'default': (
-    'cols-num': 6,
-    'col-width': 40px,
-    'gutter-width': 12px,
-    'gutter-type': 'static',
+/// # CSS grid definition
+/// This value defines the css grid for a given breakpoint. The grid is
+/// inherited by bigger/wider breakpoints unless these breakpoints have their
+/// own config ("from"). Breakpoint names must match the names used in
+/// `$breakpoints`.
+/// @type map
+/// @prop {map} css-grid.[my-breakpoint] [s. below] -
+///   CSS grid definition for a given breakpoint.
+/// @prop {number} css-grid.[my-breakpoint].cols-num [6] -
+///   Number of columns (e.g. 12)
+/// @prop {number} css-grid.[my-breakpoint].col-width [40px] -
+///   Width of a single column in pixels. Even if the width is configured in
+///   pixels, column width will always be fluid/relative.
+/// @prop {number} css-grid.[my-breakpoint].gutter-width [12px] -
+///   Gutter width in pixels. To use relative values (%) just use
+///   `gutter-type: 'fluid'`.
+/// @prop {string} css-grid.[my-breakpoint].gutter-type ['static'] -
+///   `'static'` – the gutter width is set in pixels<br/>
+///   `'fluid'` – gutter width is set in percent (relative to `col-width`).
+/// @example scss
+///   @use '~@pixelherz/sassbox' with (
+///     $css-grid: (
+///         default: (
+///           cols-num: 6,
+///           col-width: 40px,
+///           gutter-width: 12px,
+///           gutter-type: 'static',
+///         ),
+///         rabbit: (
+///           cols-num: 9,
+///           col-width: 62px,
+///           gutter-width: 20px,
+///           gutter-type: 'static',
+///         ),
+///         cat: (
+///           cols-num: 12,
+///           col-width: 84px,
+///           gutter-width: 32px,
+///           gutter-type: 'fluid',
+///         ),
+///      ),
+///   );
+/// @since 1.0.0
+/// @group config
+
+$css-grid: (
+  default: (
+    cols-num: 6,
+    col-width: 40px,
+    gutter-width: 12px,
+    gutter-type: 'static',
   ),
 ) !default;
 
-// Relative grid configuration
+// Relative grid definition
 // Relative grid (rel-grid) refers to a legacy-style fluid grid (no CSS grid
 // involved). Same grid is used for *all* breakpoints.
 
-/// Gutter width in `px`
-$ph-rel-grid-gutter-width: 32px !default;
-/// Column width in `px`
-$ph-rel-grid-col-width: 84px !default;
+/// # Relative grid: Gutter width in pixels
+/// Relative grid is always fluid. Even if configured in pixels (static), the
+/// output definitions will be in percent (relative).
+/// @type number
+/// @since 1.0.0
+/// @group config
+
+$rel-grid-gutter-width: 32px !default;
+
+/// # Relative grid: Column width in pixels
+/// Relative grid is always fluid. Even if configured in pixels (static), the
+/// output definitions will be in percent (relative).
+/// @type number
+/// @since 1.0.0
+/// @group config
+
+$rel-grid-col-width: 84px !default;

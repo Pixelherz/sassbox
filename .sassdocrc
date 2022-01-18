@@ -1,0 +1,10 @@
+src: ./
+dest: docs/
+groups:
+  config: "Configuration"
+  conversion: "Conversion"
+  layout: "Layout"
+  misc: "Miscellaneous"
+  normalize: "Normalize"
+  type: "Typography"
+  undefined: "Media Queries (sass-mq)"

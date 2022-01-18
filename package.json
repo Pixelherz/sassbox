@@ -1,26 +1,10 @@
 {
   "name": "@pixelherz/sassbox",
-  "version": "0.11.1",
+  "version": "1.0.0",
   "description": "Sass utils we frequently use in our projects.",
-  "files": [
-    "_sassbox.scss",
-    "base/_all.scss",
-    "base/_normalize.scss",
-    "config/_all.scss",
-    "config/_layout.scss",
-    "config/_typography.scss",
-    "utils/_all.scss",
-    "utils/_conversion.scss",
-    "utils/_css-grid.scss",
-    "utils/_font-size.scss",
-    "utils/_grid.scss",
-    "utils/_rel-grid.scss",
-    "utils/_offset-text.scss",
-    "utils/_show-rel-grid.scss",
-    "utils/_un-button.scss"
-  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-docs": "sassdoc ."
   },
   "repository": {
     "type": "git",
@@ -32,7 +16,7 @@
   ],
   "author": {
     "name": "René Keller",
-    "email": "rek@pixelherz.com",
+    "email": "rene@pixelherz.com",
     "url": "https://pixelherz.com"
   },
   "license": "ISC",
@@ -46,6 +30,10 @@
     "semi": false
   },
   "dependencies": {
-    "sass-mq": "^5.0.1"
+    "sass-mq": "^6.0.0-beta.1"
+  },
+  "devDependencies": {
+    "sass": "^1.44.0",
+    "sassdoc": "^2.7.3"
   }
 }

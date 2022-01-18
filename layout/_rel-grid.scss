@@ -1,0 +1,109 @@
+@use '../config';
+@use 'sass:math';
+
+/// Calculates grid widths based on the given params and returns the width
+/// as absolute (`px`) or relative (`%`) value.
+///
+/// *Note:* The gutters enclosed by columns must not be declared in the
+/// `$gutters` parameter (e.g. param `$cols: 3` returns the width of 3 cols and
+///  2 gutters). The `$gutters` param is used for extra-gutter only (left/right
+///  of the cols).
+///
+/// @param {int} $cols [0] -
+///   The number of columns the width should span
+/// @param {int} $gutters [0] -
+///   The number of extra gutters the width should span
+/// @param {enum | int} $base-cols ['all'] -
+///   The number of columns used as base for relative values. Use this param if
+///   the parent element is not using the grid's full layout width.
+/// @param {int} $base-gutters [0] –
+///   The number of extra gutters to be included in the base calculation.
+///   *Note:* Gutters enclosed by colums (`$base-cols`) must not be declared.
+///   This param is used only for extra gutters *outside* the `$base-cols`.
+/// @param {int} $base-extra [0] -
+///   Accepts a px value to adjust base width (e.g. if the base does not align
+///   with the global grid).
+/// @param {enum} $scale ['rel'] -
+///   Use 'rel' to return a relative value (%) or 'abs' to return an absolute
+///   value (px).
+/// @return {number} - relative width in `%`
+/// @example scss
+///   // Configuration
+///   @use '~@pixelherz/sassbox' with (
+///     $layout-max-width: 1360px,
+///     $rel-grid-gutter-width: 32px,
+///     $rel-grid-col-width: 84px,
+///     $layout-offset: (
+///       default: 15px,
+///       mouse: 30px,
+///       rabbit: 60px,
+///     ),
+///   );
+///
+///   // Usage: 3 column layout
+///   .col {
+///     width: sassbox.get-rel-grid-width($cols: 4);
+///     margin-right: sassbox.get-rel-grid-width($gutters: 1);
+///     &:nth-of-type(3n + 0) {
+///       margin-right: 0;
+///     }
+///   }
+/// @since 1.0.0
+/// @group layout
+
+@function get-rel-grid-width(
+  $cols: 0,
+  $gutters: 0,
+  $base-cols: 'all',
+  $base-gutters: 0,
+  $base-extra: 0,
+  $scale: 'rel'
+) {
+  $gutters: max(0, $cols - 1) + $gutters;
+  $width: ($cols * config.$rel-grid-col-width) +
+    ($gutters * config.$rel-grid-gutter-width);
+  @if ($scale == 'abs') {
+    @return $width;
+  }
+  $base: -base-width(
+      $cols: $base-cols,
+      $gutters: $base-gutters,
+    ) + $base-extra;
+  @return math.div($width, $base) * 100%;
+}
+
+// Helper function to calculate the absolute width of a given number of
+// columns and gutters.
+@function -base-width($cols: 'all', $gutters: 0) {
+  $width: 0;
+  @if ($cols == 'all') {
+    $width: config.$layout-max-width;
+  } @else {
+    $width: get-rel-grid-width(
+      $cols: $cols,
+      $scale: 'abs',
+    );
+  }
+  @return $width + (get-rel-grid-width($gutters: $gutters, $scale: 'abs'));
+}
+
+// Legacy support for <1.0.0, can be dropped with >=2.0.0
+
+@function grid-width(
+  $cols: 0,
+  $gutters: 0,
+  $base-cols: 'all',
+  $base-gutters: 0,
+  $base-extra: 0,
+  $scale: 'rel'
+) {
+  @warn "Function grid-width() is deprecated and will be removed. Use get-rel-grid-width() instead.";
+  @return get-rel-grid-width(
+    $cols,
+    $gutters,
+    $base-cols,
+    $base-gutters,
+    $base-extra,
+    $scale
+  );
+}

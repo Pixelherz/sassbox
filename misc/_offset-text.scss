@@ -1,0 +1,21 @@
+/// Hides an element's content
+/// @output
+///   CSS definitions to off-set and hide the content of the element
+/// @example scss
+///   @use '~@pixelherz/sassbox';
+///
+///   .logotype {
+///     // The text "Company Name" will be set off-element
+///     // in favor of the background image
+///     @include sassbox.offset-text();
+///     background-image: url('logotype.svg');
+///   }
+/// @since 1.0.0
+/// @group misc
+
+@mixin offset-text() {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  text-transform: capitalize;
+}

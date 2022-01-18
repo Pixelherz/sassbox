@@ -1,0 +1,106 @@
+/// # Normalize
+/// Reset, normalize or unify browser rendering. Use `box-sizing: border-box`
+/// globally.
+/// @output
+///   A bunch of CSS rules to unify browser rendering.
+/// @example scss - Usually included once in your root stylesheet
+///   @include sassbox.normalize();
+/// @example scss - For older or 3rd party components you can still reset box-sizing to `content-box`
+///   .some-module { box-sizing: content-box; }
+/// @link http://www.paulirish.com/2012/box-sizing-border-box-ftw/ * { Box-sizing: Border-box } FTW
+/// @link https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ Inheriting box-sizing Probably Slightly Better Best-Practice
+/// @since 1.0.0
+/// @group misc
+
+@mixin normalize() {
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  // No focus border
+  *:focus {
+    outline: none;
+  }
+
+  // No spacing for html and body
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    -webkit-text-size-adjust: none;
+  }
+
+  // Use display:block for images
+  img {
+    display: block;
+  }
+
+  // Override default list style
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  // Remove margins from blockquote
+  blockquote {
+    margin: 0;
+  }
+
+  // Table reset
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  th {
+    text-align: left;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  button,
+  input,
+  textarea {
+    font-family: inherit;
+  }
+
+  svg {
+    display: block;
+  }
+
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  legend {
+    padding: 0;
+  }
+}

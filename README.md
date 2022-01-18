@@ -2,6 +2,16 @@
 
 Sass utils we frequently use in our projects.
 
+## Contents
+
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Documentation](#documentation)
+- [Upgrade Guide](#upgrade-guide)
+- [Versioning](#versioning)
+- [Licence](#license)
+- [Contact](#contact)
 
 ## Getting Started
 
@@ -9,299 +19,172 @@ Sass utils we frequently use in our projects.
 
 Install using npm:
 
-```
-npm install --save @pixelherz/sassbox
+```sh
+npm i @pixelherz/sassbox
 ```
 
 ## Usage
 
-You can import the complete toolbox in your project, pick single modules or even sub-modules (s. examples below). 
+Import the toolbox in your project. 
 
 ```scss
-// Import sassbox (complete)
+@use '~@pixelherz/sassbox' [with (<my-config>)];
+```
+
+## Configuration
+
+Typically you'll want to `@use` a configured `@forward` of the library. Here's a sample: 
+
+```scss
+// e.g. /styles/_sassbox.scss – configured @forward of the library
+@forward '@pixelherz/sassbox' with (
+  $font-sizes: (
+    's': 16px,
+    'm': 24px,
+    'l': 36px,
+  ),
+  $line-heights: (
+    's': 20px,
+    'm': 30px,
+    'l': 45px,
+  ),
+  // ... custom configuration
+);
+```
+
+```scss
+// e.g. /component/component.styles.scss
+@use '../styles/sassbox';
+@include sassbox.normalize();
+```
+
+Have a look at the [Docs](#documentation) for a complete list of configuration options.
+
+## Documentation
+
+[Documentation is available online](https://pixelherz.github.io/sassbox/) included in the npm packages (`./docs`) or can be [built from source code](#build-docs).
+
+### CSS grid vs. relative grid
+
+Sassbox includes a bunch of mixins and functions that help you build grid layouts. Be aware that the library supports two flavours of layout grids:
+
+- Relative grid (`rel-grid`)
+- CSS grid (`css-grid`)
+
+Variable, function and mixin names indicate their purpose (`rel-grid` for relative grids, `css-grid` for CSS grid).
+
+### Write docs
+
+We use [SassDoc](http://sassdoc.com) for documentation. 
+
+### Build docs
+
+```sh
+npm run build-docs
+```
+
+## Upgrade Guide
+
+### Upgrade from v0.11.1 to v1.x
+
+#### 1. Import
+
+Update your `@forward`, `@use` or `@import` statement (`with` clause is optional). Usage of  `@import` [is discouraged](https://sass-lang.com/documentation/at-rules/import). We recommend to replace it with a configured `@forward`. If you prefere, you can also use `@use`.
+
+```scss
+// v0.x
+@forward '~@pixelherz/sassbox/sassbox' [with (...)];
+@use '~@pixelherz/sassbox/sassbox' [with (...)];
 @import '~@pixelherz/sassbox/sassbox';
 ```
 
-### Base
+Use a single configured `@forward` to import the library. Then `@use` this forward. Note that _the import path has changed_. 
 
 ```scss
-// Import module sassbox/base
-@import '~@pixelherz/sassbox/base/all';
-```
-
-#### Normalize
-
-Reset, normalize or unify browser rendering. Includes global usage of `box-sizing: border-box`. 
-
-```scss
-// Config
-
-// Button elements are forced to use the default font-family
-$ph-font-family--default: 'Fancy Font', 'Helvetica', 'Arial', sans-serif;
-
-// Import sub-module sassbox/base/normalize
-@import '~@pixelherz/sassbox/base/normalize';
-```
-
-### Utils
-
-```scss
-// Import module sassbox/utils
-@import '~@pixelherz/sassbox/utils/all';
-```
-
-#### Conversion
-
-```scss
-// Usage
-
-//  Import sub-module sassbox/utils/conversions
-@import '~@pixelherz/sassbox/utils/conversion';
-
-.foo {
-  font-size: pxToRem(24px); // 1.5rem
-}
-
-.bar {
-  font-size: remToPx(1.5rem); // 24px
-}
-
-
-```
-
-#### CSS Grid
-
-```scss
-// Config
-
-// `gutter-type`: Use `static` for fixed-width gutters (px) `fluid` for 
-// relative sized gutters (%)
-
-$ph-css-grid: (
-    "default": (
-        "cols-num": 6,
-        "col-width": 40px,
-        "gutter-width": 12px,
-        "gutter-type": "static",
-    ),
-    "rabbit": (
-        "cols-num": 12,
-        "col-width": 62px,
-        "gutter-width": 20px,
-        "gutter-type": "static",
-    ),
-    "cat": (
-        "cols-num": 12,
-        "col-width": 84px,
-        "gutter-width": 32px,
-        "gutter-type": "static",
-    ),
-);
-
-// Usage
-
-// Import sub-module sassbox/utils/css-grid
-@import '~@pixelherz/sassbox/utils/css-grid';
-
-.layout {
-  display: grid;
-  @include inject-css-grid();
-}
-```
-
-#### Font-Size
-
-Helper for responsive font-sizes. 
-
-```scss
-// Config
-
-// Font sizes
-$ph-font-sizes: (
-  's': 16px,
-  'm': 24px,
-  'l': 36px,
-);
-
-// Line heights
-$ph-line-heights: (
-  's': 20px,
-  'm': 30px,
-  'l': 45px,
-);
-
-// Letter spacing
-// NOTE: If letter-spacing for a given key is `0` you can safely omit the key.
-$ph-letter-spacing: (
-  's': 0.01em,
-  'm': 0.005em,
-);
-
-// Vertical spacing (margin-top, margin-bottom)
-// Browser default is `1em` (based on `font-size`)
-// Example: Set equal to line-height for vertical space of a blank line
-$ph-vertical-spacing: (
-  's': 20px,
-  'm': 30px,
-  'l': 45px,
-); // Same as `$ph-vertical-spacing: $ph-line-heights;`
-
-// 'Fluid' font sizes are scaled down for the given responsive breakpoints
-$ph-fluid-type: (
-  'l': (
-    'default': 'm',
-    'rat': 'l',
+// Configured @forward
+// e.g. styles/lib/_sassbox.scss 
+@forward '~@pixelherz/sassbox' with (
+  $breakpoints: (
+    foo: 576px,
+    bar: 768px
   ),
-  'm': (
-    'default': 's',
-    'rat': 'm',
-  ),
+  $layout-max-width: 1360px,
+  [...]
 );
-
-// Usage
-
-// Import sub-module sassbox/utils/font-size
-@import '~@pixelherz/sassbox/utils/font-size';
-
-.title {
-  @include font-size('l');
-}
-
-.paragraph {
-  @include font-size('m', $set-vertical-offset: true);
-}
-```
-
-#### Grid
-
-Function `grid-max-offset()` returns the max value from map `$ph-grid-offset`. 
-
-Mixin `apply-grid-offset()` applies the offset defined in `$ph-grid-offset`.
-
-```scss
-// Import sub-module sassbox/utils/grid
-@import '~@pixelherz/sassbox/utils/grid';
-
-// Config
-$ph-grid-offset: (
-  'default': 20px,
-  'mouse': 40px,
-  'rabbit': 80px,
-);
-
-// Usage
-.page {
-  // grid-max-offset() will return `80px`
-  max-width: #{$ph-layout-max-width + (grid-max-offset() * 2)};
-}
-
-.layout {
-  @include apply-grid-offset($prop: 'padding'); // $prop defaults to 'margin'
-}
-``` 
-
-```html
-<div class="page">
-  <div class="layout"></div>
-</div>
-```
-
-#### Relative Grid (legacy)
-
-> Relative grid (rel-grid) refers to a legacy-style fluid grid (no CSS grid involved). Same grid is used for *all* breakpoints.
-
-Function `grid-width()` calculates grid widths based on the given params and returns the width as absolute (`px`) or relative (`%`) value.
-
-NOTE: The gutters enclosed by columns must not be declared in the gutters
-parameter (ie. param `$cols: 3` returns the width of 3 cols and 2 gutters).The `$gutters` param is used only for extra-gutter (left/right of the cols).
-
-**Parameters**
-Name | Type | Default | Description
------|------|---------|------------
-`$cols` | int | 0 | Number of columns the width should span
-`$gutters` | int | 0 | Number of extra gutters the width should span
-`$base-cols` | enum int | all | Number of columns used as base for relative values. Use this param if the parent element is not using the grid's full layout width.
-`$base-gutters` | int | 0 | The number of extra gutters to be included in the base calculation. NOTE: Gutters enclosed by colums ($base-cols) must not be declared. This param is used only for extra gutters *outside* the $base-cols.
-`$base-extra` | int | 0 | Accepts a px value to adjust base width (e.g. if the base does not align with the global grid).
-`$scale` | enum | rel | Use `rel` to return a relative value (%) or `abs` to return an absolute value (px).
-
-**Example**
-```scss
-// Config
-
-// Layout width in `px` without outer gutter/offset
-$ph-layout-max-width: 1360px;
-// Gutter width in `px`
-$ph-rel-grid-gutter-width: 32px;
-// Column width in `px`
-$ph-rel-grid-col-width: 84px;
-// Grid offset / outer gutter / horizontal margin
-$ph-grid-offset: (
-  'default': 15px,
-  'mouse': 30px,
-  'rabbit': 60px,
-);
-
-// Usage
-
-// Import sub-module sassbox/utils/rel-grid
-@import '~@pixelherz/sassbox/utils/rel-grid';
-
-// 3 column layout
-.col {
-  width: grid-width($cols: 4);
-  margin-right: grid-width($gutters: 1);
-  &:nth-of-type(3n + 0) {
-    margin-right: 0;
-  }
-}
-```
-
-#### Offset Text
-
-Hide text of an element.
-
-```html
-<h1 class="logotype">Company Name</h1>
 ```
 
 ```scss
-// Import sub-module sassbox/utils/offset-text
-@import '~@pixelherz/sassbox/utils/offset-text';
-
-.logotype {
-  // The text "Company Name" will be set off-element in favor of the background image
-  @include offset-text();
-  background-image: url('logotype.svg');
-}
+// Consume the configured forward in your app/components
+// e.g. my-app/my-component/my-component.scss
+@use '../../styles/lib/sassbox';
 ```
 
-#### Show relative grid
+#### 2. Configuration
 
-Add class `show-rel-grid` to element `html` to show layout grid. 
+- Move configuration to the `with()` statement in your configured forward (s. [section import](#import)).
+- Remove all prefixes from configuration variables (`ph-` and `mq-`).
+- Remove `$ph-font-family--default` as it's no longer required.
+- Rename the following configuration property
 
-```html
-<html class="show-rel-grid">
-```
+| v0.x                  | v1.x                    |
+|-----------------------|-------------------------|
+| `$grid-offset`        | `$layout-offset`        |
+
+#### 3. Use namespace
 
 ```scss
-// Import sub-module sassbox/utils/show-rel-grid
-@import '~@pixelherz/sassbox/utils/show-rel-grid';
+// prior 1.x
+@include offset-text();
+// v1.x
+@include sassbox.offset-text();
 ```
 
-#### Un-Button
+#### 4. Update deprecations
 
-Remove ugly default-styling from `button` element. 
+The names of some variables, functions and mixins have changed. Their signature has not changed. Update these with the new names.
+
+| v0.x                  | v1.x                      |
+|-----------------------|---------------------------|
+| `un-button()`         | `reset-button()`          |
+| `pxToRem()`           | `px-to-rem()`             |
+| `remToPx()`           | `rem-to-px()`             |
+| `font-size()`         | `use-type()`              |
+| `inject-css-grid()`   | `use-css-grid()`          |
+| `grid-offset`         | `layout-offset`           |
+| `grid-width()`        | `get-rel-grid-width()`    |
+| `grid-max-offset`     | `get-layout-max-offset()` |
+| `apply-grid-offset()` | `use-layout-offset()`     |
+
+#### 5. Normalize
+
+In 0.x versions, normalize was applied by default. With 1.x, normalize has moved to a mixin to give you more control. When upgrading from 0.x you have to apply `sassbox.normalize()` manually which is typically done in your root stylesheet.
 
 ```scss
-// Import sub-module sassbox/utils/un-button
-@import '~@pixelherz/sassbox/utils/un-button';
-
-.action-button {
-  @include un-button();
-}
+// e.g. styles.scss
+@use "./styles/lib/sassbox";
+@include sassbox.normalize();
 ```
 
+#### 6. Replace `sass-mq` with `sassbox.mq`
+
+Remove `sass-mq` as it's now part of this library. 
+
+```scss
+// Remove imports
+@import '~sass-mq/mq'; // <-- delete 
+
+// prior v1.x
+@include mq($from: "my-breakpoint") {}
+// v1.x
+@include sassbox.mq($from: "my-breakpoint") {}
+```
+
+#### 7. Test your app
+
+That's it. Time to run and check your app!
+
+- Check the console for errors or warnings.
+- Make sure to double-check all parts of your app carefully.
 
 ## Versioning
 

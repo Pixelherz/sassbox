@@ -1,0 +1,627 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>@pixelherz/sassbox - v1.0.0-rc.1</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="@pixelherz/sassbox - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>Sass utils we frequently use in our projects.</p>
+"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://github.com/Pixelherz/sassbox#readme">@pixelherz/sassbox - v1.0.0-rc.1</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="config"><a href="#config">Configuration</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="config-variable"><a href="#config-variable">variables</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="config" data-name="layout-max-width" data-type="variable"><a href="#config-variable-layout-max-width">layout-max-width</a></li><li class="sidebar__item sassdoc__item" data-group="config" data-name="layout-offset" data-type="variable"><a href="#config-variable-layout-offset">layout-offset</a></li><li class="sidebar__item sassdoc__item" data-group="config" data-name="css-grid" data-type="variable"><a href="#config-variable-css-grid">css-grid</a></li><li class="sidebar__item sassdoc__item" data-group="config" data-name="rel-grid-gutter-width" data-type="variable"><a href="#config-variable-rel-grid-gutter-width">rel-grid-gutter-width</a></li><li class="sidebar__item sassdoc__item" data-group="config" data-name="rel-grid-col-width" data-type="variable"><a href="#config-variable-rel-grid-col-width">rel-grid-col-width</a></li><li class="sidebar__item sassdoc__item" data-group="config" data-name="font-sizes" data-type="variable"><a href="#config-variable-font-sizes">font-sizes</a></li><li class="sidebar__item sassdoc__item" data-group="config" data-name="line-heights" data-type="variable"><a href="#config-variable-line-heights">line-heights</a></li><li class="sidebar__item sassdoc__item" data-group="config" data-name="letter-spacing" data-type="variable"><a href="#config-variable-letter-spacing">letter-spacing</a></li><li class="sidebar__item sassdoc__item" data-group="config" data-name="vertical-spacing" data-type="variable"><a href="#config-variable-vertical-spacing">vertical-spacing</a></li><li class="sidebar__item sassdoc__item" data-group="config" data-name="fluid-type" data-type="variable"><a href="#config-variable-fluid-type">fluid-type</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="conversion"><a href="#conversion">Conversion</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="conversion-function"><a href="#conversion-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="conversion" data-name="px-to-rem" data-type="function"><a href="#conversion-function-px-to-rem">px-to-rem</a></li><li class="sidebar__item sassdoc__item" data-group="conversion" data-name="rem-to-px" data-type="function"><a href="#conversion-function-rem-to-px">rem-to-px</a></li><li class="sidebar__item sassdoc__item" data-group="conversion" data-name="strip-unit" data-type="function"><a href="#conversion-function-strip-unit">strip-unit</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="layout"><a href="#layout">Layout</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="layout-mixin"><a href="#layout-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="layout" data-name="use-css-grid" data-type="mixin"><a href="#layout-mixin-use-css-grid">use-css-grid</a></li><li class="sidebar__item sassdoc__item" data-group="layout" data-name="use-layout-offset" data-type="mixin"><a href="#layout-mixin-use-layout-offset">use-layout-offset</a></li><li class="sidebar__item sassdoc__item" data-group="layout" data-name="show-rel-grid" data-type="mixin"><a href="#layout-mixin-show-rel-grid">show-rel-grid</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="layout-function"><a href="#layout-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="layout" data-name="get-layout-max-offset" data-type="function"><a href="#layout-function-get-layout-max-offset">get-layout-max-offset</a></li><li class="sidebar__item sassdoc__item" data-group="layout" data-name="get-rel-grid-width" data-type="function"><a href="#layout-function-get-rel-grid-width">get-rel-grid-width</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="misc"><a href="#misc">Miscellaneous</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="misc-mixin"><a href="#misc-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="misc" data-name="normalize" data-type="mixin"><a href="#misc-mixin-normalize">normalize</a></li><li class="sidebar__item sassdoc__item" data-group="misc" data-name="offset-text" data-type="mixin"><a href="#misc-mixin-offset-text">offset-text</a></li><li class="sidebar__item sassdoc__item" data-group="misc" data-name="reset-button" data-type="mixin"><a href="#misc-mixin-reset-button">reset-button</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="type"><a href="#type">Typography</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="type-mixin"><a href="#type-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="type" data-name="use-type" data-type="mixin"><a href="#type-mixin-use-type">use-type</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">Media Queries (sass-mq)</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-variable"><a href="#undefined-variable">variables</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="breakpoints" data-type="variable"><a href="#undefined-variable-breakpoints">breakpoints</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="show-breakpoints" data-type="variable"><a href="#undefined-variable-show-breakpoints">show-breakpoints</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="media-type" data-type="variable"><a href="#undefined-variable-media-type">media-type</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-function"><a href="#undefined-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="px2em" data-type="function"><a href="#undefined-function-px2em">px2em</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="get-breakpoint-width" data-type="function"><a href="#undefined-function-get-breakpoint-width">get-breakpoint-width</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="_quick-sort" data-type="function"><a href="#undefined-function-_quick-sort">_quick-sort</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="_map-sort-by-value" data-type="function"><a href="#undefined-function-_map-sort-by-value">_map-sort-by-value</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-mixin"><a href="#undefined-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="mq" data-type="mixin"><a href="#undefined-mixin-mq">mq</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="add-breakpoint" data-type="mixin"><a href="#undefined-mixin-add-breakpoint">add-breakpoint</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="show-breakpoints" data-type="mixin"><a href="#undefined-mixin-show-breakpoints">show-breakpoints</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="config"><div class="container">Configuration</div></h1><section class="main__sub-section" id="config-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="config-variable-layout-max-width"><h3 class="item__heading"><a class="item__name" href="#variable-layout-max-width">layout-max-width</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$layout-max-width: 1360px !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><h1 id="layout-max-width-in-pixels">Layout max-width in pixels</h1><p>This value defines the layout- or content width without outer gutter/offset.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Number</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li></ul></section><section class="main__item container item" id="config-variable-layout-offset"><h3 class="item__heading"><a class="item__name" href="#variable-layout-offset">layout-offset</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$layout-offset: (
+  default: 15px,
+) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><h1 id="layout-offset-in-pixels">Layout offset in pixels</h1><p>This value defines the outer gutter, the horizontal margin or the horizontal space between the content/grid and the &quot;page&quot; edge.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#layout-function-get-layout-max-offset"><code>get-layout-max-offset</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-use-layout-offset"><code>use-layout-offset</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-use-layout-offset"><code>use-layout-offset</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li></ul></section><section class="main__item container item" id="config-variable-css-grid"><h3 class="item__heading"><a class="item__name" href="#variable-css-grid">css-grid</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$css-grid: (
+  default: (
+    cols-num: 6,
+    col-width: 40px,
+    gutter-width: 12px,
+    gutter-type: &#39;static&#39;,
+  ),
+) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><h1 id="css-grid-definition">CSS grid definition</h1><p>This value defines the css grid for a given breakpoint. The grid is inherited by bigger/wider breakpoints unless these breakpoints have their own config (&quot;from&quot;). Breakpoint names must match the names used in <code>$breakpoints</code>.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Map structure</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">map key </span>Name</th><th scope="col"><span class="visually-hidden">map key </span>Description</th><th scope="col"><span class="visually-hidden">map key </span>Type</th><th scope="col"><span class="visually-hidden">map key </span>Value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>css-grid.[my-breakpoint]</code></th><td data-label="desc"><p>CSS grid definition for a given breakpoint.</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>s. below</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>css-grid.[my-breakpoint].cols-num</code></th><td data-label="desc"><p>Number of columns (e.g. 12)</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>6</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>css-grid.[my-breakpoint].col-width</code></th><td data-label="desc"><p>Width of a single column in pixels. Even if the width is configured in pixels, column width will always be fluid/relative.</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>40px</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>css-grid.[my-breakpoint].gutter-width</code></th><td data-label="desc"><p>Gutter width in pixels. To use relative values (%) just use <code>gutter-type: &#39;fluid&#39;</code>.</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>12px</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>css-grid.[my-breakpoint].gutter-type</code></th><td data-label="desc"><p><code>&#39;static&#39;</code> – the gutter width is set in pixels<br><code>&#39;fluid&#39;</code> – gutter width is set in percent (relative to <code>col-width</code>).</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&#39;static&#39;</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@use &#39;~@pixelherz/sassbox&#39; with (
+  $css-grid: (
+      default: (
+        cols-num: 6,
+        col-width: 40px,
+        gutter-width: 12px,
+        gutter-type: &#39;static&#39;,
+      ),
+      rabbit: (
+        cols-num: 9,
+        col-width: 62px,
+        gutter-width: 20px,
+        gutter-type: &#39;static&#39;,
+      ),
+      cat: (
+        cols-num: 12,
+        col-width: 84px,
+        gutter-width: 32px,
+        gutter-type: &#39;fluid&#39;,
+      ),
+   ),
+);</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-use-css-grid"><code>use-css-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-use-css-grid"><code>use-css-grid</code></a></li></ul></section><section class="main__item container item" id="config-variable-rel-grid-gutter-width"><h3 class="item__heading"><a class="item__name" href="#variable-rel-grid-gutter-width">rel-grid-gutter-width</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$rel-grid-gutter-width: 32px !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><h1 id="relative-grid-gutter-width-in-pixels">Relative grid: Gutter width in pixels</h1><p>Relative grid is always fluid. Even if configured in pixels (static), the output definitions will be in percent (relative).</p></div><h3 class="item__sub-heading">Type</h3><p><code>Number</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#layout-function-get-rel-grid-width"><code>get-rel-grid-width</code></a></li></ul></section><section class="main__item container item" id="config-variable-rel-grid-col-width"><h3 class="item__heading"><a class="item__name" href="#variable-rel-grid-col-width">rel-grid-col-width</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$rel-grid-col-width: 84px !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><h1 id="relative-grid-column-width-in-pixels">Relative grid: Column width in pixels</h1><p>Relative grid is always fluid. Even if configured in pixels (static), the output definitions will be in percent (relative).</p></div><h3 class="item__sub-heading">Type</h3><p><code>Number</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#layout-function-get-rel-grid-width"><code>get-rel-grid-width</code></a></li></ul></section><section class="main__item container item" id="config-variable-font-sizes"><h3 class="item__heading"><a class="item__name" href="#variable-font-sizes">font-sizes</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$font-sizes: () !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><h1 id="font-sizes">Font sizes</h1><p>A list for key/value-pairs where key is the name of the typographic preset, value is the font-size in pixels.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Map structure</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">map key </span>Name</th><th scope="col"><span class="visually-hidden">map key </span>Description</th><th scope="col"><span class="visually-hidden">map key </span>Type</th><th scope="col"><span class="visually-hidden">map key </span>Value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>font-sizes.[preset]</code></th><td data-label="desc"><p>Font size in pixels</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@use &#39;~@pixelherz/sassbox&#39; with (
+  $font-sizes: (
+    s: 16px,
+    m: 24px,
+    l: 36px,
+  )
+);</code></pre></div><h3 class="item__sub-heading">See</h3><ul class="list-unstyled"><li><span class="item__cross-type">[variable]</span> <a href="#variable-line-heights"><code>line-heights</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-letter-spacing"><code>letter-spacing</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-vertical-spacing"><code>vertical-spacing</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-fluid-type"><code>fluid-type</code></a></li></ul></section><section class="main__item container item" id="config-variable-line-heights"><h3 class="item__heading"><a class="item__name" href="#variable-line-heights">line-heights</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$line-heights: () !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><h1 id="line-heights">Line heights</h1><p>A list for key/value-pairs where key is the name of the typographic preset, value is the line-height in pixels.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Map structure</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">map key </span>Name</th><th scope="col"><span class="visually-hidden">map key </span>Description</th><th scope="col"><span class="visually-hidden">map key </span>Type</th><th scope="col"><span class="visually-hidden">map key </span>Value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>line-heights.[preset]</code></th><td data-label="desc"><p>Line height in pixels</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@use &#39;~@pixelherz/sassbox&#39; with (
+  $line-heights: (
+    s: 20px,
+    m: 30px,
+    l: 45px,
+  )
+);</code></pre></div><h3 class="item__sub-heading">See</h3><ul class="list-unstyled"><li><span class="item__cross-type">[variable]</span> <a href="#variable-font-sizes"><code>font-sizes</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-letter-spacing"><code>letter-spacing</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-vertical-spacing"><code>vertical-spacing</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-fluid-type"><code>fluid-type</code></a></li></ul></section><section class="main__item container item" id="config-variable-letter-spacing"><h3 class="item__heading"><a class="item__name" href="#variable-letter-spacing">letter-spacing</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$letter-spacing: () !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><h1 id="letter-spacing">Letter spacing</h1><p>A list for key/value-pairs where key is the name of the typographic preset, value is the letter-spacing in pixels.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Map structure</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">map key </span>Name</th><th scope="col"><span class="visually-hidden">map key </span>Description</th><th scope="col"><span class="visually-hidden">map key </span>Type</th><th scope="col"><span class="visually-hidden">map key </span>Value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>letter-spacing.[preset]</code></th><td data-label="desc"><p>Letter-spacing in your preferred unit</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>0</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@use &#39;~@pixelherz/sassbox&#39; with (
+  $letter-spacing: (
+    s: 0.01em,
+    m: 0.005em,
+    l: 0,
+  )
+);</code></pre></div><h3 class="item__sub-heading">See</h3><ul class="list-unstyled"><li><span class="item__cross-type">[variable]</span> <a href="#variable-font-sizes"><code>font-sizes</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-line-heights"><code>line-heights</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-vertical-spacing"><code>vertical-spacing</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-fluid-type"><code>fluid-type</code></a></li></ul></section><section class="main__item container item" id="config-variable-vertical-spacing"><h3 class="item__heading"><a class="item__name" href="#variable-vertical-spacing">vertical-spacing</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$vertical-spacing: () !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><h1 id="vertical-spacing">Vertical spacing</h1><p>A list for key/value-pairs where key is the name of the typographic preset, value is the vertical-offset in pixels. Example: Set equal to line-height for vertical space of a blank line Example: Set half of line-height for vertical space of half a blank line</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Map structure</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">map key </span>Name</th><th scope="col"><span class="visually-hidden">map key </span>Description</th><th scope="col"><span class="visually-hidden">map key </span>Type</th><th scope="col"><span class="visually-hidden">map key </span>Value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>vertical-spacing.[preset]</code></th><td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>0</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@use &#39;~@pixelherz/sassbox&#39; with (
+  $vertical-spacing: (
+    s: 20px,
+    m: 30px,
+  )
+);</code></pre></div><h3 class="item__sub-heading">See</h3><ul class="list-unstyled"><li><span class="item__cross-type">[variable]</span> <a href="#variable-font-sizes"><code>font-sizes</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-line-heights"><code>line-heights</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-letter-spacing"><code>letter-spacing</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-fluid-type"><code>fluid-type</code></a></li></ul></section><section class="main__item container item" id="config-variable-fluid-type"><h3 class="item__heading"><a class="item__name" href="#variable-fluid-type">fluid-type</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$fluid-type: () !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><h1 id="fluid-type">Fluid type</h1><p>&#39;Fluid&#39; font sizes are scaled down for the given responsive breakpoints</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Map structure</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">map key </span>Name</th><th scope="col"><span class="visually-hidden">map key </span>Description</th><th scope="col"><span class="visually-hidden">map key </span>Type</th><th scope="col"><span class="visually-hidden">map key </span>Value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>fluid-type.[preset]</code></th><td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@use &#39;~@pixelherz/sassbox&#39; with (
+  $fluid-type: (
+    l: (
+      default: &#39;m&#39;,
+      rat: &#39;l&#39;,
+    ),
+    m: (
+      default: &#39;s&#39;,
+      rat: &#39;m&#39;,
+    )
+  )
+);</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#type-mixin-use-type"><code>use-type</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#type-mixin-use-type"><code>use-type</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#type-mixin-use-type"><code>use-type</code></a></li></ul><h3 class="item__sub-heading">See</h3><ul class="list-unstyled"><li><span class="item__cross-type">[variable]</span> <a href="#variable-line-heights"><code>line-heights</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-letter-spacing"><code>letter-spacing</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-vertical-spacing"><code>vertical-spacing</code></a></li><li><span class="item__cross-type">[variable]</span> <a href="#variable-font-sizes"><code>font-sizes</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="conversion"><div class="container">Conversion</div></h1><section class="main__sub-section" id="conversion-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="conversion-function-px-to-rem"><h3 class="item__heading"><a class="item__name" href="#function-px-to-rem">px-to-rem</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function px-to-rem($value) { 
+  $unitless: strip-unit($value);
+  @return math.div($unitless, 16) * 1rem;
+ }" data-collapsed="@function px-to-rem($value) { ... }"><code>@function px-to-rem($value) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Convert <code>px</code> to <code>rem</code>.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$value</code></th><td data-label="desc"><p>The value in pixels to be converted to <code>rem</code></p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>Converted value in <code>rem</code></p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Input value is interpreted as <code>px</code>, unit is ignored</p></div><pre class="example__code language-scss"><code>font-size: sassbox.pxToRem(24px); // 1.5rem
+font-size: sassbox.pxToRem(24); // 1.5rem</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#conversion-function-strip-unit"><code>strip-unit</code></a></li></ul></section><section class="main__item container item" id="conversion-function-rem-to-px"><h3 class="item__heading"><a class="item__name" href="#function-rem-to-px">rem-to-px</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function rem-to-px($value) { 
+  @return strip-unit($value) * 16px;
+ }" data-collapsed="@function rem-to-px($value) { ... }"><code>@function rem-to-px($value) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Convert <code>rem</code> to <code>px</code></p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$value</code></th><td data-label="desc"><p>The value in <code>rem</code> to be converted to <code>px</code></p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>Converted value in <code>px</code></p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Input value is interpreted as <code>rem</code>, unit is ignored</p></div><pre class="example__code language-scss"><code>font-size: sassbox.remToPx(1.5rem); // 24px
+font-size: sassbox.remToPx(1.5); // 24px</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#conversion-function-strip-unit"><code>strip-unit</code></a></li></ul></section><section class="main__item container item" id="conversion-function-strip-unit"><h3 class="item__heading"><a class="item__name" href="#function-strip-unit">strip-unit</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function strip-unit($value) { 
+  @return math.div($value, $value * 0 + 1);
+ }" data-collapsed="@function strip-unit($value) { ... }"><code>@function strip-unit($value) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Strip unit</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$value</code></th><td data-label="desc"><p>Any numeric value</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>Unitless value</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>sassbox.strip-unit(16cm); // 16</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#conversion-function-px-to-rem"><code>px-to-rem</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#conversion-function-rem-to-px"><code>rem-to-px</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="layout"><div class="container">Layout</div></h1><section class="main__sub-section" id="layout-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="layout-mixin-use-css-grid"><h3 class="item__heading"><a class="item__name" href="#mixin-use-css-grid">use-css-grid</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin use-css-grid() { 
+  @each $bp-cfg in config.$css-grid {
+    $bp-name: nth($bp-cfg, 1);
+    $grid-cfg: nth($bp-cfg, 2);
+    // Default (no breakpoint)
+    @if $bp-name == &#39;default&#39; {
+      grid-template-columns: -grid-tmpl-cols($grid-cfg);
+    }
+    // Breakpoint
+    @else if map-has-key(mq.$breakpoints, $bp-name) {
+      @include mq.mq($from: $bp-name) {
+        grid-template-columns: -grid-tmpl-cols($grid-cfg);
+      }
+    }
+    // Breakpoint invalid
+    @else {
+      @warn &quot;Breakpoint &#39;#{$bp-name}&#39; is not defined in $breakpoints. Check your configuration in $css-grid, make sure $breakpoints is available or add the breakpoint to $breakpoints.&quot;;
+    }
+  }
+ }" data-collapsed="@mixin use-css-grid() { ... }"><code>@mixin use-css-grid() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><h1 id="inject-css-grid-columns">Inject CSS grid columns</h1></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>// Configuration
+@use &#39;~@pixelherz/sassbox&#39; with (
+  $css-grid: (
+    default: (
+      cols-num: 6,
+      col-width: 40px,
+      gutter-width: 12px,
+      gutter-type: &#39;static&#39;,
+    ),
+    rabbit: (
+      cols-num: 9,
+      col-width: 62px,
+      gutter-width: 20px,
+      gutter-type: &#39;static&#39;,
+    ),
+    cat: (
+      cols-num: 12,
+      col-width: 84px,
+      gutter-width: 32px,
+      gutter-type: &#39;fluid&#39;,
+    ),
+  ),
+);
+
+// Usage
+.layout {
+  display: grid;
+  @include sassbox.use-css-grid();
+}</code></pre></div><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>The declarations for <code>grid-template-columns</code> including the media-queries according to your configuration (cmp. configuration properties <code>$breakpoints</code> and <code>$css-grid</code>). The mixin won&#39;t set <code>display: grid</code> which is required for a working CSS grid layout (cmp. example).</p></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-css-grid"><code>css-grid</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-css-grid"><code>css-grid</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li></ul><h3 class="item__sub-heading">See</h3><ul class="list-unstyled"><li><span class="item__cross-type">[variable]</span> <a href="#variable-css-grid"><code>css-grid</code></a></li></ul></section><section class="main__item container item" id="layout-mixin-use-layout-offset"><h3 class="item__heading"><a class="item__name" href="#mixin-use-layout-offset">use-layout-offset</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin use-layout-offset($prop: &#39;margin&#39;) { 
+  @each $offset in config.$layout-offset {
+    $bp-name: nth($offset, 1);
+    $offset-val: nth($offset, 2);
+    // Default (no breakpoint)
+    @if $bp-name == &#39;default&#39; {
+      #{$prop}-right: $offset-val;
+      #{$prop}-left: $offset-val;
+    }
+    // Breakpoint
+    @else if map-has-key(mq.$breakpoints, $bp-name) {
+      @include mq.mq($from: $bp-name) {
+        #{$prop}-right: $offset-val;
+        #{$prop}-left: $offset-val;
+      }
+    }
+    // Breakpoint invalid
+    @else {
+      @warn &quot;Breakpoint &#39;#{$bp-name}&#39; is not defined in $breakpoints. Check your configuration in $layout-offset, make sure $breakpoints is available or add the breakpoint to $breakpoints.&quot;;
+    }
+  }
+ }" data-collapsed="@mixin use-layout-offset($prop: &#39;margin&#39;) { ... }"><code>@mixin use-layout-offset($prop: &#39;margin&#39;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Apply horizontal offset</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$prop</code></th><td data-label="desc"><p>By default the properties <code>margin-left</code> and <code>margin-right</code> are used. Use this parameter if you prefer another property (<code>padding</code> makes sense in some cases).</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&#39;margin&#39;</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>// Configuration
+@use &#39;~@pixelherz/sassbox&#39; with (
+  $layout-offset: (
+    default: 20px,
+    mouse: 40px,
+    rabbit: 80px,
+  ),
+);
+
+// Usage
+.layout {
+  @include sassbox.use-layout-offset($prop: &#39;padding&#39;);
+}</code></pre></div><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Applies the left/right offset for all breakpoints defined in your configuration (<code>$layout-offset</code>).</p></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-layout-offset"><code>layout-offset</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-layout-offset"><code>layout-offset</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li></ul></section><section class="main__item container item" id="layout-mixin-show-rel-grid"><h3 class="item__heading"><a class="item__name" href="#mixin-show-rel-grid">show-rel-grid</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin show-rel-grid($class-name: show-rel-grid) { 
+  html.#{$class-name} {
+    &amp;::before,
+    &amp;::after {
+      content: &#39;&#39;;
+      display: block;
+      z-index: 9999;
+      pointer-events: none;
+    }
+    &amp;::before {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      right: 0;
+      height: 100%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: #{config.$layout-max-width +
+        (offset.get-layout-max-offset() * 2)};
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-image: repeating-linear-gradient(
+        to right,
+        rgba(cyan, 0.3) 0,
+        rgba(cyan, 0.3) rel-grid.get-rel-grid-width($cols: 1),
+        transparent rel-grid.get-rel-grid-width($cols: 1),
+        transparent rel-grid.get-rel-grid-width($cols: 1, $gutters: 1)
+      );
+      border: none;
+
+      @each $offset in config.$layout-offset {
+        $bp-name: nth($offset, 1);
+        // Default (no breakpoint)
+        @if $bp-name == &#39;default&#39; {
+          background-position: map-get(config.$layout-offset, $bp-name) 0;
+          background-size: calc(
+            100% - #{map-get(config.$layout-offset, $bp-name) * 2}
+          );
+        }
+        // Breakpoint
+        @else if map-has-key(mq.$breakpoints, $bp-name) {
+          @include mq.mq($from: $bp-name) {
+            background-position: map-get(config.$layout-offset, $bp-name) 0;
+            background-size: calc(
+              100% - #{map-get(config.$layout-offset, $bp-name) * 2}
+            );
+          }
+        }
+        // Breakpoint invalid
+        @else {
+          @warn &quot;Breakpoint &#39;#{$bp-name}&#39; is not defined in $breakpoints. Check your configuration in $layout-offset, make sure $breakpoints is available or add the breakpoint to $breakpoints.&quot;;
+        }
+      }
+
+      @media (min-width: #{config.$layout-max-width + (offset.get-layout-max-offset() * 2)}) {
+        outline: 1px solid deepskyblue;
+      }
+    }
+  }
+ }" data-collapsed="@mixin show-rel-grid($class-name: show-rel-grid) { ... }"><code>@mixin show-rel-grid($class-name: show-rel-grid) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><h1 id="show-relative-grid">Show relative grid</h1><p>Display the relative grid by adding a class-name to the html element. The class-name defaults to &quot;show-rel-grid&quot; but can be customized.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$class-name</code></th><td data-label="desc"><p>A custom class-name</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>show-rel-grid</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usually included once in your root stylesheet</p></div><pre class="example__code language-scss"><code>@use &#39;~@pixelherz/sassbox&#39;;
+
+@include sassbox.show-rel-grid($class-name: &#39;show-grid&#39;);</code></pre></div><div class="item__example example"><div class="example__description"><p>Add the class to your <code>html</code> element to make the grid visible</p></div><pre class="example__code language-html"><code>&lt;html class=&quot;show-grid&quot;&gt;</code></pre></div><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>A CSS rule to display the relative grid according to your configuration.</p></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#layout-function-get-layout-max-offset"><code>get-layout-max-offset</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#layout-function-get-rel-grid-width"><code>get-rel-grid-width</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#layout-function-get-rel-grid-width"><code>get-rel-grid-width</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#layout-function-get-rel-grid-width"><code>get-rel-grid-width</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#layout-function-get-layout-max-offset"><code>get-layout-max-offset</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-layout-max-width"><code>layout-max-width</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-layout-offset"><code>layout-offset</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-layout-offset"><code>layout-offset</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-layout-offset"><code>layout-offset</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-layout-offset"><code>layout-offset</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-layout-offset"><code>layout-offset</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-layout-offset"><code>layout-offset</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-layout-max-width"><code>layout-max-width</code></a></li></ul></section></section><section class="main__sub-section" id="layout-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="layout-function-get-layout-max-offset"><h3 class="item__heading"><a class="item__name" href="#function-get-layout-max-offset">get-layout-max-offset</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function get-layout-max-offset() { 
+  // Collect all offsets (outer gutter) in a list.
+  // We&#39;ll use this later to get the max offset.
+  $layout-offsets: ();
+  @each $bp in config.$layout-offset {
+    $layout-offsets: append($layout-offsets, nth($bp, 2));
+  }
+  @return math.max(0, $layout-offsets...);
+ }" data-collapsed="@function get-layout-max-offset() { ... }"><code>@function get-layout-max-offset() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Get the maximum layout offset (outer gutter, horizontal margin).</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>maximum value from <code>$layout-offset</code></p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>// Configuration
+@use &#39;~@pixelherz/sassbox&#39; with (
+  $layout-offset: (
+    default: 20px,
+    mouse: 40px,
+    rabbit: 80px,
+  ),
+  $layout-max-width: 1360px,
+);
+
+// Usage
+.page {
+  // get-layout-max-offset() will return `80px`
+  max-width: #{sassbox.$layout-max-width + (sassbox.get-layout-max-offset() * 2)}; // 1520px
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-layout-offset"><code>layout-offset</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li></ul><h3 class="item__sub-heading">See</h3><ul class="list-unstyled"><li><span class="item__cross-type">[variable]</span> <a href="#variable-layout-max-width"><code>layout-max-width</code></a></li></ul></section><section class="main__item container item" id="layout-function-get-rel-grid-width"><h3 class="item__heading"><a class="item__name" href="#function-get-rel-grid-width">get-rel-grid-width</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function get-rel-grid-width($cols: 0, $gutters: 0, $base-cols: &#39;all&#39;, $base-gutters: 0, $base-extra: 0, $scale: &#39;rel&#39;) { 
+  $gutters: max(0, $cols - 1) + $gutters;
+  $width: ($cols * config.$rel-grid-col-width) +
+    ($gutters * config.$rel-grid-gutter-width);
+  @if ($scale == &#39;abs&#39;) {
+    @return $width;
+  }
+  $base: -base-width(
+      $cols: $base-cols,
+      $gutters: $base-gutters,
+    ) + $base-extra;
+  @return math.div($width, $base) * 100%;
+ }" data-collapsed="@function get-rel-grid-width($cols: 0, $gutters: 0, $base-cols: &#39;all&#39;, $base-gutters: 0, $base-extra: 0, $scale: &#39;rel&#39;) { ... }"><code>@function get-rel-grid-width($cols: 0, $gutters: 0, $base-cols: &#39;all&#39;, $base-gutters: 0, $base-extra: 0, $scale: &#39;rel&#39;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Calculates grid widths based on the given params and returns the width as absolute (<code>px</code>) or relative (<code>%</code>) value.</p><p><em>Note:</em> The gutters enclosed by columns must not be declared in the <code>$gutters</code> parameter (e.g. param <code>$cols: 3</code> returns the width of 3 cols and 2 gutters). The <code>$gutters</code> param is used for extra-gutter only (left/right of the cols).</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$cols</code></th><td data-label="desc"><p>The number of columns the width should span</p></td><td data-label="type"><code>Int</code></td><td data-label="default"><code>0</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$gutters</code></th><td data-label="desc"><p>The number of extra gutters the width should span</p></td><td data-label="type"><code>Int</code></td><td data-label="default"><code>0</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$base-cols</code></th><td data-label="desc"><p>The number of columns used as base for relative values. Use this param if the parent element is not using the grid&#39;s full layout width.</p></td><td data-label="type"><code>Enum</code> or <code>Int</code></td><td data-label="default"><code>&#39;all&#39;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$base-gutters</code></th><td data-label="desc"><p>– The number of extra gutters to be included in the base calculation. <em>Note:</em> Gutters enclosed by colums (<code>$base-cols</code>) must not be declared. This param is used only for extra gutters <em>outside</em> the <code>$base-cols</code>.</p></td><td data-label="type"><code>Int</code></td><td data-label="default"><code>0</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$base-extra</code></th><td data-label="desc"><p>Accepts a px value to adjust base width (e.g. if the base does not align with the global grid).</p></td><td data-label="type"><code>Int</code></td><td data-label="default"><code>0</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$scale</code></th><td data-label="desc"><p>Use &#39;rel&#39; to return a relative value (%) or &#39;abs&#39; to return an absolute value (px).</p></td><td data-label="type"><code>Enum</code></td><td data-label="default"><code>&#39;rel&#39;</code></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>relative width in <code>%</code></p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>// Configuration
+@use &#39;~@pixelherz/sassbox&#39; with (
+  $layout-max-width: 1360px,
+  $rel-grid-gutter-width: 32px,
+  $rel-grid-col-width: 84px,
+  $layout-offset: (
+    default: 15px,
+    mouse: 30px,
+    rabbit: 60px,
+  ),
+);
+
+// Usage: 3 column layout
+.col {
+  width: sassbox.get-rel-grid-width($cols: 4);
+  margin-right: sassbox.get-rel-grid-width($gutters: 1);
+  &amp;:nth-of-type(3n + 0) {
+    margin-right: 0;
+  }
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-rel-grid-col-width"><code>rel-grid-col-width</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-rel-grid-gutter-width"><code>rel-grid-gutter-width</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="misc"><div class="container">Miscellaneous</div></h1><section class="main__sub-section" id="misc-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="misc-mixin-normalize"><h3 class="item__heading"><a class="item__name" href="#mixin-normalize">normalize</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin normalize() { 
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  // No focus border
+  *:focus {
+    outline: none;
+  }
+
+  // No spacing for html and body
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    -webkit-text-size-adjust: none;
+  }
+
+  // Use display:block for images
+  img {
+    display: block;
+  }
+
+  // Override default list style
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  // Remove margins from blockquote
+  blockquote {
+    margin: 0;
+  }
+
+  // Table reset
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  th {
+    text-align: left;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  button,
+  input,
+  textarea {
+    font-family: inherit;
+  }
+
+  svg {
+    display: block;
+  }
+
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  legend {
+    padding: 0;
+  }
+ }" data-collapsed="@mixin normalize() { ... }"><code>@mixin normalize() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><h1 id="normalize">Normalize</h1><p>Reset, normalize or unify browser rendering. Use <code>box-sizing: border-box</code> globally.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usually included once in your root stylesheet</p></div><pre class="example__code language-scss"><code>@include sassbox.normalize();</code></pre></div><div class="item__example example"><div class="example__description"><p>For older or 3rd party components you can still reset box-sizing to <code>content-box</code></p></div><pre class="example__code language-scss"><code>.some-module { box-sizing: content-box; }</code></pre></div><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>A bunch of CSS rules to unify browser rendering.</p></div><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="http://www.paulirish.com/2012/box-sizing-border-box-ftw/">* { Box-sizing: Border-box } FTW</a></li><li><a href="https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/">Inheriting box-sizing Probably Slightly Better Best-Practice</a></li></ul></section><section class="main__item container item" id="misc-mixin-offset-text"><h3 class="item__heading"><a class="item__name" href="#mixin-offset-text">offset-text</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin offset-text() { 
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  text-transform: capitalize;
+ }" data-collapsed="@mixin offset-text() { ... }"><code>@mixin offset-text() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Hides an element&#39;s content</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@use &#39;~@pixelherz/sassbox&#39;;
+
+.logotype {
+  // The text &quot;Company Name&quot; will be set off-element
+  // in favor of the background image
+  @include sassbox.offset-text();
+  background-image: url(&#39;logotype.svg&#39;);
+}</code></pre></div><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>CSS definitions to off-set and hide the content of the element</p></div></section><section class="main__item container item" id="misc-mixin-reset-button"><h3 class="item__heading"><a class="item__name" href="#mixin-reset-button">reset-button</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin reset-button() { 
+  border: 0;
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+ }" data-collapsed="@mixin reset-button() { ... }"><code>@mixin reset-button() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Removes the browser-default button styles from button elements. Does not change <code>padding</code>.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@use &#39;~@pixelherz/sassbox&#39;;
+
+.action-button {
+  @include sassbox.reset-button();
+}</code></pre></div><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>CSS definitions required to eliminate browser defaults like <code>appearance</code>, <code>border</code> etc.</p></div></section></section></section><section class="main__section"><h1 class="main__heading" id="type"><div class="container">Typography</div></h1><section class="main__sub-section" id="type-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="type-mixin-use-type"><h3 class="item__heading"><a class="item__name" href="#mixin-use-type">use-type</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin use-type($size: &#39;m&#39;, $set-line-height: true, $set-vertical-offset: false) { 
+  @if ($set-responsive != true) {
+    @include -apply-styles($size, $set-line-height, $set-vertical-offset);
+  } @else if map-has-key(config.$fluid-type, $size) {
+    $bps: map-get(config.$fluid-type, $size);
+    @each $bp in $bps {
+      $bp-name: nth($bp, 1);
+      $bp-size: nth($bp, 2);
+      // Default (no breakpoint)
+      @if ($bp-name == &#39;default&#39;) {
+        @include -apply-styles(
+          $bp-size,
+          $set-line-height,
+          $set-vertical-offset
+        );
+      }
+      // Breakpoint
+      @else if map-has-key(mq.$breakpoints, $bp-name) {
+        @include mq.mq($from: $bp-name) {
+          @include -apply-styles(
+            $bp-size,
+            $set-line-height,
+            $set-vertical-offset
+          );
+        }
+      }
+      // Breakpoint invalid
+      @else {
+        @warn &quot;Breakpoint &#39;#{$bp-name}&#39; is not defined in $breakpoints. Check your configuration in $fluid-type, make sure $breakpoints is available or add the breakpoint to $breakpoints.&quot;;
+      }
+    }
+  } @else {
+    @include -apply-styles($size, $set-line-height, $set-vertical-offset);
+  }
+ }" data-collapsed="@mixin use-type($size: &#39;m&#39;, $set-line-height: true, $set-vertical-offset: false) { ... }"><code>@mixin use-type($size: &#39;m&#39;, $set-line-height: true, $set-vertical-offset: false) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Allows usage of global typographic presets instead of definitions spread accross your project. Supports responsive presets (checkout configuration property <code>$fluid-type</code> in the example below).</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$size</code></th><td data-label="desc"><p>The key for the requested font size</p></td><td data-label="type"><code>Enum</code></td><td data-label="default"><code>&#39;m&#39;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$set-line-height</code></th><td data-label="desc"><p>Set false to exclude &#39;line-height&#39;</p></td><td data-label="type"><code>Bool</code></td><td data-label="default"><code>true</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$set-vertical-offset</code></th><td data-label="desc"><p>Set true to include &#39;margin-top&#39; and &#39;margin-bottom&#39;</p></td><td data-label="type"><code>Bool</code></td><td data-label="default"><code>false</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>// Configuration
+@use &#39;~@pixelherz/sassbox&#39; with (
+  $breakpoints: (
+    rat: 768px,
+  ),
+  $font-sizes: (
+    s: 16px,
+    m: 24px,
+    l: 36px,
+  ),
+  $line-heights: (
+    s: 20px,
+    m: 30px,
+    l: 45px,
+  ),
+  $letter-spacing: (
+    s: 0.01em,
+    m: 0.005em,
+    l: 0,
+  ),
+  $vertical-spacing: (
+    s: 20px,
+    m: 30px,
+    l: 45px,
+  ),
+  $fluid-type: (
+    l: (
+      default: &#39;m&#39;,
+      rat: &#39;l&#39;,
+    ),
+    m: (
+      default: &#39;s&#39;,
+      rat: &#39;m&#39;,
+    ),
+  ),
+);
+
+// Usage
+.title {
+  @include sassbox.use-type(&#39;l&#39;);
+}
+.paragraph {
+  @include sassbox.use-type(&#39;m&#39;, $set-vertical-offset: true);
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-fluid-type"><code>fluid-type</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-fluid-type"><code>fluid-type</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#config-variable-fluid-type"><code>fluid-type</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">Media Queries (sass-mq)</div></h1><section class="main__sub-section" id="undefined-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="undefined-variable-breakpoints"><h3 class="item__heading"><a class="item__name" href="#variable-breakpoints">breakpoints</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$breakpoints: (
+  mobile: 320px,
+  tablet: 740px,
+  desktop: 980px,
+  wide: 1300px,
+) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Breakpoint list</p><p>Name your breakpoints in a way that creates a ubiquitous language across team members. It will improve communication between stakeholders, designers, developers, and testers.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-use-css-grid"><code>use-css-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-use-css-grid"><code>use-css-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-use-css-grid"><code>use-css-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-use-css-grid"><code>use-css-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-use-layout-offset"><code>use-layout-offset</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-use-layout-offset"><code>use-layout-offset</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-use-layout-offset"><code>use-layout-offset</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-use-layout-offset"><code>use-layout-offset</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#layout-mixin-show-rel-grid"><code>show-rel-grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#type-mixin-use-type"><code>use-type</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#type-mixin-use-type"><code>use-type</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#type-mixin-use-type"><code>use-type</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#type-mixin-use-type"><code>use-type</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#undefined-function-get-breakpoint-width"><code>get-breakpoint-width</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-mq"><code>mq</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-add-breakpoint"><code>add-breakpoint</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-show-breakpoints"><code>show-breakpoints</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint">Full documentation and examples</a></li></ul></section><section class="main__item container item" id="undefined-variable-show-breakpoints"><h3 class="item__heading"><a class="item__name" href="#variable-show-breakpoints">show-breakpoints</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$show-breakpoints: () !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Show breakpoints in the top right corner</p><p>If you want to display the currently active breakpoint in the top right corner of your site during development, add the breakpoints to this list, ordered by width. For example: (mobile, tablet, desktop).</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>$show-breakpoints: (mobile, tablet, desktop);
+@import &#39;path/to/mq&#39;;</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-show-breakpoints"><code>show-breakpoints</code></a></li></ul></section><section class="main__item container item" id="undefined-variable-media-type"><h3 class="item__heading"><a class="item__name" href="#variable-media-type">media-type</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$media-type: all !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Customize the media type (for example: <code>@media screen</code> or <code>@media print</code>) By default sass-mq uses an &quot;all&quot; media type (<code>@media all and …</code>)</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-mq"><code>mq</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://github.com/sass-mq/sass-mq#changing-media-type">Full documentation and example</a></li></ul></section></section><section class="main__sub-section" id="undefined-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="undefined-function-px2em"><h3 class="item__heading"><a class="item__name" href="#function-px2em">px2em</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function px2em($px) { 
+  @if math.is-unitless($px) {
+    @warn &quot;Assuming #{$px} to be in pixels, attempting to convert it into pixels.&quot;;
+    @return px2em($px * 1px);
+  }
+  // if $px is compatible with em units then return value unchanged
+  @if math.compatible($px, 1em) {
+    @return $px;
+  }
+  @return math.div($px, 16px) * 1em;
+ }" data-collapsed="@function px2em($px) { ... }"><code>@function px2em($px) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Convert pixels to ems</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$px</code></th><td data-label="desc"><p>value to convert</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>$font-size-in-ems: px2em(16px);
+p { font-size: px2em(16px); }</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-mq"><code>mq</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-show-breakpoints"><code>show-breakpoints</code></a></li></ul></section><section class="main__item container item" id="undefined-function-get-breakpoint-width"><h3 class="item__heading"><a class="item__name" href="#function-get-breakpoint-width">get-breakpoint-width</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function get-breakpoint-width($name) { 
+  @if map.has-key($breakpoints, $name) {
+    @return map.get($breakpoints, $name);
+  } @else {
+    @warn &quot;Breakpoint #{$name} wasn&#39;t found in $breakpoints.&quot;;
+    @return null;
+  }
+ }" data-collapsed="@function get-breakpoint-width($name) { ... }"><code>@function get-breakpoint-width($name) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Get a breakpoint&#39;s width</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$name</code></th><td data-label="desc"><p>Name of the breakpoint. One of $breakpoints</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>Value in pixels</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>$tablet-width: get-breakpoint-width(tablet);
+@media (min-width: get-breakpoint-width(desktop)) {}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-mq"><code>mq</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-show-breakpoints"><code>show-breakpoints</code></a></li></ul></section><section class="main__item container item" id="undefined-function-_quick-sort"><h3 class="item__heading"><span class="item__access">[private]</span> <a class="item__name" href="#function-_quick-sort">_quick-sort</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _quick-sort($list) { 
+  $less: ();
+  $equal: ();
+  $large: ();
+
+  @if length($list) &gt; 1 {
+    $seed: list.nth($list, math.ceil(math.div(length($list), 2)));
+
+    @each $item in $list {
+      @if ($item == $seed) {
+        $equal: list.append($equal, $item);
+      } @else if ($item &lt; $seed) {
+        $less: list.append($less, $item);
+      } @else if ($item &gt; $seed) {
+        $large: list.append($large, $item);
+      }
+    }
+
+    @return join(join(_quick-sort($less), $equal), _quick-sort($large));
+  }
+
+  @return $list;
+ }" data-collapsed="@function _quick-sort($list) { ... }"><code>@function _quick-sort($list) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Quick sort</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$list</code></th><td data-label="desc"><p>List to sort</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>List</code> &mdash;<p>Sorted List</p></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#undefined-function-_map-sort-by-value"><code>_map-sort-by-value</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Sam Richards</p></li></ul></section><section class="main__item container item" id="undefined-function-_map-sort-by-value"><h3 class="item__heading"><span class="item__access">[private]</span> <a class="item__name" href="#function-_map-sort-by-value">_map-sort-by-value</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _map-sort-by-value($map) { 
+  $map-sorted: ();
+  $map-keys: map.keys($map);
+  $map-values: map.values($map);
+  $map-values-sorted: _quick-sort($map-values);
+
+  // Reorder key/value pairs based on key values
+  @each $value in $map-values-sorted {
+    $index: index($map-values, $value);
+    $key: list.nth($map-keys, $index);
+    $map-sorted: map.merge(
+      $map-sorted,
+      (
+        $key: $value,
+      )
+    );
+
+    // Unset the value in $map-values to prevent the loop
+    // from finding the same index twice
+    $map-values: list.set-nth($map-values, $index, 0);
+  }
+
+  @return $map-sorted;
+ }" data-collapsed="@function _map-sort-by-value($map) { ... }"><code>@function _map-sort-by-value($map) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Sort a map by values (works with numbers only)</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$map</code></th><td data-label="desc"><p>Map to sort</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Map</code> &mdash;<p>Map sorted by value</p></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#undefined-function-_quick-sort"><code>_quick-sort</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-add-breakpoint"><code>add-breakpoint</code></a></li></ul></section></section><section class="main__sub-section" id="undefined-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="undefined-mixin-mq"><h3 class="item__heading"><a class="item__name" href="#mixin-mq">mq</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin mq($from: false, $until: false, $and: false, $media-type: $media-type) { 
+  $min-width: 0;
+  $max-width: 0;
+  $media-query: &#39;&#39;;
+
+  // From: this breakpoint (inclusive)
+  @if $from {
+    @if type-of($from) == number {
+      $min-width: px2em($from);
+    } @else {
+      $min-width: px2em(get-breakpoint-width($from, $breakpoints));
+    }
+  }
+
+  // Until: that breakpoint (exclusive)
+  @if $until {
+    @if type-of($until) == number {
+      $max-width: px2em($until);
+    } @else {
+      $max-width: px2em(get-breakpoint-width($until, $breakpoints)) - 0.01em;
+    }
+  }
+
+  @if $min-width != 0 {
+    $media-query: &#39;#{$media-query} and (min-width: #{$min-width})&#39;;
+  }
+  @if $max-width != 0 {
+    $media-query: &#39;#{$media-query} and (max-width: #{$max-width})&#39;;
+  }
+  @if $and {
+    $media-query: &#39;#{$media-query} and #{$and}&#39;;
+  }
+
+  // Remove unnecessary media query prefix &#39;all and &#39;
+  @if ($media-type == &#39;all&#39; and $media-query != &#39;&#39;) {
+    $media-type: &#39;&#39;;
+    $media-query: str-slice(unquote($media-query), 6);
+  }
+
+  @media #{$media-type + $media-query} {
+    @content;
+  }
+ }" data-collapsed="@mixin mq($from: false, $until: false, $and: false, $media-type: $media-type) { ... }"><code>@mixin mq($from: false, $until: false, $and: false, $media-type: $media-type) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Media Query mixin</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$from</code></th><td data-label="desc"><p>One of $breakpoints</p></td><td data-label="type"><code>String</code> or <code>Boolean</code></td><td data-label="default"><code>false</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$until</code></th><td data-label="desc"><p>One of $breakpoints</p></td><td data-label="type"><code>String</code> or <code>Boolean</code></td><td data-label="default"><code>false</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$and</code></th><td data-label="desc"><p>Additional media query parameters</p></td><td data-label="type"><code>String</code> or <code>Boolean</code></td><td data-label="default"><code>false</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$media-type</code></th><td data-label="desc"><p>Media type: screen, print…</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>$media-type</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.element {
+  @include mq($from: mobile) {
+    color: red;
+  }
+  @include mq($until: tablet) {
+    color: blue;
+  }
+  @include mq(mobile, tablet) {
+    color: green;
+  }
+  @include mq($from: tablet, $and: &#39;(orientation: landscape)&#39;) {
+    color: teal;
+  }
+  @include mq(950px) {
+    color: hotpink;
+  }
+  @include mq(tablet, $media-type: screen) {
+    color: hotpink;
+  }
+  // Advanced use:
+  $my-breakpoints: (L: 900px, XL: 1200px);
+  @include mq(L, $breakpoints: $my-breakpoints) {
+    color: hotpink;
+  }
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-media-type"><code>media-type</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#undefined-function-px2em"><code>px2em</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#undefined-function-get-breakpoint-width"><code>get-breakpoint-width</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-show-breakpoints"><code>show-breakpoints</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://github.com/sass-mq/sass-mq#responsive-mode-on-default">Full documentation and examples</a></li></ul></section><section class="main__item container item" id="undefined-mixin-add-breakpoint"><h3 class="item__heading"><a class="item__name" href="#mixin-add-breakpoint">add-breakpoint</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin add-breakpoint($name, $width) { 
+  $new-breakpoint: (
+    $name: $width,
+  );
+  $breakpoints: map.merge($breakpoints, $new-breakpoint) !global;
+  $breakpoints: _map-sort-by-value($breakpoints) !global;
+ }" data-collapsed="@mixin add-breakpoint($name, $width) { ... }"><code>@mixin add-breakpoint($name, $width) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Add a breakpoint</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$name</code></th><td data-label="desc"><p>Name of the breakpoint</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$width</code></th><td data-label="desc"><p>Width of the breakpoint</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include add-breakpoint(tvscreen, 1920px);
+@include mq(tvscreen) {}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#undefined-function-_map-sort-by-value"><code>_map-sort-by-value</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li></ul></section><section class="main__item container item" id="undefined-mixin-show-breakpoints"><h3 class="item__heading"><a class="item__name" href="#mixin-show-breakpoints">show-breakpoints</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin show-breakpoints($show-breakpoints: $show-breakpoints, $breakpoints: $breakpoints) { 
+  body:before {
+    background-color: #fcf8e3;
+    border-bottom: 1px solid #fbeed5;
+    border-left: 1px solid #fbeed5;
+    color: #c09853;
+    font: small-caption;
+    padding: 3px 6px;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+
+    // Loop through the breakpoints that should be shown
+    @each $show-breakpoint in $show-breakpoints {
+      $width: get-breakpoint-width($show-breakpoint, $breakpoints);
+      @include mq($show-breakpoint, $breakpoints: $breakpoints) {
+        content: &#39;#{$show-breakpoint} ≥ #{$width} (#{px2em($width)})&#39;;
+      }
+    }
+  }
+ }" data-collapsed="@mixin show-breakpoints($show-breakpoints: $show-breakpoints, $breakpoints: $breakpoints) { ... }"><code>@mixin show-breakpoints($show-breakpoints: $show-breakpoints, $breakpoints: $breakpoints) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Show the active breakpoint in the top right corner of the viewport</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$show-breakpoints</code></th><td data-label="desc"><p>List of breakpoints to show in the top right corner</p></td><td data-label="type"><code>List</code></td><td data-label="default"><code>$show-breakpoints</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$breakpoints</code></th><td data-label="desc"><p>Breakpoint names and sizes</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>$breakpoints</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>// Show breakpoints using global settings
+@include show-breakpoints;
+
+// Show breakpoints using custom settings
+@include show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-mq"><code>mq</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#undefined-function-get-breakpoint-width"><code>get-breakpoint-width</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#undefined-function-px2em"><code>px2em</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-breakpoints"><code>breakpoints</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#undefined-variable-show-breakpoints"><code>show-breakpoints</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint">https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint</a></li></ul></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <a class="project-info__name" href="https://github.com/Pixelherz/sassbox#readme">@pixelherz/sassbox</a><!-- Version --> <span class="project-info__version">- v1.0.0-rc.1</span><!-- License --> <span class="project-info__license">, under ISC</span></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>

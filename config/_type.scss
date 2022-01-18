@@ -1,0 +1,119 @@
+// Typographic configuration
+
+/// # Font sizes
+/// A list for key/value-pairs where key is the name of the typographic preset,
+/// value is the font-size in pixels.
+/// @example scss
+///   @use '~@pixelherz/sassbox' with (
+///     $font-sizes: (
+///       s: 16px,
+///       m: 24px,
+///       l: 36px,
+///     )
+///   );
+/// @type map
+/// @prop {number} font-sizes.[preset] -
+///   Font size in pixels
+/// @since 1.0.0
+/// @group config
+/// @see $line-heights
+/// @see $letter-spacing
+/// @see $vertical-spacing
+/// @see $fluid-type
+
+$font-sizes: () !default;
+
+/// # Line heights
+/// A list for key/value-pairs where key is the name of the typographic preset,
+/// value is the line-height in pixels.
+/// @example scss
+///   @use '~@pixelherz/sassbox' with (
+///     $line-heights: (
+///       s: 20px,
+///       m: 30px,
+///       l: 45px,
+///     )
+///   );
+/// @type map
+/// @prop {number} line-heights.[preset] -
+///   Line height in pixels
+/// @since 1.0.0
+/// @group config
+/// @see $font-sizes
+/// @see $letter-spacing
+/// @see $vertical-spacing
+/// @see $fluid-type
+
+$line-heights: () !default;
+
+/// # Letter spacing
+/// A list for key/value-pairs where key is the name of the typographic preset,
+/// value is the letter-spacing in pixels.
+/// @example scss
+///   @use '~@pixelherz/sassbox' with (
+///     $letter-spacing: (
+///       s: 0.01em,
+///       m: 0.005em,
+///       l: 0,
+///     )
+///   );
+/// @type map
+/// @prop {number} letter-spacing.[preset] [0] -
+///   Letter-spacing in your preferred unit
+/// @since 1.0.0
+/// @group config
+/// @see $font-sizes
+/// @see $line-heights
+/// @see $vertical-spacing
+/// @see $fluid-type
+
+$letter-spacing: () !default;
+
+/// # Vertical spacing
+/// A list for key/value-pairs where key is the name of the typographic preset,
+/// value is the vertical-offset in pixels.
+/// Example: Set equal to line-height for vertical space of a blank line
+/// Example: Set half of line-height for vertical space of half a blank line
+/// @example scss
+///   @use '~@pixelherz/sassbox' with (
+///     $vertical-spacing: (
+///       s: 20px,
+///       m: 30px,
+///     )
+///   );
+/// @type map
+/// @prop {number} vertical-spacing.[preset] [0] -
+/// @since 1.0.0
+/// @group config
+/// @see $font-sizes
+/// @see $line-heights
+/// @see $letter-spacing
+/// @see $fluid-type
+
+$vertical-spacing: () !default;
+
+/// # Fluid type
+/// 'Fluid' font sizes are scaled down for the given responsive breakpoints
+/// @example scss
+///   @use '~@pixelherz/sassbox' with (
+///     $fluid-type: (
+///       l: (
+///         default: 'm',
+///         rat: 'l',
+///       ),
+///       m: (
+///         default: 's',
+///         rat: 'm',
+///       )
+///     )
+///   );
+/// @type map
+/// @prop {map} fluid-type.[preset] -
+/// @since 1.0.0
+/// @group config
+/// @see $line-heights
+/// @see $letter-spacing
+/// @see $vertical-spacing
+/// @see $font-sizes
+
+$fluid-type: () !default;
