@@ -1,6 +1,6 @@
 @use '../config';
 @use 'sass:math';
-@use '~sass-mq/mq';
+@use 'node_modules/sass-mq/mq';
 
 /// # Inject CSS grid columns
 /// @output
