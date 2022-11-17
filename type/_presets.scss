@@ -1,7 +1,7 @@
 @use '../config';
 @use '../conversion' as convert;
 @use 'sass:math';
-@use '~sass-mq/mq';
+@use 'node_modules/sass-mq/mq';
 
 /// Allows usage of global typographic presets instead of definitions spread
 /// accross your project. Supports responsive presets (checkout configuration
