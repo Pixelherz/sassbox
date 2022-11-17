@@ -1,7 +1,7 @@
 @use '../config';
 @use './offset';
 @use './rel-grid';
-@use '~sass-mq/mq';
+@use 'node_modules/sass-mq/mq';
 
 /// # Show relative grid
 /// Display the relative grid by adding a class-name to the html element. The

@@ -9,94 +9,143 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [v1.0.0] - 2022-01-18
-### Added
-- Documentation
 ### Changed
-- Configuration: 
-  - The library is now configured via `@use "@pixelherz/sassbox" with (<configuration>)` thus we can omit the prefixes on configuration properties (e.g. `$ph-font-sizes` becomes `$font-sizes`). 
-  - `$ph-font-family--default` is no longer needed, as normalize uses `font-family: inherit` instead of setting the value explicitly. 
+
+## [v1.0.1] - 2022-11-17
+
+- Update all dependencies
+- Remove tilde (~) from imports
+
+## [v1.0.0] - 2022-01-18
+
+### Added
+
+- Documentation
+
+### Changed
+
+- Configuration:
+  - The library is now configured via `@use "@pixelherz/sassbox" with (<configuration>)` thus we can omit the prefixes on configuration properties (e.g. `$ph-font-sizes` becomes `$font-sizes`).
+  - `$ph-font-family--default` is no longer needed, as normalize uses `font-family: inherit` instead of setting the value explicitly.
 - Namespace: The API now uses a single namespace and entry-point (`@use "~@pixelherz/sassbox"` instead of `@import "~@pixelherz/sassbox/sassbox"`.
 - Normalize is now served as `@mixin` instead of style import.
 - Breakpoint manager: `sass-mq` is now served via API (`sassbox.mq()`).
-- Show relative grid: The CSS used to render the grid is now injected via mixin `show-rel-grid`. 
+- Show relative grid: The CSS used to render the grid is now injected via mixin `show-rel-grid`.
 - Typography: `font-size` and `line-height` are set in `rem` (was `px` before).
+
 ### Fixed
+
 - Update `sass-mq@latest` (beta): The latest stable release (v5.x) uses division, which is deprecated. The beta (v6) uses `math.div` instead.
+
 ### Deprecated
-- Grid 
+
+- Grid
   - Deprecate `grid-width` in favour of `get-rel-grid-width`
   - Deprecate `grid-offset` in favour of `layout-offset`
   - Deprecate `apply-grid-offset` in favour of `use-layout-offset`
   - Deprecate `inject-css-grid` in favour of `use-css-grid`
   - Deprecate `grid-max-offset` in favour of `get-layout-max-offset`
-- Miscellaneous 
+- Miscellaneous
   - Deprecate `un-button` in favour of `reset-button`
 - Type
   - Deprecate `font-size` in favour of `use-type`
 - Conversion
   - Deprecate `pxToRem` in favour of `px-to-rem`
   - Deprecate `remToPx` in favour of `rem-to-px`
+
 ### Removed
-- Feature picking (e.g. `@import "~@pixelherz/sassbox/utils/grid"`) is no longer supported. Import the complete library instead. 
+
+- Feature picking (e.g. `@import "~@pixelherz/sassbox/utils/grid"`) is no longer supported. Import the complete library instead.
 
 ## [v0.11.1] - 2021-11-02
+
 ### Fixed
+
 - SCSS: Fix broken import in util `font-size`.
 
 ## [v0.11.0] - 2021-10-11
-### Added 
+
+### Added
+
 - Utils/Font-Size: Mixin `font-size` supports parameter `$set-vertical-spacing`. If set true, the mixin returns definitions for `margin-top` and `margin-bottom`.
 
 ## [v0.10.0] - 2021-09-27
-### Added 
+
+### Added
+
 - Utils/Conversion: Add function `remToPx`
 
 ## [v0.9.0] - 2021-09-25
+
 ### Added
+
 - Utils/Conversion: Add function `pxToRem`
 
 ## [v0.8.0] - 2021-06-28
+
 ### Changed
+
 - Base/Normalize: Use `text-align: left` for `th`
 
 ## [v0.7.0] - 2020-12-08
-### Changed 
+
+### Changed
+
 - Base/Normalize: Use default font for `textarea` and `input`
 
 ## [v0.6.1] - 2020-11-25
+
 ### Fixed
+
 - Base/Normalize: Reset `fieldset`'s `margin`
 
 ## [v0.6.0] - 2020-11-25
-### Added 
+
+### Added
+
 - Base/Normalize: Add reset for `fieldset` and `legend`
 
 ## [v0.5.0] - 2020-11-17
+
 ### Added
+
 - Utils/Grid: `apply-grid-offset()` takes argument `$prop`. Defaults to 'margin', might be used with props like 'padding'.
+
 ### Changed
+
 - Utils: Do not allow implicit defaults. Defaults must be defined using key 'default'.
 
 ## [v0.4.0] - 2020-11-17
+
 ### Added
+
 - Utils/Grid: Add mixin `apply-grid-offset()`
 
 ## [v0.3.0] - 2020-11-17
+
 ### Added
+
 - Utils/Grid: Add CSS grid utils
+
 ### Changed
+
 - Utils/Grid: **Breaking:** Rename `grid` → `rel-grid`
 - Utils/Grid: **Breaking:** Rename `show-grid` → `show-rel-grid`
+
 ### Fixed
+
 - Utils/Grid: Fix typo in docs
 
 ## [v0.2.0] - 2020-11-10
+
 ### Added
+
 - Utils/Grid: Add `grid-max-offset()`
 
 ## [v0.1.0] - 2020-11-09
+
 ### Added
+
 - Base
   - Normalize
 - Utils
@@ -106,7 +155,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Show-Grid
   - Un-Button
 
-[Unreleased]: https://github.com/Pixelherz/sassbox/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/Pixelherz/sassbox/compare/v1.0.1...HEAD
+[v1.0.1]: https://github.com/Pixelherz/sassbox/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/Pixelherz/sassbox/compare/v0.11.1...v1.0.0
 [v0.11.1]: https://github.com/Pixelherz/sassbox/compare/v0.11.0...v0.11.1
 [v0.11.0]: https://github.com/Pixelherz/sassbox/compare/v0.10.0...v0.11.0
