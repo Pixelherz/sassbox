@@ -80,7 +80,7 @@ We use [SassDoc](http://sassdoc.com) for documentation.
 ### Build docs
 
 ```sh
-npm run build-docs
+npm run docs
 ```
 
 ## Upgrade Guide
