@@ -27,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Configuration:
   - The library is now configured via `@use "@pixelherz/sassbox" with (<configuration>)` thus we can omit the prefixes on configuration properties (e.g. `$ph-font-sizes` becomes `$font-sizes`).
   - `$ph-font-family--default` is no longer needed, as normalize uses `font-family: inherit` instead of setting the value explicitly.
-- Namespace: The API now uses a single namespace and entry-point (`@use "~@pixelherz/sassbox"` instead of `@import "~@pixelherz/sassbox/sassbox"`.
+- Namespace: The API now uses a single namespace and entry-point (`@use "@pixelherz/sassbox"` instead of `@import "@pixelherz/sassbox/sassbox"`.
 - Normalize is now served as `@mixin` instead of style import.
 - Breakpoint manager: `sass-mq` is now served via API (`sassbox.mq()`).
 - Show relative grid: The CSS used to render the grid is now injected via mixin `show-rel-grid`.
@@ -55,7 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
-- Feature picking (e.g. `@import "~@pixelherz/sassbox/utils/grid"`) is no longer supported. Import the complete library instead.
+- Feature picking (e.g. `@import "@pixelherz/sassbox/utils/grid"`) is no longer supported. Import the complete library instead.
 
 ## [v0.11.1] - 2021-11-02
 

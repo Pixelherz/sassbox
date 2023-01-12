@@ -29,7 +29,7 @@
 /// @return {number} - relative width in `%`
 /// @example scss
 ///   // Configuration
-///   @use '~@pixelherz/sassbox' with (
+///   @use '@pixelherz/sassbox' with (
 ///     $layout-max-width: 1360px,
 ///     $rel-grid-gutter-width: 32px,
 ///     $rel-grid-col-width: 84px,

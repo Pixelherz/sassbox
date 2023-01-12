@@ -7,7 +7,7 @@
 ///   maximum value from `$layout-offset`
 /// @example scss
 ///   // Configuration
-///   @use '~@pixelherz/sassbox' with (
+///   @use '@pixelherz/sassbox' with (
 ///     $layout-offset: (
 ///       default: 20px,
 ///       mouse: 40px,
@@ -45,7 +45,7 @@
 ///   some cases).
 /// @example scss
 ///   // Configuration
-///   @use '~@pixelherz/sassbox' with (
+///   @use '@pixelherz/sassbox' with (
 ///     $layout-offset: (
 ///       default: 20px,
 ///       mouse: 40px,

@@ -28,7 +28,7 @@ npm i @pixelherz/sassbox
 Import the toolbox in your project. 
 
 ```scss
-@use '~@pixelherz/sassbox' [with (<my-config>)];
+@use '@pixelherz/sassbox' [with (<my-config>) ];
 ```
 
 ## Configuration
@@ -93,9 +93,9 @@ Update your `@forward`, `@use` or `@import` statement (`with` clause is optional
 
 ```scss
 // v0.x
-@forward '~@pixelherz/sassbox/sassbox' [with (...)];
-@use '~@pixelherz/sassbox/sassbox' [with (...)];
-@import '~@pixelherz/sassbox/sassbox';
+@forward '@pixelherz/sassbox/sassbox' [with (...) ];
+@use '@pixelherz/sassbox/sassbox' [with (...) ];
+@import '@pixelherz/sassbox/sassbox';
 ```
 
 Use a single configured `@forward` to import the library. Then `@use` this forward. Note that _the import path has changed_. 

@@ -10,7 +10,7 @@
 ///   which is required for a working CSS grid layout (cmp. example).
 /// @example scss
 ///   // Configuration
-///   @use '~@pixelherz/sassbox' with (
+///   @use '@pixelherz/sassbox' with (
 ///     $css-grid: (
 ///       default: (
 ///         cols-num: 6,

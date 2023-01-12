@@ -11,7 +11,7 @@
 /// @param {string} $class-name [show-rel-grid] -
 ///   A custom class-name
 /// @example scss - Usually included once in your root stylesheet
-///   @use '~@pixelherz/sassbox';
+///   @use '@pixelherz/sassbox';
 ///
 ///   @include sassbox.show-rel-grid($class-name: 'show-grid');
 /// @example html - Add the class to your `html` element to make the grid visible
