@@ -1,13 +1,13 @@
 @use '../config';
 @use 'sass:math';
-@use 'node_modules/sass-mq/mq';
+@use 'sass-mq/mq';
 
 /// Get the maximum layout offset (outer gutter, horizontal margin).
 /// @return {number} -
 ///   maximum value from `$layout-offset`
 /// @example scss
 ///   // Configuration
-///   @use '~@pixelherz/sassbox' with (
+///   @use '@pixelherz/sassbox' with (
 ///     $layout-offset: (
 ///       default: 20px,
 ///       mouse: 40px,
@@ -45,7 +45,7 @@
 ///   some cases).
 /// @example scss
 ///   // Configuration
-///   @use '~@pixelherz/sassbox' with (
+///   @use '@pixelherz/sassbox' with (
 ///     $layout-offset: (
 ///       default: 20px,
 ///       mouse: 40px,

@@ -1,10 +1,10 @@
 {
   "name": "@pixelherz/sassbox",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sass utils we frequently use in our projects.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-docs": "sassdoc ."
+    "docs": "sassdoc ."
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
     "sass-mq": "^6.0.0"
   },
   "devDependencies": {
-    "sass": "^1.55.0",
+    "sass": "^1.57.1",
     "sassdoc": "^2.7.4"
   }
 }

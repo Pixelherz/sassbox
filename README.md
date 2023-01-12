@@ -25,31 +25,31 @@ npm i @pixelherz/sassbox
 
 ## Usage
 
-Import the toolbox in your project. 
+Import the toolbox in your project.
 
 ```scss
-@use '~@pixelherz/sassbox' [with (<my-config>)];
+@use '@pixelherz/sassbox' [with (<my-config>) ];
 ```
 
 ## Configuration
 
-Typically you'll want to `@use` a configured `@forward` of the library. Here's a sample: 
+Typically you'll want to `@use` a configured `@forward` of the library. Here's a sample:
 
 ```scss
 // e.g. /styles/_sassbox.scss – configured @forward of the library
 @forward '@pixelherz/sassbox' with (
-  $font-sizes: (
-    's': 16px,
-    'm': 24px,
-    'l': 36px,
-  ),
-  $line-heights: (
-    's': 20px,
-    'm': 30px,
-    'l': 45px,
-  ),
-  // ... custom configuration
-);
+    $font-sizes: (
+      's': 16px,
+      'm': 24px,
+      'l': 36px,
+    ),
+    $line-heights: (
+      's': 20px,
+      'm': 30px,
+      'l': 45px,
+    ),
+    // ... custom configuration
+  );
 ```
 
 ```scss
@@ -75,12 +75,12 @@ Variable, function and mixin names indicate their purpose (`rel-grid` for relati
 
 ### Write docs
 
-We use [SassDoc](http://sassdoc.com) for documentation. 
+We use [SassDoc](http://sassdoc.com) for documentation.
 
 ### Build docs
 
 ```sh
-npm run build-docs
+npm run docs
 ```
 
 ## Upgrade Guide
@@ -89,28 +89,28 @@ npm run build-docs
 
 #### 1. Import
 
-Update your `@forward`, `@use` or `@import` statement (`with` clause is optional). Usage of  `@import` [is discouraged](https://sass-lang.com/documentation/at-rules/import). We recommend to replace it with a configured `@forward`. If you prefere, you can also use `@use`.
+Update your `@forward`, `@use` or `@import` statement (`with` clause is optional). Usage of `@import` [is discouraged](https://sass-lang.com/documentation/at-rules/import). We recommend to replace it with a configured `@forward`. If you prefere, you can also use `@use`.
 
 ```scss
 // v0.x
-@forward '~@pixelherz/sassbox/sassbox' [with (...)];
-@use '~@pixelherz/sassbox/sassbox' [with (...)];
-@import '~@pixelherz/sassbox/sassbox';
+@forward '@pixelherz/sassbox/sassbox' [with (...) ];
+@use '@pixelherz/sassbox/sassbox' [with (...) ];
+@import '@pixelherz/sassbox/sassbox';
 ```
 
-Use a single configured `@forward` to import the library. Then `@use` this forward. Note that _the import path has changed_. 
+Use a single configured `@forward` to import the library. Then `@use` this forward. Note that _the import path has changed_.
 
 ```scss
 // Configured @forward
-// e.g. styles/lib/_sassbox.scss 
-@forward '~@pixelherz/sassbox' with (
-  $breakpoints: (
-    foo: 576px,
-    bar: 768px
-  ),
-  $layout-max-width: 1360px,
-  [...]
-);
+// e.g. styles/lib/_sassbox.scss
+@forward '@pixelherz/sassbox' with (
+    $breakpoints: (
+      foo: 576px,
+      bar: 768px,
+    ),
+    $layout-max-width: 1360px,
+    [...]
+  );
 ```
 
 ```scss
@@ -126,9 +126,9 @@ Use a single configured `@forward` to import the library. Then `@use` this forwa
 - Remove `$ph-font-family--default` as it's no longer required.
 - Rename the following configuration property
 
-| v0.x                  | v1.x                    |
-|-----------------------|-------------------------|
-| `$grid-offset`        | `$layout-offset`        |
+| v0.x           | v1.x             |
+| -------------- | ---------------- |
+| `$grid-offset` | `$layout-offset` |
 
 #### 3. Use namespace
 
@@ -143,17 +143,17 @@ Use a single configured `@forward` to import the library. Then `@use` this forwa
 
 The names of some variables, functions and mixins have changed. Their signature has not changed. Update these with the new names.
 
-| v0.x                  | v1.x                      |
-|-----------------------|---------------------------|
-| `un-button()`         | `reset-button()`          |
+| v0.x                  |  v1.x                     |
+| --------------------- | ------------------------- |
+| `un-button()`         | `reset-button()`          |
 | `pxToRem()`           | `px-to-rem()`             |
 | `remToPx()`           | `rem-to-px()`             |
 | `font-size()`         | `use-type()`              |
-| `inject-css-grid()`   | `use-css-grid()`          |
-| `grid-offset`         | `layout-offset`           |
-| `grid-width()`        | `get-rel-grid-width()`    |
-| `grid-max-offset`     | `get-layout-max-offset()` |
-| `apply-grid-offset()` | `use-layout-offset()`     |
+| `inject-css-grid()`   | `use-css-grid()`          |
+| `grid-offset`         | `layout-offset`           |
+| `grid-width()`        | `get-rel-grid-width()`    |
+| `grid-max-offset`     | `get-layout-max-offset()` |
+| `apply-grid-offset()` | `use-layout-offset()`     |
 
 #### 5. Normalize
 
@@ -161,22 +161,24 @@ In 0.x versions, normalize was applied by default. With 1.x, normalize has moved
 
 ```scss
 // e.g. styles.scss
-@use "./styles/lib/sassbox";
+@use './styles/lib/sassbox';
 @include sassbox.normalize();
 ```
 
 #### 6. Replace `sass-mq` with `sassbox.mq`
 
-Remove `sass-mq` as it's now part of this library. 
+Remove `sass-mq` as it's now part of this library.
 
 ```scss
 // Remove imports
-@import '~sass-mq/mq'; // <-- delete 
+@import '~sass-mq/mq'; // <-- delete
 
 // prior v1.x
-@include mq($from: "my-breakpoint") {}
+@include mq($from: 'my-breakpoint') {
+}
 // v1.x
-@include sassbox.mq($from: "my-breakpoint") {}
+@include sassbox.mq($from: 'my-breakpoint') {
+}
 ```
 
 #### 7. Test your app
@@ -188,13 +190,11 @@ That's it. Time to run and check your app!
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/Pixelherz/sassbox/tags). 
-
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/Pixelherz/sassbox/tags).
 
 ## License
 
 This project is licensed under the ISC License - see the [LICENSE.md](LICENSE.md) file for details.
-
 
 ## Contact
 

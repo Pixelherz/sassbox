@@ -39,7 +39,7 @@ $layout-offset: (
 ///   `'static'` – the gutter width is set in pixels<br/>
 ///   `'fluid'` – gutter width is set in percent (relative to `col-width`).
 /// @example scss
-///   @use '~@pixelherz/sassbox' with (
+///   @use '@pixelherz/sassbox' with (
 ///     $css-grid: (
 ///         default: (
 ///           cols-num: 6,
