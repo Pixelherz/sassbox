@@ -1,6 +1,6 @@
 {
   "name": "@pixelherz/sassbox",
-  "version": "1.0.1",
+  "version": "1.0.2-rc.0",
   "description": "Sass utils we frequently use in our projects.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
