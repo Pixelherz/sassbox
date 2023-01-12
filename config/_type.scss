@@ -4,7 +4,7 @@
 /// A list for key/value-pairs where key is the name of the typographic preset,
 /// value is the font-size in pixels.
 /// @example scss
-///   @use '~@pixelherz/sassbox' with (
+///   @use '@pixelherz/sassbox' with (
 ///     $font-sizes: (
 ///       s: 16px,
 ///       m: 24px,
@@ -27,7 +27,7 @@ $font-sizes: () !default;
 /// A list for key/value-pairs where key is the name of the typographic preset,
 /// value is the line-height in pixels.
 /// @example scss
-///   @use '~@pixelherz/sassbox' with (
+///   @use '@pixelherz/sassbox' with (
 ///     $line-heights: (
 ///       s: 20px,
 ///       m: 30px,
@@ -50,7 +50,7 @@ $line-heights: () !default;
 /// A list for key/value-pairs where key is the name of the typographic preset,
 /// value is the letter-spacing in pixels.
 /// @example scss
-///   @use '~@pixelherz/sassbox' with (
+///   @use '@pixelherz/sassbox' with (
 ///     $letter-spacing: (
 ///       s: 0.01em,
 ///       m: 0.005em,
@@ -75,7 +75,7 @@ $letter-spacing: () !default;
 /// Example: Set equal to line-height for vertical space of a blank line
 /// Example: Set half of line-height for vertical space of half a blank line
 /// @example scss
-///   @use '~@pixelherz/sassbox' with (
+///   @use '@pixelherz/sassbox' with (
 ///     $vertical-spacing: (
 ///       s: 20px,
 ///       m: 30px,
@@ -95,7 +95,7 @@ $vertical-spacing: () !default;
 /// # Fluid type
 /// 'Fluid' font sizes are scaled down for the given responsive breakpoints
 /// @example scss
-///   @use '~@pixelherz/sassbox' with (
+///   @use '@pixelherz/sassbox' with (
 ///     $fluid-type: (
 ///       l: (
 ///         default: 'm',
