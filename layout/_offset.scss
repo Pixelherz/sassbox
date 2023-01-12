@@ -1,6 +1,6 @@
 @use '../config';
 @use 'sass:math';
-@use 'node_modules/sass-mq/mq';
+@use 'sass-mq/mq';
 
 /// Get the maximum layout offset (outer gutter, horizontal margin).
 /// @return {number} -
