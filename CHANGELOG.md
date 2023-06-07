@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.1.0] - 2023-06-07
+
+### Added
+
+- Miscellaneous: New mixin `truncate-text` to keep text single-line and truncate overflow using ellipsis (…).
+
 ### Changed
 
 - Update dependecies
@@ -163,7 +169,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Show-Grid
   - Un-Button
 
-[unreleased]: https://github.com/Pixelherz/sassbox/compare/v1.0.2...HEAD
+[unreleased]: https://github.com/Pixelherz/sassbox/compare/v1.1.0...HEAD
+[v1.1.0]: https://github.com/Pixelherz/sassbox/compare/v1.0.2...v1.1.0
 [v1.0.2]: https://github.com/Pixelherz/sassbox/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/Pixelherz/sassbox/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/Pixelherz/sassbox/compare/v0.11.1...v1.0.0
