@@ -19,3 +19,22 @@
   text-align: left;
   text-transform: capitalize;
 }
+
+/// Forces text to be rendered on a single line (prevent line-break). If the
+/// text exceeds the element width, it is truncated using ellipsis (…).
+/// @output
+///   CSS definitions to prevent line-break and hide/truncate overflow.
+/// @example scss
+///   @use '@pixelherz/sassbox';
+///
+///   .single-line {
+///     @include sassbox.truncate-text();
+///   }
+/// @since 1.1.0
+/// @group misc
+
+@mixin truncate-text() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
