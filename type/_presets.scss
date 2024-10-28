@@ -1,5 +1,7 @@
 @use '../config';
 @use '../conversion' as convert;
+@use 'sass:list';
+@use 'sass:map';
 @use 'sass:math';
 @use 'sass-mq/mq';
 
@@ -69,11 +71,11 @@
 ) {
   @if ($set-responsive != true) {
     @include -apply-styles($size, $set-line-height, $set-vertical-offset);
-  } @else if map-has-key(config.$fluid-type, $size) {
-    $bps: map-get(config.$fluid-type, $size);
+  } @else if map.has-key(config.$fluid-type, $size) {
+    $bps: map.get(config.$fluid-type, $size);
     @each $bp in $bps {
-      $bp-name: nth($bp, 1);
-      $bp-size: nth($bp, 2);
+      $bp-name: list.nth($bp, 1);
+      $bp-size: list.nth($bp, 2);
       // Default (no breakpoint)
       @if ($bp-name == 'default') {
         @include -apply-styles(
@@ -83,7 +85,7 @@
         );
       }
       // Breakpoint
-      @else if map-has-key(mq.$breakpoints, $bp-name) {
+      @else if map.has-key(mq.$breakpoints, $bp-name) {
         @include mq.mq($from: $bp-name) {
           @include -apply-styles(
             $bp-size,
@@ -109,21 +111,21 @@
   $set-vertical-offset: false
 ) {
   // Collect values
-  $font-size: map-get(config.$font-sizes, $size);
-  $line-height: map-get(config.$line-heights, $size);
+  $font-size: map.get(config.$font-sizes, $size);
+  $line-height: map.get(config.$line-heights, $size);
 
   // Output
   font-size: convert.px-to-rem($font-size);
-  @if map-has-key(config.$letter-spacing, $size) {
-    letter-spacing: map-get(config.$letter-spacing, $size);
+  @if map.has-key(config.$letter-spacing, $size) {
+    letter-spacing: map.get(config.$letter-spacing, $size);
   }
   @if $set-line-height {
     line-height: convert.px-to-rem($line-height);
   }
   @if $set-vertical-offset {
     $offset-v-abs: $line-height;
-    @if map-has-key(config.$vertical-spacing, $size) {
-      $offset-v-abs: map-get(config.$vertical-spacing, $size);
+    @if map.has-key(config.$vertical-spacing, $size) {
+      $offset-v-abs: map.get(config.$vertical-spacing, $size);
     }
     $offset-v: math.div($offset-v-abs, $font-size) * 1em;
     margin-top: $offset-v;

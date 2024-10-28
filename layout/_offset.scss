@@ -1,4 +1,6 @@
 @use '../config';
+@use 'sass:list';
+@use 'sass:map';
 @use 'sass:math';
 @use 'sass-mq/mq';
 
@@ -30,7 +32,7 @@
   // We'll use this later to get the max offset.
   $layout-offsets: ();
   @each $bp in config.$layout-offset {
-    $layout-offsets: append($layout-offsets, nth($bp, 2));
+    $layout-offsets: append($layout-offsets, list.nth($bp, 2));
   }
   @return math.max(0, $layout-offsets...);
 }
@@ -62,15 +64,15 @@
 
 @mixin use-layout-offset($prop: 'margin') {
   @each $offset in config.$layout-offset {
-    $bp-name: nth($offset, 1);
-    $offset-val: nth($offset, 2);
+    $bp-name: list.nth($offset, 1);
+    $offset-val: list.nth($offset, 2);
     // Default (no breakpoint)
     @if $bp-name == 'default' {
       #{$prop}-right: $offset-val;
       #{$prop}-left: $offset-val;
     }
     // Breakpoint
-    @else if map-has-key(mq.$breakpoints, $bp-name) {
+    @else if map.has-key(mq.$breakpoints, $bp-name) {
       @include mq.mq($from: $bp-name) {
         #{$prop}-right: $offset-val;
         #{$prop}-left: $offset-val;
