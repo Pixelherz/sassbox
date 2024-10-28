@@ -1,4 +1,5 @@
 @use '../config';
+@use 'sass:map';
 @use 'sass:math';
 @use 'sass-mq/mq';
 
@@ -51,7 +52,7 @@
       grid-template-columns: -grid-tmpl-cols($grid-cfg);
     }
     // Breakpoint
-    @else if map-has-key(mq.$breakpoints, $bp-name) {
+    @else if map.has-key(mq.$breakpoints, $bp-name) {
       @include mq.mq($from: $bp-name) {
         grid-template-columns: -grid-tmpl-cols($grid-cfg);
       }
@@ -66,8 +67,8 @@
 // Helper: Returns `grid-template-colums`-value for a given grid-configuration
 
 @function -grid-tmpl-cols($grid-cfg) {
-  $cols-num: map-get($grid-cfg, 'cols-num');
-  $gutter-width: map-get($grid-cfg, 'gutter-width');
+  $cols-num: map.get($grid-cfg, 'cols-num');
+  $gutter-width: map.get($grid-cfg, 'gutter-width');
   $col-val: 1fr; // will be updated for fluid gutters
   $gutter-val: $gutter-width; // will be updated for fluid gutters
   // CSS grid not required as we have only a single column
@@ -75,8 +76,8 @@
     @return [grid-start col-start] $col-val [col-end grid-end];
   }
   // Fluid gutters
-  @if map-get($grid-cfg, 'gutter-type') == 'fluid' {
-    $col-width: map-get($grid-cfg, 'col-width');
+  @if map.get($grid-cfg, 'gutter-type') == 'fluid' {
+    $col-width: map.get($grid-cfg, 'col-width');
     $layout-width: $cols-num * $col-width + ($cols-num - 1) * $gutter-width;
     $col-val: math.percentage(math.div($col-width, $layout-width));
     $gutter-val: math.percentage(math.div($gutter-width, $layout-width));

@@ -1,4 +1,5 @@
 @use '../config';
+@use 'sass:map';
 @use 'sass:math';
 @use 'sass-mq/mq';
 
@@ -70,7 +71,7 @@
       #{$prop}-left: $offset-val;
     }
     // Breakpoint
-    @else if map-has-key(mq.$breakpoints, $bp-name) {
+    @else if map.has-key(mq.$breakpoints, $bp-name) {
       @include mq.mq($from: $bp-name) {
         #{$prop}-right: $offset-val;
         #{$prop}-left: $offset-val;
