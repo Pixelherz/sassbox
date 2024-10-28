@@ -1,4 +1,5 @@
 @use '../config';
+@use 'sass:list';
 @use 'sass:map';
 @use './offset';
 @use './rel-grid';
@@ -51,7 +52,7 @@
       border: none;
 
       @each $offset in config.$layout-offset {
-        $bp-name: nth($offset, 1);
+        $bp-name: list.nth($offset, 1);
         // Default (no breakpoint)
         @if $bp-name == 'default' {
           background-position: map.get(config.$layout-offset, $bp-name) 0;

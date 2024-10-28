@@ -1,4 +1,5 @@
 @use '../config';
+@use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
 @use 'sass-mq/mq';
@@ -45,8 +46,8 @@
 
 @mixin use-css-grid() {
   @each $bp-cfg in config.$css-grid {
-    $bp-name: nth($bp-cfg, 1);
-    $grid-cfg: nth($bp-cfg, 2);
+    $bp-name: list.nth($bp-cfg, 1);
+    $grid-cfg: list.nth($bp-cfg, 2);
     // Default (no breakpoint)
     @if $bp-name == 'default' {
       grid-template-columns: -grid-tmpl-cols($grid-cfg);

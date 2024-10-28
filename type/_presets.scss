@@ -1,5 +1,6 @@
 @use '../config';
 @use '../conversion' as convert;
+@use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
 @use 'sass-mq/mq';
@@ -73,8 +74,8 @@
   } @else if map.has-key(config.$fluid-type, $size) {
     $bps: map.get(config.$fluid-type, $size);
     @each $bp in $bps {
-      $bp-name: nth($bp, 1);
-      $bp-size: nth($bp, 2);
+      $bp-name: list.nth($bp, 1);
+      $bp-size: list.nth($bp, 2);
       // Default (no breakpoint)
       @if ($bp-name == 'default') {
         @include -apply-styles(
