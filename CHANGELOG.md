@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v2.0.0] - 2024-10-28
 
+### Breaking Changes
+
+- Upgrade sass-mq@7
+
 ### Maintenance
 
 - Update sass@1.80.4, sass-mq@7.0.0-beta.1
