@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [v2.0.0] - 2024-10-28
+## [v2.0.0] - 2025-07-15
 
 ### Breaking Changes
 
@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Maintenance
 
-- Update sass@1.80.4, sass-mq@7.0.0-beta.1
+- Update dev dependencies: sass@1.89.2
 
 ## [v1.1.0] - 2023-06-07
 
