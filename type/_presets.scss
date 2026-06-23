@@ -3,7 +3,7 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
-@use 'sass-mq/mq';
+@use 'sass-mq' as mq;
 
 /// Allows usage of global typographic presets instead of definitions spread
 /// accross your project. Supports responsive presets (checkout configuration

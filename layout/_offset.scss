@@ -2,7 +2,7 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
-@use 'sass-mq/mq';
+@use 'sass-mq' as mq;
 
 /// Get the maximum layout offset (outer gutter, horizontal margin).
 /// @return {number} -

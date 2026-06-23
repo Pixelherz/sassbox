@@ -3,7 +3,7 @@
 @use 'sass:map';
 @use './offset';
 @use './rel-grid';
-@use 'sass-mq/mq';
+@use 'sass-mq' as mq;
 
 /// # Show relative grid
 /// Display the relative grid by adding a class-name to the html element. The

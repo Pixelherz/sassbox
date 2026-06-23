@@ -2,7 +2,7 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
-@use 'sass-mq/mq';
+@use 'sass-mq' as mq;
 
 /// # Inject CSS grid columns
 /// @output

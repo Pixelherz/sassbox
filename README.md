@@ -28,7 +28,7 @@ npm i @pixelherz/sassbox
 Import the toolbox in your project.
 
 ```scss
-@use '@pixelherz/sassbox' [with (<my-config>) ];
+@use '@pixelherz/sassbox' [with (<my-config>)];
 ```
 
 ## Configuration
@@ -38,18 +38,17 @@ Typically you'll want to `@use` a configured `@forward` of the library. Here's a
 ```scss
 // e.g. /styles/_sassbox.scss – configured @forward of the library
 @forward '@pixelherz/sassbox' with (
-    $font-sizes: (
-      's': 16px,
-      'm': 24px,
-      'l': 36px,
-    ),
-    $line-heights: (
-      's': 20px,
-      'm': 30px,
-      'l': 45px,
-    ),
-    // ... custom configuration
-  );
+  $font-sizes: (
+    's': 16px,
+    'm': 24px,
+    'l': 36px,
+  ),
+  $line-heights: (
+    's': 20px,
+    'm': 30px,
+    'l': 45px,
+  ) // ... custom configuration
+);
 ```
 
 ```scss
@@ -93,8 +92,8 @@ Update your `@forward`, `@use` or `@import` statement (`with` clause is optional
 
 ```scss
 // v0.x
-@forward '@pixelherz/sassbox/sassbox' [with (...) ];
-@use '@pixelherz/sassbox/sassbox' [with (...) ];
+@forward '@pixelherz/sassbox/sassbox' [with (...)];
+@use '@pixelherz/sassbox/sassbox' [with (...)];
 @import '@pixelherz/sassbox/sassbox';
 ```
 
@@ -171,7 +170,7 @@ Remove `sass-mq` as it's now part of this library.
 
 ```scss
 // Remove imports
-@import '~sass-mq/mq'; // <-- delete
+@import '~sass-mq'; // <-- delete
 
 // prior v1.x
 @include mq($from: 'my-breakpoint') {

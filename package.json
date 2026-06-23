@@ -1,6 +1,6 @@
 {
   "name": "@pixelherz/sassbox",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Sass utils we frequently use in our projects.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -30,7 +30,7 @@
     "semi": false
   },
   "dependencies": {
-    "sass-mq": "^7.0.0"
+    "sass-mq": "^7.0.1"
   },
   "devDependencies": {
     "sass": "^1.89.2",

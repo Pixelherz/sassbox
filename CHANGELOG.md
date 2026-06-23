@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2.0.1] - 2026-06-23
+
+- Update sass-mq@7.0.1
+
 ## [v2.0.0] - 2025-07-15
 
 ### Breaking Changes
@@ -179,7 +183,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Show-Grid
   - Un-Button
 
-[unreleased]: https://github.com/Pixelherz/sassbox/compare/v2.0.0...HEAD
+[unreleased]: https://github.com/Pixelherz/sassbox/compare/v2.0.1...HEAD
+[v2.0.1]: https://github.com/Pixelherz/sassbox/compare/v2.0.0...v2.0.1
 [v2.0.0]: https://github.com/Pixelherz/sassbox/compare/v1.1.0...v2.0.0
 [v1.1.0]: https://github.com/Pixelherz/sassbox/compare/v1.0.2...v1.1.0
 [v1.0.2]: https://github.com/Pixelherz/sassbox/compare/v1.0.1...v1.0.2
